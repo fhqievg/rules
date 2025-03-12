@@ -288,12 +288,16 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "cpt_service_shop", //买卖二手房
         // "craftsman_entry",
         // "crowd_index", // 人流量情况
+        "carServiceCard", //车主中心
+        "CouponWidget", //右下角小图标
+        "commonAiAgent", //ai门店助手
         "dayTripList", // 热门一日游
         // "detailFeedCommodity",
         // "detail_bottom_shop_service",
         "discount_commodity", // 优惠团购
         "divergentRecommendModule", // 你可能还喜欢
         // "evaluate", // 高德出行评分
+        //"evaluateVO", //出行评分
         // "events",
         "everyOneToSee", // 大家还在看
         "feedback", // 问题反馈
@@ -303,6 +307,10 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         // "foreclosurehouse",
         // "gallery_info", // 现场照片
         // "ggc_entry",
+        "gas_station_recommend", //加油站推荐
+        //"governmentInformation",
+        "hotInfoList", //左下角浮层
+        "halfGalleryInfo", //名称下方画廊
         // "hkfMiniPortal", // 订票页面 飞机 火车 汽车
         "horizontalGoodsShelf",
         "hotPlay", // 热门玩法
@@ -375,6 +383,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "poster_banner",
         // "poi_intercept",
         "portal_entrance", // 高德旅游版块 引流到旅游频道
+        "poiDetailNewBeltV2", //横幅广告图
         // "question_answer_card", // 问问 地点附近的热门问题
         "quickLink", // 地点详情页图标 酒店 景点 热榜
         "relatedRecommends", // 附近同类型酒店
@@ -387,6 +396,11 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "residentialOwners", // 小区业主
         //"reviews", // 用户评价
         // "roomSelect", // 选择订房日期 悬浮菜单
+        "recommend_designer_card", //设计师推荐
+        "rec_legal_document", //推荐下方的说明文字
+        //"societyPublicExperience", //网友互助/地图共建
+        "shop_settlement", // 店铺入驻入口
+        "shoppingMallEvent", //购物商场活动
         "sameIndustryRecommendModule",
         "sameIndustry2RecommendModule",
         // "same_price_new_estate",
@@ -436,18 +450,6 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "waistRecEntrance", // 更多人气好去处
         "waterFallFeed", // 附近景点瀑布流
         "waterFallFeedTitle", // 更多人气好去处
-        "carServiceCard", //车主中心
-        "CouponWidget", //右下角小图标
-        //"evaluateVO", //出行评分
-        "gas_station_recommend", //加油站推荐
-        //"governmentInformation",
-        "hotInfoList", //左下角浮层
-        "halfGalleryInfo", //名称下方画廊
-        "recommend_designer_card", //设计师推荐
-        "rec_legal_document", //推荐下方的说明文字
-        //"societyPublicExperience", //网友互助/地图共建
-        "shop_settlement", // 店铺入驻入口
-        "shoppingMallEvent", //购物商场活动
         "yellowPageAdRecommendModule" // 好物推荐
     ];
 
