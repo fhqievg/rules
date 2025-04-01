@@ -599,7 +599,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             }
             if (list?.poi?.item_info?.tips_bottombar_button?.hotel) {
                 delete list.poi.item_info.tips_bottombar_button.hotel;
-           }
+            }
             // 地图优惠推广
            /* if (list?.map?.main_point) {
                 delete list.map.main_point;
