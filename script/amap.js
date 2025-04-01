@@ -552,6 +552,11 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         // 地图优惠推广
         if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
             delete list.map.main_point.dynamic_texture;
+            
+            //改变类型以显示图标
+                if (list?.map?.main_point?.hasOwnProperty("card_id")) {
+                    list.map.main_point.card_id = "normal_lottie";
+                }
         }
         if (list?.tips_operation_info) {
             delete list.tips_operation_info;
@@ -603,6 +608,11 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             // 地图优惠推广
            if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
                 delete list.map.main_point.dynamic_texture;
+                
+                //改变类型以显示图标
+                if (list?.map?.main_point?.hasOwnProperty("card_id")) {
+                    list.map.main_point.card_id = "normal_lottie";
+                }
             }
             // 左上角动图推广
             if (list?.tips_operation_info) {
