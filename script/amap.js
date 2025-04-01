@@ -286,6 +286,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         // "coupon_allowance",
         // "coupon_entrance",
         "cpt_service_shop", //买卖二手房
+        "cpt_service_simple", //买卖二手房按钮
         // "craftsman_entry",
         // "crowd_index", // 人流量情况
         "carServiceCard", //车主中心
