@@ -293,7 +293,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "commonAiAgent", //ai门店助手
         "dayTripList", // 热门一日游
         // "detailFeedCommodity",
-        // "detail_bottom_shop_service",
+        "detail_bottom_shop_service", //买卖二手房
         "discount_commodity", // 优惠团购
         "divergentRecommendModule", // 你可能还喜欢
         // "evaluate", // 高德出行评分
@@ -398,6 +398,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         // "roomSelect", // 选择订房日期 悬浮菜单
         "recommend_designer_card", //设计师推荐
         "rec_legal_document", //推荐下方的说明文字
+        //"recommend_food", //网友推荐菜
         //"societyPublicExperience", //网友互助/地图共建
         "shop_settlement", // 店铺入驻入口
         "shoppingMallEvent", //购物商场活动
@@ -427,6 +428,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "service_shop", // 中介门店
         "shopBaseCase", // 小区装修案例
         // "shop_news",
+        //"similarShelfRecommend", //附近推荐门店
         "smallListBizRec", // 周边热门酒店
         // "surroundFacilityInfo", // 小区周边配套
         "smallOrListBizRec",
