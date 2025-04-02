@@ -430,6 +430,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "shopBaseCase", // 小区装修案例
         // "shop_news",
         "similarShelfRecommend", //附近推荐门店
+        "similarShopRecommend", //附近相似门店推荐
         "smallListBizRec", // 周边热门酒店
         // "surroundFacilityInfo", // 小区周边配套
         "smallOrListBizRec",
