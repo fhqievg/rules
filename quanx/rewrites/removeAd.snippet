@@ -28,10 +28,10 @@
 
 # >>>>>>>>>>>>>> ✅ C ✅ <<<<<<<<<<<<<<<
 # > cheLaiLe
-^https?:\/\/(124\.71\.153\.172|.+\.chelaile.*\.cn)\/led-weather\/v\d+\/condition_brief\? url reject-200
-^https?:\/\/(124\.71\.153\.172|.+\.chelaile.*\.cn)\/(\/)?((.*\/)?(advert|adpub)|content|infoflow|notice|wow|CheLaiLe-ios|DataAnalysisInfo|goocity\/(getTagTitle|city!configureTag\.action\?|flowPos/listByPos)|bus\/(stop!encryptedRecommLine|ai\/config)\.action) url reject
+^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/led-weather\/v\d+\/condition_brief\? url reject-200
+^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/(\/)?((.*\/)?(advert|adpub)|content|infoflow|notice|wow|CheLaiLe-ios|DataAnalysisInfo|goocity\/(getTagTitle|city!configureTag\.action\?|flowPos/listByPos)|bus\/(stop!encryptedRecommLine|ai\/config)\.action|operative_position\/infoflow\/homepage) url reject
 #优化
-^https?:\/\/(124\.71\.153\.172|.+\.chelaile.*\.cn)\/goocity\/(flowPos\/home|config\/notices)\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/cheLaiLe.js
+^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/goocity\/(flowPos\/home|config\/notices)\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/cheLaiLe.js
 
 # > caiNiao
 ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(adkeyword\.get|guoguo\.nbnetflow\.ads\.(index|expose\.mreply|batch\.show\.v2)|nbopen\.miniapp\.recommend\.cpc|nbmensa\.research\.researchservice\.(acquire|event|close)|cncommunity\.my\.station\.query|nbpresentation\.(homepage\.merge|tabbar\.marketing)\.get)\.cn url reject-dict
