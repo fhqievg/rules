@@ -11,7 +11,6 @@ HOST,mobads.baidu.com,REJECT
 
 # >>>>>>>>>>>>>> ✅ C ✅ <<<<<<<<<<<<<<<
 # > cheLaiLe
-IP-CIDR,124.70.194.16/32,REJECT
 HOST,atrace.chelaile.net.cn,REJECT
 HOST,logs.chelaile.net.cn,REJECT
 
