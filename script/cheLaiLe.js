@@ -114,7 +114,8 @@ function pointListHandle(pointList) {
                 //i.id === 619 || //机场快线
                 i.id === 623 || //邀好友
                 i.id === 620 || //绿色出行
-                i.id === 674  //签到
+                i.id === 674 || //签到
+                i.id === 694  //客服热线
             )
     );
     return pointList;
