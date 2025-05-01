@@ -262,12 +262,14 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         // "anchor",
         "adv_compliance_info", // 服务提供方
         "adv_gift",
+        "adStoreBigBannerModule", //广告横幅（打车券之类）
         // "base_info",
         "bigListBizRec", // 周边景点推荐 三张景点大图
         "bottomDescription", // 底部描述 高德酒店 全网比价
         // "brand_introduction",
         "brand_shop_bar",
         // "brand_story",
+        "brand_service", // 品牌服务
         "CouponBanner", // 高德红包
         "checkIn",
         "check_in", // 足迹打卡
@@ -301,6 +303,8 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         //"evaluateVO", //出行评分
         // "events",
         "everyOneToSee", // 大家还在看
+        "enhanceCustomerServicePoiModule",  //品牌服务专区
+        "enhanceCustomerServiceFixedBottom", //品牌服务专区
         "feedback", // 问题反馈
         "first_surround_estate_tab", // 周边小区
         // "floor_guide_second", // 楼层导览
@@ -338,6 +342,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "house_price",
         "house_price_v2", // 小区房屋售价
         "house_rent_sale_agency",
+        "hospital_strategy", //就医攻略
         // "human_traffic", // 人流量情况 有统计图
         "image_banner",
         "kaMarketingCampaign", // 附近品牌动态
@@ -370,6 +375,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "officerenthouse",
         "officesellhouse",
         "official_account", // 其他平台官方账号
+        "official_account_hospital", //官方渠道（支付宝小程序）
         "oldsellhouse",
         // "opentime", // 营业时间
         "operation_banner", // 横版图片推广
@@ -382,6 +388,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "poiDetailWaterFeed", //发现好去处瀑布流
         "poiDetailWaterFeedTitle", //发现好去处
         "poster_banner",
+        "poiTipBar",  // 提示栏
         // "poi_intercept",
         "portal_entrance", // 高德旅游版块 引流到旅游频道
         "poiDetailNewBeltV2", //横幅广告图
@@ -429,6 +436,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "service_shop", // 中介门店
         "shopBaseCase", // 小区装修案例
         // "shop_news",
+        "shopStructGift", // 礼品广告位
         "similarShelfRecommend", //附近推荐门店
         "similarShopRecommend", //附近相似门店推荐
         "smallListBizRec", // 周边热门酒店
@@ -444,6 +452,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "surround_renthouse",
         "surround_rentoffice",
         "surround_selloffice",
+        "subscription", // 商家号
         "thirdparty_info", //第三方信息
         // "traffic", // 交通出行 地铁站 公交站 停车场
         "travelGuideRec", // 人气景点 路线 购票
