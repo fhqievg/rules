@@ -169,9 +169,23 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
 } else if (url.includes("/shield/dsp/profile/index/nodefaasv3")) {
     // 我的页面
     if (obj?.data?.cardList?.length > 0) {
-        obj.data.cardList = obj.data.cardList.filter(
-            (i) => i?.dataKey === "MyOrderCard" || i?.dataKey === "MineCoreAreaAsset"
-        );
+        obj.data.cardList = obj.data.cardList.filter((i) => {
+            if (i?.dataKey !== 'MyOrderCard' && i?.dataKey !== "MineCoreAreaAsset") {
+                return false;
+            }
+
+            //去除个人中心底部待评价订单的提示
+            if (i?.dataKey === 'MyOrderCard') {
+                if (i?.content?.hasOwnProperty('statusBar') && i?.content.statusBar.length > 0) {
+                    i.content.statusBar = i.content.statusBar.filter(
+                        (j) => !(
+                            j?.status === "comment" //待评价
+                        )
+                    );
+                }
+            }
+            return true;
+        });
     }
 
     if (obj?.data?.tipData) {
@@ -516,16 +530,46 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         delete obj.data.modules.traffic.data.content.taxiInfo;
     }
 
+    //处理详情信息
+    if (obj.data?.modules?.baseInfo?.hasOwnProperty('data')) {
+        //去除位置旁边的地图icon及其它icon右上方的文字
+        if (obj.data.modules.baseInfo.data.hasOwnProperty('iconsList') && Array.isArray(obj.data.modules.baseInfo.data.iconsList) && obj.data.modules.baseInfo.data.iconsList.length > 0) {
+            obj.data.modules.baseInfo.data.iconsList = obj.data.modules.baseInfo.data.iconsList.filter((i) => {
+                if (i.type === 'map' && i.label === '地图') {
+                    return false;
+                }
+
+                if (i.hasOwnProperty('bubble_text')) {
+                    delete i.bubble_text;
+                }
+                return true;
+            });
+        }
+
+        //去除地点名称旁边的咨询icon
+        if (obj.data.modules.baseInfo.data.hasOwnProperty('imInfo')) {
+            delete obj.data.modules.baseInfo.data.imInfo;
+        }
+    }
+
+    //处理icon推广
+    if (obj.data?.modules?.poiMapModule?.data?.map?.main_point?.hasOwnProperty('dynamic_texture')) {
+        if (obj.data.modules.poiMapModule.data.map.main_point.hasOwnProperty('card_id')) {
+            obj.data.modules.poiMapModule.data.map.main_point.card_id = 'normal_lottie';
+        }
+        delete obj.data.modules.poiMapModule.data.map.main_point.dynamic_texture;
+    }
+
     if (obj?.data?.modules) {
         for (let i of items) {
             delete obj.data.modules[i];
         }
     }
 } else if (url.includes("/shield/search_bff/hotword")) {
-  // 搜索框 热榜logo
-  if (obj?.data?.headerHotWord?.length > 0) {
-    obj.data.headerHotWord = [];
-  }
+    // 搜索框 热榜logo
+    if (obj?.data?.headerHotWord?.length > 0) {
+        obj.data.headerHotWord = [];
+    }
 } else if (url.includes("/shield/search_business/process/marketingOperationStructured")) {
     // 详情页 顶部优惠横幅
     if (obj?.data?.tipsOperationLocation) {
@@ -562,11 +606,11 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         // 地图优惠推广
         if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
             delete list.map.main_point.dynamic_texture;
-            
+
             //改变类型以显示图标
-                if (list?.map?.main_point?.hasOwnProperty("card_id")) {
-                    list.map.main_point.card_id = "normal_lottie";
-                }
+            if (list?.map?.main_point?.hasOwnProperty("card_id")) {
+                list.map.main_point.card_id = "normal_lottie";
+            }
         }
         if (list?.tips_operation_info) {
             delete list.tips_operation_info;
@@ -616,9 +660,9 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
                 delete list.poi.item_info.tips_bottombar_button.hotel;
             }
             // 地图优惠推广
-           if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
+            if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
                 delete list.map.main_point.dynamic_texture;
-                
+
                 //改变类型以显示图标
                 if (list?.map?.main_point?.hasOwnProperty("card_id")) {
                     list.map.main_point.card_id = "normal_lottie";
@@ -763,12 +807,38 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
                 case "UserCenterGrowthInteractiveCard":
                     i = growthInteractiveCardHandle(i);
                     break;
+                case "UserCenterRightCard":
+                    //达人权益模块去掉多余的
+                    if (i?.cardData?.hasOwnProperty('rights') && i?.cardData.rights.length > 0) {
+                        i.cardData.rights = i.cardData.rights.filter(
+                            (j) => !(
+                                j?.id === 2 || //生日祝福
+                                j?.id === 7  //线下活动
+                            )
+                        );
+                    }
+                    break;
                 default:
                     break;
             }
             cardListNew.push(i);
         }
         obj.data.homePageData.cardList = cardListNew;
+    }
+} else if (url.includes("/userview/footprint/v2/detail")) {
+    //足迹页处理
+    if (obj?.data?.city?.hasOwnProperty('tips')) {
+        obj.data.city.tips = [];
+    }
+} else if (url.includes("/shield/search_business/process/contentDetail")) {
+    //居住指数页热门二手房
+    if (obj?.data?.hasOwnProperty('hotSecondHouse')) {
+        delete obj.data.hotSecondHouse;
+    }
+} else if (url.includes("/c3frontend/af-nearby/nearby")) {
+    //附近页优化
+    if (obj?.data?.modules?.hasOwnProperty('contentPoster')) {
+        delete obj.data.modules.contentPoster;
     }
 }
 $done({ body: JSON.stringify(obj) });
@@ -798,7 +868,7 @@ function growthInteractiveCardHandle(data) {
 
 //解决新样式足迹数据不显示的问题
 function footprintHandle(topMixedCard, fixedData) {
-    if(!topMixedCard.hasOwnProperty('cardData') || !topMixedCard.cardData.hasOwnProperty('data') || topMixedCard.cardData.data.length === 0){
+    if (!topMixedCard.hasOwnProperty('cardData') || !topMixedCard.cardData.hasOwnProperty('data') || topMixedCard.cardData.data.length === 0) {
         return topMixedCard;
     }
 
@@ -843,12 +913,12 @@ function footprintHandle(topMixedCard, fixedData) {
     let data = topMixedCard.cardData.data;
     let newData = [];
     for (let j in data) {
-        if(!data[j].hasOwnProperty('name') || data[j].rows?.length === 0){
+        if (!data[j].hasOwnProperty('name') || data[j].rows?.length === 0) {
             newData.push(data[j]);
             continue;
         }
 
-        switch(data[j].name){
+        switch (data[j].name) {
             case '足迹':
                 for (let k of data[j].rows) {
                     for (let g of k) {
@@ -876,7 +946,7 @@ function footprintHandle(topMixedCard, fixedData) {
                                 g.value.text = footprintNavi;
                                 if (g.hasOwnProperty('scheme')) {
                                     g.scheme = "amapuri://footprint/FootPrintMainPage?cardName=driver";
-                                 }
+                                }
                                 break;
                             default:
                                 break;
