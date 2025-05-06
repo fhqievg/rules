@@ -1,9 +1,79 @@
-//个人页面绑定banner、果酱过期、首页绑定提示、tab
 const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
+if (url.includes("app.e2e.engine.page.fetch.cn")) {
+    if (obj?.data?.hasOwnProperty('data')) {
+        let delArr = [
+            "activity", //活动
+            "banner",   //底部图
+            "packageArea", //导入包裹
+            "vip",
+            "wallet" //钱包
+        ]
+        for (let i of delArr) {
+            if (obj.data.data.hasOwnProperty(i)) {
+                obj.data.data[i].config = {};
+                obj.data.data[i].data = {};
+                obj.data.data[i].event = {};
+            }
+        }
 
-if (url.includes("guoguo.nbnetflow.ads.show")) {
+        //处理订单模块
+        if (obj.data.data.hasOwnProperty('order')) {
+            if (obj.data.data.order?.data?.data?.items?.length > 0) {
+                obj.data.data.order.data.data.items = obj.data.data.order.data.data.items.filter(
+                    (i) => !(
+                        i?.type === "gouwu" || //购物订单
+                        i?.type === "huishou"  //回收订单
+                    )
+                );
+            }
+        }
+    }
+} else if (url.includes("app.e2e.engine.page.fetch")) {
+    //tab处理
+    let tabArr = [
+        "2240",   //首页
+        //"2242",   //发现
+        //"2247",   //寄件券
+        "2248",   //消息
+        "2249"    //我的
+    ]
+    let newTabObj = {};
+    for (let i in tabArr) {
+        if (obj?.data?.data?.hasOwnProperty(tabArr[i])) {
+            if (obj.data.data[tabArr[i]].hasOwnProperty('position')) {
+                obj.data.data[tabArr[i]].position = i.toString();
+                newTabObj[tabArr[i]] = obj.data.data[tabArr[i]];
+            }
+        }
+    }
+    if (Object.keys(newTabObj).length > 0) {
+        obj.data.data = newTabObj;
+    }
+
+    //处理首页顶部搜索框文本
+    if (obj?.data?.data?.data?.mainSearch?.bizData?.hasOwnProperty('searchContents')) {
+        obj.data.data.data.mainSearch.bizData.searchContents = [];
+    }
+    //顶部icon及中间的新用户专区
+    if (obj?.data?.data?.data?.operationList?.length > 0) {
+        obj.data.data.data.operationList = obj.data.data.data.operationList.filter((i) => {
+            if (i?.type === "new_user_award") {
+                return false;
+            }
+
+            if (i?.type === "kingkong") {
+                i.bizData.items = i?.bizData?.items?.filter(
+                    (j) => !(
+                        j?.key === "exchange_old_things" //物换物
+                    )
+                );
+            }
+            return true;
+        });
+    }
+} else if (url.includes("guoguo.nbnetflow.ads.show")) {
     // 我的页面
     // 29338 寄件会员
     // 29339 裹酱积分
@@ -22,10 +92,10 @@ if (url.includes("guoguo.nbnetflow.ads.show")) {
                 )
         );
         for (let i of obj.data.result) {
-          if (i?.materialContentMapper?.show_tips_content) {
-            // 清空红点标记
-            i.materialContentMapper.show_tips_content = "";
-          }
+            if (i?.materialContentMapper?.show_tips_content) {
+                // 清空红点标记
+                i.materialContentMapper.show_tips_content = "";
+            }
         }
     }
 } else if (url.includes("guoguo.nbnetflow.ads.mshow")) {
@@ -52,9 +122,15 @@ if (url.includes("guoguo.nbnetflow.ads.show")) {
             "1391", // 支付宝 小程序 寄包裹
             "1410", // 导入拼多多、抖音快递
             "1428", // 幸运号
+            //"1429", //展示离线页面～
+            "1438", //授权其他人查看商品
             "1524", // 抽现金
             "1525", // 幸运包裹
-            "1638" //为你精选了一些商品
+            //"1563", //上传图片查件
+            "1638", //为你精选了一些商品
+            "1692", //其它提示
+            "1893", //授权其它平台取件
+            "2087"
         ];
         for (let i of item) {
             if (obj.data?.[i]) {
@@ -62,143 +138,104 @@ if (url.includes("guoguo.nbnetflow.ads.show")) {
             }
         }
 
-        let tabItem = [843, 862, 863];
-        for (let i in tabItem) {
-            if (obj.data.hasOwnProperty(tabItem[i])) {
-                obj.data[tabItem[i]] = materialContentHandle(obj.data[tabItem[i]], tabItem[i]);
+        //寄件tab 按钮处理
+        let key = "2090";
+        if (obj?.data?.hasOwnProperty(key)) {
+            if (obj.data[key].length > 0) {
+                obj.data[key] = obj.data[key].filter((i) => {
+                    if (i?.materialContentMapper?.hasOwnProperty('buttonClickUrl')) {
+                        i.materialContentMapper.buttonClickUrl = '';
+                    }
+                    if (i?.materialContentMapper?.hasOwnProperty('buttonText')) {
+                        i.materialContentMapper.buttonText = '';
+                    }
+                    return true;
+                });
             }
         }
     }
-} else if (url.includes("nbfriend.message.conversation.list")) {
-  if (obj?.data?.data?.length > 0) {
-    obj.data.data = obj.data.data.filter((i) => i?.conversationId?.includes("logistic_message"));
-  }
-} else if (url.includes("nbpresentation.pickup.empty.page.get")) {
-    // 取件页面
-    if (obj?.data?.result) {
-    let ggContent = obj.data.result.content;
-    if (ggContent?.middle?.length > 0) {
-      ggContent.middle = ggContent.middle.filter(
-        (i) =>
-          ![
-            "guoguo_pickup_empty_page_relation_add", // 添加亲友
-            "guoguo_pickup_helper_feedback", // 反馈组件
-            "guoguo_pickup_helper_tip_view" // 取件小助手
-          ]?.includes(i?.template?.name)
-      );
-    }
-  }
-} else if (url.includes("nbpresentation.protocol.homepage.get")) {
-    // 首页
-    if (obj?.data?.result?.dataList?.length > 0) {
-    let newLists = [];
-    for (let item of obj.data.result.dataList) {
-      if (item?.type?.includes("kingkong")) {
-        if (item?.bizData?.items?.length > 0) {
-          for (let i of item.bizData.items) {
-            i.rightIcon = null;
-            i.bubbleText = null;
-          }
-        }
-      } else if (item?.type?.includes("icons_scroll")) {
-        // 顶部图标
-        if (item?.bizData?.items?.length > 0) {
-          let newBizs = [];
-          for (let i of item.bizData.items) {
-            const lists = [
-              "618cjhb", // 超级红包
-              "bgxq", // 包裹星球
-              "cncy", // 填字赚现金
-              "cngy", // 免费领水果
-              "cngreen", // 绿色家园
-              "cnhs", // 菜鸟回收
-              "gjjf", // 裹酱积分
-              "jkymd", // 集卡赢免单
-              "ljjq", // 领寄件券
-              "ttlhb", // 天天领红包
-              "xybg", // 幸运包裹
-              "cnhs" //回收
-            ];
-            if (lists?.includes(i?.key)) {
-              continue;
-            }
-            newBizs.push(i);
-          }
-          item.bizData.items = newBizs;
-          for (let i of item.bizData.items) {
-            i.rightIcon = null;
-            i.bubbleText = null;
-          }
-        }
-      } else if (item?.type?.includes("banner_area")) {
-        // 新人福利 幸运抽奖
-        continue;
-      } else if (item?.type?.includes("promotion")) {
-        // 促销活动
-        continue;
-      } else if (item?.type?.includes("todo_list")) {
-        // 果酱过期
-        continue;
-      }
-      newLists.push(item);
-    }
-    obj.data.result.dataList = newLists;
-  }
-}
-
-function materialContentHandle(data, index) {
-    let defaultIndex = index === 863 ? 2 : 3;
-    for (let i in data) {
-        if (data[i].hasOwnProperty("materialContentMapperMD5")) {
-            delete data[i].materialContentMapperMD5;
-        }
-
-        if (data[i].hasOwnProperty("materialContentMapper")) {
-            for (let j = 1; j <= 4; j++) {
-                switch (j) {
-                    case 1:
-                        if (data[i].materialContentMapper.hasOwnProperty("tab_" + j + '_action') && data[i].materialContentMapper.hasOwnProperty("tab_" + defaultIndex + "_action")) {
-                            data[i].materialContentMapper["tab_" + j + '_action'] = data[i].materialContentMapper["tab_" + defaultIndex + "_action"];
-                        }
-
-                        if (data[i].materialContentMapper.hasOwnProperty("tab_" + j + '_action_type') && data[i].materialContentMapper.hasOwnProperty("tab_" + defaultIndex + "_action_type")) {
-                            data[i].materialContentMapper["tab_" + j + '_action_type'] = data[i].materialContentMapper["tab_" + defaultIndex + "_action_type"];
-                        }
-
-                        if (data[i].materialContentMapper.hasOwnProperty("tab_" + j + '_checked_icon') && data[i].materialContentMapper.hasOwnProperty("tab_" + defaultIndex + "_checked_icon")) {
-                            data[i].materialContentMapper["tab_" + j + '_checked_icon'] = data[i].materialContentMapper["tab_" + defaultIndex + "_checked_icon"];
-                        }
-
-                        if (data[i].materialContentMapper.hasOwnProperty("tab_" + j + '_normal_icon') && data[i].materialContentMapper.hasOwnProperty("tab_" + defaultIndex + "_normal_icon")) {
-                            data[i].materialContentMapper["tab_" + j + '_normal_icon'] = data[i].materialContentMapper["tab_" + defaultIndex + "_normal_icon"];
-                        }
-
-                        if (data[i].materialContentMapper.hasOwnProperty("tab_" + j + '_tab_key') && data[i].materialContentMapper.hasOwnProperty("tab_" + defaultIndex + "_tab_key")) {
-                            data[i].materialContentMapper["tab_" + j + '_tab_key'] = data[i].materialContentMapper["tab_" + defaultIndex + "_tab_key"];
-                        }
-
-                        if (data[i].materialContentMapper.hasOwnProperty("tab_" + j + '_title') && data[i].materialContentMapper.hasOwnProperty("tab_" + defaultIndex + "_title")) {
-                            data[i].materialContentMapper["tab_" + j + '_title'] = data[i].materialContentMapper["tab_" + defaultIndex + "_title"];
-                        }
-
-                        if (data[i].materialContentMapper.hasOwnProperty("tab_" + j + '_type') && data[i].materialContentMapper.hasOwnProperty("tab_" + defaultIndex + "_type")) {
-                            data[i].materialContentMapper["tab_" + j + '_type'] = data[i].materialContentMapper["tab_" + defaultIndex + "_type"];
-                        }
-                        break;
-                    default:
-                        data[i].materialContentMapper["tab_" + j + '_action'] = '';
-                        data[i].materialContentMapper["tab_" + j + '_action_type'] = '';
-                        data[i].materialContentMapper["tab_" + j + '_checked_icon'] = '';
-                        data[i].materialContentMapper["tab_" + j + '_normal_icon'] = '';
-                        data[i].materialContentMapper["tab_" + j + '_tab_key'] = '';
-                        data[i].materialContentMapper["tab_" + j + '_title'] = '';
-                        data[i].materialContentMapper["tab_" + j + '_type'] = 'embed';
-                        break;
+} else if (url.includes("nbfriend.msg.conversation.list.new.query.cn")) {
+    //消息列表
+    if (obj?.data?.data?.length > 0) {
+        for (let i of obj.data.data) {
+            if (i.hasOwnProperty('convShowType') && i.convShowType === "NORMAL_MSG") {
+                if (i.hasOwnProperty('conversationVOList') && i.conversationVOList.length > 0) {
+                    i.conversationVOList = i.conversationVOList.filter((j) => j?.conversationId?.includes("logistic_message"));
                 }
             }
         }
     }
-    return data;
+} else if (url.includes("nbpresentation.pickup.empty.page.get")) {
+    // 取件页面
+    if (obj?.data?.result) {
+        let ggContent = obj.data.result.content;
+        if (ggContent?.middle?.length > 0) {
+            ggContent.middle = ggContent.middle.filter(
+                (i) =>
+                    ![
+                        "guoguo_pickup_empty_page_relation_add", // 添加亲友
+                        "guoguo_pickup_helper_feedback", // 反馈组件
+                        "guoguo_pickup_helper_tip_view" // 取件小助手
+                    ]?.includes(i?.template?.name)
+            );
+        }
+    }
+} else if (url.includes("nbpresentation.protocol.homepage.get")) {
+    // 首页
+    if (obj?.data?.result?.dataList?.length > 0) {
+        let newLists = [];
+        for (let item of obj.data.result.dataList) {
+            if (item?.type?.includes("kingkong")) {
+                if (item?.bizData?.items?.length > 0) {
+                    for (let i of item.bizData.items) {
+                        i.rightIcon = null;
+                        i.bubbleText = null;
+                    }
+                }
+            } else if (item?.type?.includes("icons_scroll")) {
+                // 顶部图标
+                if (item?.bizData?.items?.length > 0) {
+                    let newBizs = [];
+                    for (let i of item.bizData.items) {
+                        const lists = [
+                            "618cjhb", // 超级红包
+                            "bgxq", // 包裹星球
+                            "cncy", // 填字赚现金
+                            "cngy", // 免费领水果
+                            "cngreen", // 绿色家园
+                            "cnhs", // 菜鸟回收
+                            "gjjf", // 裹酱积分
+                            "jkymd", // 集卡赢免单
+                            "ljjq", // 领寄件券
+                            "ttlhb", // 天天领红包
+                            "xybg", // 幸运包裹
+                            "cnhs" //回收
+                        ];
+                        if (lists?.includes(i?.key)) {
+                            continue;
+                        }
+                        newBizs.push(i);
+                    }
+                    item.bizData.items = newBizs;
+                    for (let i of item.bizData.items) {
+                        i.rightIcon = null;
+                        i.bubbleText = null;
+                    }
+                }
+            } else if (item?.type?.includes("banner_area")) {
+                // 新人福利 幸运抽奖
+                continue;
+            } else if (item?.type?.includes("promotion")) {
+                // 促销活动
+                continue;
+            } else if (item?.type?.includes("todo_list")) {
+                // 果酱过期
+                continue;
+            }
+            newLists.push(item);
+        }
+        obj.data.result.dataList = newLists;
+    }
 }
 
-$done({ body: JSON.stringify(obj) });
+$done({body: JSON.stringify(obj)});
