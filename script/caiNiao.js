@@ -5,15 +5,16 @@ if (url.includes("app.e2e.engine.page.fetch.cn")) {
     if (obj?.data?.hasOwnProperty('data')) {
         let delArr = [
             "activity", //活动
-            "asset" ,   //个人中心顶部
+            //"asset" ,
             "banner",   //底部图
-            //"packageArea", //导入包裹
             "vip",
             "wallet" //钱包
         ]
         for (let i of delArr) {
             if (obj.data.data.hasOwnProperty(i)) {
-                delete obj.data.data[i];
+                obj.data.data[i].config = {};
+                obj.data.data[i].data = {};
+                obj.data.data[i].event = {};
             }
         }
 
