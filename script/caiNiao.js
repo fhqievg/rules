@@ -1,7 +1,13 @@
 const url = $request.url;
 if (!$response.body) $done({});
-let obj = JSON.parse($response.body);
-if (url.includes("app.e2e.engine.page.fetch.cn")) {
+let obj = {};
+try {
+    obj = JSON.parse($response.body);
+} catch (err) {
+    $done({});
+}
+    
+if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
     if (obj?.data?.hasOwnProperty('data')) {
         let delArr = [
             "activity", //活动
@@ -37,7 +43,7 @@ if (url.includes("app.e2e.engine.page.fetch.cn")) {
             }
         }
     }
-} else if (url.includes("app.e2e.engine.page.fetch")) {
+} else if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch")) {
     //tab处理
     let tabArr = [
         "2240",   //首页
@@ -80,7 +86,7 @@ if (url.includes("app.e2e.engine.page.fetch.cn")) {
             return true;
         });
     }
-} else if (url.includes("guoguo.nbnetflow.ads.show")) {
+} else if (url.includes("/mtop.cainiao.guoguo.nbnetflow.ads.show")) {
     // 我的页面
     // 29338 寄件会员
     // 29339 裹酱积分
@@ -105,7 +111,7 @@ if (url.includes("app.e2e.engine.page.fetch.cn")) {
             }
         }
     }
-} else if (url.includes("guoguo.nbnetflow.ads.mshow")) {
+} else if (url.includes("/mtop.cainiao.guoguo.nbnetflow.ads.mshow")) {
     // 首页
     if (obj.data) {
         const item = [
@@ -172,7 +178,7 @@ if (url.includes("app.e2e.engine.page.fetch.cn")) {
             }
         }
     }
-} else if (url.includes("nbpresentation.pickup.empty.page.get")) {
+} else if (url.includes("/mtop.cainiao.nbpresentation.pickup.empty.page.get")) {
     // 取件页面
     if (obj?.data?.result) {
         let ggContent = obj.data.result.content;
@@ -187,7 +193,7 @@ if (url.includes("app.e2e.engine.page.fetch.cn")) {
             );
         }
     }
-} else if (url.includes("nbpresentation.protocol.homepage.get")) {
+} else if (url.includes("/mtop.cainiao.nbpresentation.protocol.homepage.get")) {
     // 首页
     if (obj?.data?.result?.dataList?.length > 0) {
         let newLists = [];
