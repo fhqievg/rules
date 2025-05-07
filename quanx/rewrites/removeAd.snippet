@@ -40,7 +40,9 @@
 ^https:\/\/(?:cn-acs\.m|mtop-bff-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(?:homepage\.merge|tabbar\.marketing)\.get\.cn url reject-dict
 #优化
 #移除首页图标
-^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(?:pickup\.empty\.page|protocol\.homepage)\.get\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.protocol\.homepage\.get\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+#取件页面
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(?:nbpresentation|bffengine)\.pickup\.empty\.page\.get\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
 #首页及个人中心
 ^https:\/\/(?:e2e-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch(.\cn)? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
 #消息列表
