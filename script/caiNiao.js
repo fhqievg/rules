@@ -13,6 +13,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
             "activity", //活动
             //"asset" ,
             "banner",   //底部图
+            "content",
             "vip",
             "wallet" //钱包
         ]
@@ -23,7 +24,26 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
                 obj.data.data[i].event = {};
             }
         }
-
+        
+        //处理顶部
+        if (obj.data.data.hasOwnProperty('asset')) {
+    		let items = [
+    			"redPackage", //限时折扣
+    			"coupon", //寄件优惠
+    			"recycle", //旧衣回收
+    			"credit" //果酱积分
+    		]
+    		for (let i of items) {
+    			if (obj.data.data.asset.data?.data?.hasOwnProperty(i)) {
+                    obj.data.data.asset.data.data[i].desc = '';
+    				obj.data.data.asset.data.data[i].imgs = [];
+    				obj.data.data.asset.data.data[i].count = '';
+    				obj.data.data.asset.data.data[i].name = '';
+    				obj.data.data.asset.data.data[i].link = '';
+                }
+            }
+        }
+        
         //处理导入包裹
         if (obj.data.data.hasOwnProperty('packageArea')) {
             if (obj.data.data.packageArea.data?.data?.hasOwnProperty('importPackageIcon')) {
