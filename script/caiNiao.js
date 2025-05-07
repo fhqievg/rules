@@ -14,7 +14,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
             "asset" ,
             "banner",   //底部图
             "content",
-            "wallet" //钱包
+            "wallet", //钱包
             "vip"
         ]
         for (let i of delArr) {
