@@ -14,8 +14,8 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
             "asset" ,
             "banner",   //底部图
             "content",
-            "vip",
             "wallet" //钱包
+            "vip"
         ]
         for (let i of delArr) {
             if (obj.data.data.hasOwnProperty(i)) {
@@ -24,25 +24,6 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
                 obj.data.data[i].event = {};
             }
         }
-        
-        //处理顶部
-        /*if (obj.data.data.hasOwnProperty('asset')) {
-    		let items = [
-    			"redPackage", //限时折扣
-    			"coupon", //寄件优惠
-    			"recycle", //旧衣回收
-    			"credit" //果酱积分
-    		]
-    		for (let i of items) {
-    			if (obj.data.data.asset.data?.data?.hasOwnProperty(i)) {
-                    obj.data.data.asset.data.data[i].desc = '';
-    				obj.data.data.asset.data.data[i].imgs = [];
-    				obj.data.data.asset.data.data[i].count = '';
-    				obj.data.data.asset.data.data[i].name = '';
-    				obj.data.data.asset.data.data[i].link = '';
-                }
-            }
-        }*/
         
         //处理导入包裹
         if (obj.data.data.hasOwnProperty('packageArea')) {
@@ -119,6 +100,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
             (i) =>
                 !(
                     i?.materialContentMapper?.adItemDetail ||
+                    i?.materialContentMapper?.title?.includes("无法展示淘宝包裹") ||
                     (i?.materialContentMapper?.bgImg && i?.materialContentMapper?.advRecGmtModifiedTime) ||
                     ["entertainment", "kuaishou_banner"].includes(i?.materialContentMapper?.group_id) ||
                     ["22533", "29338", "29339", "32103", "33927", "35783", "36649"].includes(i.id) ||
