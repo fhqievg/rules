@@ -36,8 +36,8 @@
 # > caiNiao
 ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(?:adkeyword\.get|nbopen\.miniapp\.recommend\.cpc|nbmensa\.research\.researchservice\.(?:acquire|event|close)|cncommunity\.my\.station\.query|app\.home\.tabbar\.marketing\.get)\.cn url reject-dict
 ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.((?:longquan\.place\.getpageresourcecontent|cncreditmarket\.hit\.getactivityhit)\.cn|cnactivitycenter) url reject-dict
-^https:\/\/(?:cn-acs\.m|netflow-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(?:batch\.show\.v2|click\.reply|expose\.m?reply|index)\.cn reject-dict
-^https:\/\/(?:cn-acs\.m|mtop-bff-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(?:homepage\.merge|tabbar\.marketing)\.get\.cn reject-dict
+^https:\/\/(?:cn-acs\.m|netflow-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(?:batch\.show\.v2|click\.reply|expose\.m?reply|index)\.cn url reject-dict
+^https:\/\/(?:cn-acs\.m|mtop-bff-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(?:homepage\.merge|tabbar\.marketing)\.get\.cn url reject-dict
 #优化
 #移除首页图标
 ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(?:pickup\.empty\.page|protocol\.homepage)\.get\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
