@@ -4,7 +4,7 @@ let obj = {};
 try {
     obj = JSON.parse($response.body);
 } catch (err) {
-    $done({});
+    $done();
 }
     
 if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
