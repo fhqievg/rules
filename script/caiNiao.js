@@ -182,7 +182,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
             }
         }
     }
-} else if (url.includes("/mtop.cainiao.nbpresentation.pickup.empty.page.get")) {
+} else if (url.includes("/mtop.cainiao.nbpresentation.pickup.empty.page.get") || url.includes("/mtop.cainiao.bffengine.pickup.empty.page.get")) {
     // 取件页面
     if (obj?.data?.result) {
         let ggContent = obj.data.result.content;
