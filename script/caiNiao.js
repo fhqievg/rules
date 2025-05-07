@@ -92,6 +92,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
     // 29339 裹酱积分
     // 33927 绿色能量
     // 36649 回收旧物
+    // 35783 出库码页面推广
     if (obj?.data?.result?.length > 0) {
         obj.data.result = obj.data.result.filter(
             (i) =>
@@ -99,7 +100,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
                     i?.materialContentMapper?.adItemDetail ||
                     (i?.materialContentMapper?.bgImg && i?.materialContentMapper?.advRecGmtModifiedTime) ||
                     ["entertainment", "kuaishou_banner"].includes(i?.materialContentMapper?.group_id) ||
-                    ["29338", "29339", "32103", "33927", "36649"].includes(i.id) ||
+                    ["29338", "29339", "32103", "33927", "35783", "36649"].includes(i.id) ||
                     (i?.materialContentMapper?.group_id?.includes("common_header_banner") && ["event_kuaishoubanner", "event_qingyoubanner"].includes(i?.materialContentMapper?.ut_event_name)) ||
                     (i?.materialContentMapper?.group_id?.includes("interests") && ["event_jijianhuiyuan", "event_guojiangjifeng", "event_greenhome"].includes(i?.materialContentMapper?.ut_event_name))
                 )
