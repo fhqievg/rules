@@ -115,7 +115,9 @@ function pointListHandle(pointList) {
                 i.id === 623 || //邀好友
                 i.id === 620 || //绿色出行
                 i.id === 674 || //签到
-                i.id === 694  //客服热线
+                i.id === 694 ||//客服热线
+                //i.id === 783  //深巴商城
+                i.id === 784  //网约出租
             )
     );
     return pointList;
