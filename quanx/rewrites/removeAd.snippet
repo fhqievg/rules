@@ -16,7 +16,7 @@
 
 # > aliDrive
 #优化
-^https:\/\/api\.aliyundrive\.com\/apps\/v1\/users\/(apps|home)\/widgets url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/vipUnlock/aliDrive.js
+^https:\/\/api\.aliyundrive\.com\/apps\/v1\/users\/(?:apps|home)\/widgets url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/vipUnlock/aliDrive.js
 
 # >>>>>>>>>>>>>> ✅ B ✅ <<<<<<<<<<<<<<<
 # > baiDuPan
@@ -29,26 +29,33 @@
 # >>>>>>>>>>>>>> ✅ C ✅ <<<<<<<<<<<<<<<
 # > cheLaiLe
 ^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/led-weather\/v\d+\/condition_brief\? url reject-200
-^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/(\/)?((.*\/)?(advert|adpub)|content|infoflow|notice|wow|CheLaiLe-ios|DataAnalysisInfo|goocity\/(getTagTitle|city!configureTag\.action\?|flowPos/listByPos)|bus\/(stop!encryptedRecommLine|ai\/config)\.action|ip46A\?|operative_position\/infoflow\/homepage) url reject
+^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/(\/)?((.*\/)?(?:advert|adpub)|content|infoflow|notice|wow|CheLaiLe-ios|DataAnalysisInfo|goocity\/(?:getTagTitle|city!configureTag\.action\?|flowPos/listByPos)|bus\/(?:stop!encryptedRecommLine|ai\/config)\.action|ip46A\?|operative_position\/infoflow\/homepage) url reject
 #优化
-^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/goocity\/(flowPos\/home|config\/notices)\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/cheLaiLe.js
+^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/goocity\/(?:flowPos\/home|config\/notices)\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/cheLaiLe.js
 
 # > caiNiao
-^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(adkeyword\.get|guoguo\.nbnetflow\.ads\.(index|expose\.mreply|batch\.show\.v2)|nbopen\.miniapp\.recommend\.cpc|nbmensa\.research\.researchservice\.(acquire|event|close)|cncommunity\.my\.station\.query|nbpresentation\.(homepage\.merge|tabbar\.marketing)\.get)\.cn url reject-dict
-^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.((longquan\.place\.getpageresourcecontent|cncreditmarket\.hit\.getactivityhit)\.cn|cnactivitycenter) url reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(?:adkeyword\.get|nbopen\.miniapp\.recommend\.cpc|nbmensa\.research\.researchservice\.(?:acquire|event|close)|cncommunity\.my\.station\.query|app\.home\.tabbar\.marketing\.get)\.cn url reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.((?:longquan\.place\.getpageresourcecontent|cncreditmarket\.hit\.getactivityhit)\.cn|cnactivitycenter) url reject-dict
+^https:\/\/(?:cn-acs\.m|netflow-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(?:batch\.show\.v2|click\.reply|expose\.m?reply|index)\.cn reject-dict
+^https:\/\/(?:cn-acs\.m|mtop-bff-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(?:homepage\.merge|tabbar\.marketing)\.get\.cn reject-dict
 #优化
-^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get|guoguo\.nbnetflow\.ads\.m?show)\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
-^https:\/\/(e2e-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch(.\cn)? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
-^https:\/\/(nbfriend-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.nbfriend\.msg\.conversation\.list\.new\.query\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+#移除首页图标
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(?:pickup\.empty\.page|protocol\.homepage)\.get\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+#首页及个人中心
+^https:\/\/(?:e2e-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch(.\cn)? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+#消息列表
+^https:\/\/(?:nbfriend-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.nbfriend\.msg\.conversation\.list\.new\.query\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+#移除首页推广
+^https:\/\/(?:netflow-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
 #aliPay 小程序
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad url reject-dict
 #优化
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
 
 # > caiYun
-^https:\/\/(api\.caiyunapp\.com|wrapper\.cyapi\.cn)\/v1\/activity\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiYun.js
-^https?:\/\/biz\.cyapi\.cn\/(p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product) url reject-dict
-^https?:\/\/starplucker\.cyapi\.cn\/v3\/(config\/cypage\/(home\/conditions\/local|home_activity\/conditions)|notification\/message_center|operation\/homefeatures) url reject-dict
+^https:\/\/(?:api\.caiyunapp\.com|wrapper\.cyapi\.cn)\/v1\/activity\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiYun.js
+^https?:\/\/biz\.cyapi\.cn\/(?:p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product) url reject-dict
+^https?:\/\/starplucker\.cyapi\.cn\/v3\/(?:config\/cypage\/(?:home\/conditions\/local|home_activity\/conditions)|notification\/message_center|operation\/homefeatures) url reject-dict
 
 # >>>>>>>>>>>>>> ✅ K ✅ <<<<<<<<<<<<<<<
 # > KFC
@@ -76,12 +83,12 @@
 ^https:\/\/app\.thepaper\.cn\/clt\/jsp\/v6\/lastReadRecommend url reject-dict
 ^https?:\/\/app\.thepaper\.cn\/.+\/getWeather url reject
 #优化
-^https?:\/\/app\.thepaper\.cn\/clt\/(jsp\/v\d\/(loading|allNodes|channelContList|home_page_rcmd|newDetail|getTopBarData|categoryContList|new_detail_pph|sparkerNodeContList)|videoContList\/(channelList|nodeList)|course\/mine\/popularize) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/pengPaiNews.js
+^https?:\/\/app\.thepaper\.cn\/clt\/(?:jsp\/v\d\/(?:loading|allNodes|channelContList|home_page_rcmd|newDetail|getTopBarData|categoryContList|new_detail_pph|sparkerNodeContList)|videoContList\/(?:channelList|nodeList)|course\/mine\/popularize) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/pengPaiNews.js
 
 # >>>>>>>>>>>>>> ✅ Q ✅ <<<<<<<<<<<<<<<
 # > qianChengWuYou
 ^https?:\/\/appapi\.51job\.com\/api\/(\d+\/)?user\/stateboot\.php\? url reject-dict
-^https?:\/\/appapi\.51job\.com\/api\/(\d+\/)?(util\/get_version|market\/(adtrace|get_launch)) url reject
+^https?:\/\/appapi\.51job\.com\/api\/(\d+\/)?(?:util\/get_version|market\/(?:adtrace|get_launch)) url reject
 
 # >>>>>>>>>>>>>> ✅ T ✅ <<<<<<<<<<<<<<<
 # > txVideo
@@ -93,28 +100,28 @@
 
 # >>>>>>>>>>>>>> ✅ X ✅ <<<<<<<<<<<<<<<
 # > xiaChuFang
-^https?:\/\/(www|api)\.xiachufang\.com\/.+\/ad\/ url reject
+^https?:\/\/(?:www|api)\.xiachufang\.com\/.+\/ad\/ url reject
 #优化
-^https:\/\/api\.xiachufang\.com\/v2\/(account\/detail|homepage.*\/(init_page|paged_waterfall_recommendations|ranking_list\/paged_homepage_ranking_list_section_v\d*)|recipe\/(bottom_list|detail_v\d*)|search\/(popular_queries|universal_search_v\d*)|user\/get_profile)\.json url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/xiaChuFang.js
+^https:\/\/api\.xiachufang\.com\/v2\/(?:account\/detail|homepage.*\/(?:init_page|paged_waterfall_recommendations|ranking_list\/paged_homepage_ranking_list_section_v\d*)|recipe\/(?:bottom_list|detail_v\d*)|search\/(?:popular_queries|universal_search_v\d*)|user\/get_profile)\.json url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/xiaChuFang.js
 
 # > xiaoXiongYouHao
-^https?:\/\/www\.xiaoxiongyouhao\.com\/api\/((app_ad|ntf)\.php|app_upgrade|vip\/index\.php\?a=sync_iap_orders) url reject
+^https?:\/\/www\.xiaoxiongyouhao\.com\/api\/((?:app_ad|ntf)\.php|app_upgrade|vip\/index\.php\?a=sync_iap_orders) url reject
 
 # >>>>>>>>>>>>>> ✅ Y ✅ <<<<<<<<<<<<<<<
 # > 影视
-^https?:\/\/(.+\.(ailbaba\.me|zzjz.top)|(iqyi|baidu)\.ylylfun\.com|27\.151\.29\.56(:\d+)?)\/.+\/(top_notice|version|advert\?position=(?!(2)(?=&))) url reject
-^https?:\/\/(.+\.(ailbaba\.me|zzjz.top)|(iqyi|baidu)\.ylylfun\.com|(27\.151\.29\.56|162\.209\.174\.25(2|3))(:\d+)?)\/.+\/actuator_info url reject-200
-^http:\/\/162\.209\.174\.25(2|3)(:\d+)?\/.+\/(top_notice|advert\?position=(?!(2)(?=&))) url reject
+^https?:\/\/(.+\.(?:ailbaba\.me|zzjz.top)|(?:iqyi|baidu)\.ylylfun\.com|27\.151\.29\.56(:\d+)?)\/.+\/(?:top_notice|version|advert\?position=(?!(2)(?=&))) url reject
+^https?:\/\/(.+\.(?:ailbaba\.me|zzjz.top)|(?:iqyi|baidu)\.ylylfun\.com|(27\.151\.29\.56|162\.209\.174\.25(2|3))(:\d+)?)\/.+\/actuator_info url reject-200
+^http:\/\/162\.209\.174\.25(2|3)(:\d+)?\/.+\/(?:top_notice|advert\?position=(?!(2)(?=&))) url reject
 ^http:\/\/162\.209\.174\.25(2|3)(:\d+)?\/.+\/app_config\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/xiaoShiZi.js
-^https?:\/\/vip7\.fzwdyy\.cn(:\d+)?\/api\/(getAdvertInfo|getGOOGAdvert) url reject
+^https?:\/\/vip7\.fzwdyy\.cn(:\d+)?\/api\/(?:getAdvertInfo|getGOOGAdvert) url reject
 
 #555去AD
-^https?:\/\/(run\.api\.qyfxgd\.cn|a\.weilai555\.com|(a|app-v1)\.ecoliving168\.com)(:\d+)?\/api\/v1\/advert url reject
-^https?:\/\/(run\.api\.qyfxgd\.cn|a\.weilai555\.com|(a|app-v1)\.ecoliving168\.com)(:\d+)?\/api\/v1\/movie\/index_recommend url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/video/555.js
+^https?:\/\/(?:run\.api\.qyfxgd\.cn|a\.weilai555\.com|(?:a|app-v1)\.ecoliving168\.com)(:\d+)?\/api\/v1\/advert url reject
+^https?:\/\/(?:run\.api\.qyfxgd\.cn|a\.weilai555\.com|(?:a|app-v1)\.ecoliving168\.com)(:\d+)?\/api\/v1\/movie\/index_recommend url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/video/555.js
 
 #keEr去AD
-^http:\/\/(kekeoo|ereroo)\.com\/(Aios\/(config|clothes|Climber|zixingche)|banner|Aios1\/wordss)\.json url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/keEr.js
-^http:\/\/api\.juliangcili\.com\/(\/)?api\/adver\/(data\/insert|space\/all\/list) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/keEr.js
+^http:\/\/(?:kekeoo|ereroo)\.com\/(?:Aios\/(?:config|clothes|Climber|zixingche)|banner|Aios1\/wordss)\.json url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/keEr.js
+^http:\/\/api\.juliangcili\.com\/(\/)?api\/adver\/(?:data\/insert|space\/all\/list) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/keEr.js
 
 # > yangShiYingYin
 ^https?:\/\/api\.app\.cctv\.com\/api\/getVersion url reject
