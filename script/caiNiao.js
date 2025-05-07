@@ -11,7 +11,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
     if (obj?.data?.hasOwnProperty('data')) {
         let delArr = [
             "activity", //活动
-            //"asset" ,
+            "asset" ,
             "banner",   //底部图
             "content",
             "vip",
@@ -26,7 +26,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
         }
         
         //处理顶部
-        if (obj.data.data.hasOwnProperty('asset')) {
+        /*if (obj.data.data.hasOwnProperty('asset')) {
     		let items = [
     			"redPackage", //限时折扣
     			"coupon", //寄件优惠
@@ -42,7 +42,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
     				obj.data.data.asset.data.data[i].link = '';
                 }
             }
-        }
+        }*/
         
         //处理导入包裹
         if (obj.data.data.hasOwnProperty('packageArea')) {
@@ -108,6 +108,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
     }
 } else if (url.includes("/mtop.cainiao.guoguo.nbnetflow.ads.show")) {
     // 我的页面
+    // 22533 提示授权
     // 29338 寄件会员
     // 29339 裹酱积分
     // 33927 绿色能量
@@ -120,7 +121,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
                     i?.materialContentMapper?.adItemDetail ||
                     (i?.materialContentMapper?.bgImg && i?.materialContentMapper?.advRecGmtModifiedTime) ||
                     ["entertainment", "kuaishou_banner"].includes(i?.materialContentMapper?.group_id) ||
-                    ["29338", "29339", "32103", "33927", "35783", "36649"].includes(i.id) ||
+                    ["22533", "29338", "29339", "32103", "33927", "35783", "36649"].includes(i.id) ||
                     (i?.materialContentMapper?.group_id?.includes("common_header_banner") && ["event_kuaishoubanner", "event_qingyoubanner"].includes(i?.materialContentMapper?.ut_event_name)) ||
                     (i?.materialContentMapper?.group_id?.includes("interests") && ["event_jijianhuiyuan", "event_guojiangjifeng", "event_greenhome"].includes(i?.materialContentMapper?.ut_event_name))
                 )
@@ -160,7 +161,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
             "1438", //授权其他人查看商品
             "1524", // 抽现金
             "1525", // 幸运包裹
-            //"1563", //上传图片查件
+            "1563", //首页左上角tips
             "1638", //为你精选了一些商品
             "1692", //其它提示
             "1893", //授权其它平台取件
