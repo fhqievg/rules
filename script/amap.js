@@ -813,8 +813,23 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
                     if (i?.cardData?.hasOwnProperty('rights') && i?.cardData.rights.length > 0) {
                         i.cardData.rights = i.cardData.rights.filter(
                             (j) => !(
+                                 //j.id === 1 || //专区礼券包
                                 j?.id === 2 || //生日祝福
-                                j?.id === 7  //线下活动
+                                 j.id === 3 || //专属抢购
+                                 //j.id === 6 || //新功能尝鲜
+                                 j?.id === 7  //线下活动
+                                 //j.id === 9 //道路救援
+                             )
+                        );
+                    }
+                    break;
+                case "UserCenterLotteryCard":
+                    //达人抽奖去掉不想要的
+                    if (i?.cardData?.hasOwnProperty('skuList') && i.cardData.skuList.length > 0) {
+                        i.cardData.skuList = i.cardData.skuList.filter(
+                            (j) => !(
+                                j?.skuInfo?.skuId === 1063 || //实体勋章
+                                j?.skuInfo?.skuId === 458  //猫冰箱贴
                             )
                         );
                     }
@@ -849,13 +864,17 @@ function growthInteractiveCardHandle(data) {
     if (data.cardData?.assetCardList?.length === 0) {
         return data;
     }
-
+    
     for (let i of data.cardData.assetCardList) {
         switch (i.taskStrategy) {
+            //共建答题
             case "USER_TASK_STRATEGY_FEEDBACK":
+            //待评价地点
             case "USER_TASK_STRATEGY_POI":
+            //达人推荐
             case "USER_TASK_STRATEGY_CUSTOM":
-                //case "USER_TASK_STRATEGY_ACTIVITY":
+            //小车限时活动
+            //case "USER_TASK_STRATEGY_ACTIVITY":
                 if (i.taskContentList?.length > 0) {
                     i.taskContentList = [];
                 }
