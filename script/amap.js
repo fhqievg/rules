@@ -192,9 +192,9 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     }
 
     //解决新样式足迹数据不显示的问题
-    /*if (obj?.data?.footPrintV2?.fixed_data?.length > 0 && obj?.data?.topMixedCard?.hasOwnProperty("cardKey") && obj?.data?.topMixedCard.cardKey === "mineTopMixedCard") {
+    if (obj?.data?.footPrintV2?.fixed_data?.length > 0 && obj?.data?.topMixedCard?.hasOwnProperty("cardKey") && obj?.data?.topMixedCard.cardKey === "mineTopMixedCard") {
         obj.data.topMixedCard = footprintHandle(obj.data.topMixedCard, obj.data.footPrintV2.fixed_data);
-    }*/
+    }
 } else if (url.includes("/shield/frogserver/aocs/updatable/")) {
     // 整体图层
     const items = [
@@ -937,6 +937,7 @@ function footprintHandle(topMixedCard, fixedData) {
             continue;
         }
 
+        data[j].rollRoundDuration = 100; //数据轮播时间
         switch (data[j].name) {
             case '足迹':
                 for (let k of data[j].rows) {
