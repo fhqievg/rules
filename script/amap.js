@@ -173,7 +173,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
                 return false;
             }
 
-            //去除个人中心底部待评价订单的提示
+            //去除我的页面底部待评价订单的提示
             if (i?.dataKey === 'MyOrderCard') {
                 if (i?.content?.hasOwnProperty('statusBar') && i?.content.statusBar.length > 0) {
                     i.content.statusBar = i.content.statusBar.filter(
@@ -520,7 +520,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         obj.data.modules.attractGalleryInfo.data.list = obj.data.modules.attractGalleryInfo.data.list.filter(
             (i) =>
                 !(
-                    i?.source === "NOTE"
+                    i?.source === "NOTE" //去除笔记
                 )
         );
     }
@@ -607,7 +607,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
             delete list.map.main_point.dynamic_texture;
 
-            //改变类型以显示图标
+            //改变类型以显示icon
             if (list?.map?.main_point?.hasOwnProperty("card_id")) {
                 list.map.main_point.card_id = "normal_lottie";
             }
@@ -663,7 +663,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
                 delete list.map.main_point.dynamic_texture;
 
-                //改变类型以显示图标
+                //改变类型以显示icon
                 if (list?.map?.main_point?.hasOwnProperty("card_id")) {
                     list.map.main_point.card_id = "normal_lottie";
                 }
@@ -800,7 +800,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             }
 
             if (delCard.includes(i.dataKey)) {
-                continue; //需要删除的跳过处理和保留
+                continue; //需要删除的跳过处理
             }
 
             switch (i.dataKey) {
@@ -852,6 +852,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     }
 } else if (url.includes("/c3frontend/af-nearby/nearby")) {
     //附近页优化
+    //去除右下角写笔记浮框
     if (obj?.data?.modules?.hasOwnProperty('contentPoster')) {
         delete obj.data.modules.contentPoster;
     }
@@ -937,7 +938,6 @@ function footprintHandle(topMixedCard, fixedData) {
             continue;
         }
 
-        data[j].rollRoundDuration = 100; //数据轮播时间
         switch (data[j].name) {
             case '足迹':
                 for (let k of data[j].rows) {
@@ -951,22 +951,17 @@ function footprintHandle(topMixedCard, fixedData) {
                                 break;
                             case "mine_footprint_town":
                                 g.value.text = footprintTown + '%';
-                                let text = '走过' + currentCity;
+                                g.SPMEventName = '走过' + currentCity;
                                 if (g.hasOwnProperty('label')) {
-                                    g.label.text = text;
+                                    g.label.text = g.SPMEventName;
                                 }
-                                /*if (g.hasOwnProperty('SPMEventName')) {
-                                    g.SPMEventName = text;
-                                }*/
                                 break;
                             case "mine_footprint_point":
                                 g.value.text = footprintPoint;
                                 break;
                             case "mine_footprint_navi":
                                 g.value.text = footprintNavi;
-                                if (g.hasOwnProperty('scheme')) {
-                                    g.scheme = "amapuri://footprint/FootPrintMainPage?cardName=driver";
-                                }
+                                g.scheme = "amapuri://footprint/FootPrintMainPage?cardName=driver";
                                 break;
                             default:
                                 break;
@@ -976,7 +971,7 @@ function footprintHandle(topMixedCard, fixedData) {
                 newData.push(data[j]);
                 break;
             default:
-                //不push表示需要删除
+                //此处不push表示需要删除过滤其它的，比如<贡献>板块
                 newData.push(data[j]);
                 break;
         }
