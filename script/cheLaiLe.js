@@ -50,9 +50,9 @@ if (url.includes("goocity/city/moreCities")) {
     if (obj.jsonr?.data?.cities) {
         for (let i of obj.jsonr.data.cities) {
             //热门城市
-            if (i.hasOwnProperty("hot")) {
+            /*if (i.hasOwnProperty("hot")) {
                 i.hot = 0;
-            }
+            }*/
 
             //底部tab
             if (i.hasOwnProperty("tabbar")) {
