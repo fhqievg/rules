@@ -1,4 +1,3 @@
-//用户评价、达人首页、图层、我的页面、搜索结果、搜索周边
 const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
@@ -192,9 +191,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         delete obj.data.tipData;
     }
 
-    if (obj?.data?.hasOwnProperty("topMixedCard")) {
-        delete obj.data.topMixedCard;
-    }
+    obj.data.topMixedCard = {};
     //解决新样式足迹数据不显示的问题
     /*if (obj?.data?.footPrintV2?.fixed_data?.length > 0 && obj?.data?.topMixedCard?.hasOwnProperty("cardKey") && obj?.data?.topMixedCard.cardKey === "mineTopMixedCard") {
         obj.data.topMixedCard = footprintHandle(obj.data.topMixedCard, obj.data.footPrintV2.fixed_data);
