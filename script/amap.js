@@ -284,6 +284,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "brand_shop_bar",
         // "brand_story",
         "brand_service", // 品牌服务
+        "carServiceCard", //车主中心
         "CouponBanner", // 高德红包
         "checkIn",
         "check_in", // 足迹打卡
@@ -297,17 +298,16 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "common_coupon_card", // 优惠券卡片
         // "companyInfo", // 简介
         "comprehensiveEditEntrance", // 编辑地点信息
+        "commonAiAgent", //ai门店助手
         // "consultancy",
         "contributor", // 地点贡献
+        "CouponWidget", //右下角小图标
         // "coupon_allowance",
         // "coupon_entrance",
         "cpt_service_shop", //买卖二手房
         "cpt_service_simple", //买卖二手房按钮
         // "craftsman_entry",
         // "crowd_index", // 人流量情况
-        "carServiceCard", //车主中心
-        "CouponWidget", //右下角小图标
-        "commonAiAgent", //ai门店助手
         "dayTripList", // 热门一日游
         // "detailFeedCommodity",
         "detail_bottom_shop_service", //买卖二手房
@@ -421,6 +421,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "recommend_designer_card", //设计师推荐
         "rec_legal_document", //推荐下方的说明文字
         //"recommend_food", //网友推荐菜
+        "relatedPoiList", //猜你想找
         //"societyPublicExperience", //网友互助/地图共建
         "shop_settlement", // 店铺入驻入口
         "shoppingMallEvent", //购物商场活动
