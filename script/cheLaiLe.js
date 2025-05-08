@@ -46,11 +46,16 @@ if (url.includes("goocity/config/notices")) {
 }
 
 if (url.includes("goocity/city/moreCities")) {
-    //切换城市
+    //切换选择城市页面
     if (obj.jsonr?.data?.cities) {
         for (let i of obj.jsonr.data.cities) {
+            //热门城市
+            if (i.hasOwnProperty("hot")) {
+                i.hot = 0;
+            }
+
             //底部tab
-            if (typeof i.tabbar != 'undefined') {
+            if (i.hasOwnProperty("tabbar")) {
                 i.tabbar = tabHandle(i.tabbar);
             }
         }
