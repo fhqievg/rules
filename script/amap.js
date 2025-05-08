@@ -191,7 +191,6 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         delete obj.data.tipData;
     }
 
-    obj.data.topMixedCard = {};
     //解决新样式足迹数据不显示的问题
     /*if (obj?.data?.footPrintV2?.fixed_data?.length > 0 && obj?.data?.topMixedCard?.hasOwnProperty("cardKey") && obj?.data?.topMixedCard.cardKey === "mineTopMixedCard") {
         obj.data.topMixedCard = footprintHandle(obj.data.topMixedCard, obj.data.footPrintV2.fixed_data);
