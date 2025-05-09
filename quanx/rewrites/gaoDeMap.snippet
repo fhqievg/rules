@@ -5,8 +5,8 @@
 # > amdc处理
 ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch AMap url-and-header script-response-header https://raw.githubusercontent.com/fhqievg/rules/main/script/header.js
 
-# > 导航详情页,路线规划,地点详情页,搜索详情页,导航结束页,路径规划页推荐
-^https:\/\/m5\.amap\.com\/ws\/(?:faas\/amap-navigation\/card-service-(?:car-end|route-plan)|shield\/(?:search_poi\/tips_adv|search\/client\/push)\?|aos_public_travel\/recommend_plan) url reject-dict
+# > 导航详情页,路线规划,地点详情页,搜索详情页,导航结束页
+^https:\/\/m5\.amap\.com\/ws\/(?:faas\/amap-navigation\/card-service-car-end|shield\/(?:search_poi\/tips_adv|search\/client\/push)\?) url reject-dict
 ^https:\/\/oss\.amap\.com\/ws\/banner\/lists\/\? url reject-dict
 
 # > 首页,推广卡片,红点角标,右上角动图,消息横幅
@@ -64,6 +64,8 @@
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/contentDetail\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
 # > 导航相关
+# > > > 路径规划页打车推荐
+^https:\/\/m5\.amap\.com\/ws\/(?:faas\/amap-navigation\/card-service-route-plan|aos_public_travel\/recommend_plan) url reject-dict
 # > > > 步行导航结束
 ^https:\/\/m5\.amap\.com\/ws\/c3frontend\/af-launch\/page\/main\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 路径规划页推广
