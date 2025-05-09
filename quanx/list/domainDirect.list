@@ -47,6 +47,7 @@ HOST-SUFFIX,ailbaba.me,DIRECT
 HOST,kekeoo.com,DIRECT
 HOST,ereroo.com,DIRECT
 HOST,www.aliyuncss.top,DIRECT
+HOST-SUFFIX,1lou.me,DIRECT
 HOST-SUFFIX,1080pzy.co,DIRECT
 HOST-SUFFIX,1080pzy.net,DIRECT
 HOST-SUFFIX,021huaying.com,DIRECT
@@ -62,6 +63,7 @@ HOST-SUFFIX,alibabacloud.vip,DIRECT
 HOST-SUFFIX,apiyhzy.com,DIRECT
 HOST-SUFFIX,armytea.com,DIRECT
 HOST-SUFFIX,bgm.tv,DIRECT
+HOST-SUFFIX,bemyeyes.com,DIRECT
 HOST-SUFFIX,bfvvs.com,DIRECT
 HOST-SUFFIX,bfbfvip.com,DIRECT
 HOST-SUFFIX,bfengbf.com,DIRECT
@@ -114,6 +116,7 @@ HOST-SUFFIX,haozhansou.com,DIRECT
 HOST-SUFFIX,huamaotv.com,DIRECT
 HOST,hhmage.com,DIRECT
 HOST,hhzyapi.com,DIRECT
+HOST-SUFFIX,hmrvideovip.com,DIRECT
 HOST-SUFFIX,huishij.com,DIRECT
 HOST-SUFFIX,hongniuzy2.com,DIRECT
 HOST-SUFFIX,huyaapi.com,DIRECT
@@ -138,6 +141,8 @@ HOST-SUFFIX,jisuzyimg.com,DIRECT
 HOST-SUFFIX,jinyingimage.com,DIRECT
 HOST-SUFFIX,jingpinzy1.com,DIRECT
 HOST-SUFFIX,jegms.com,DIRECT
+HOST-SUFFIX,jszyapi.com,DIRECT
+HOST-SUFFIX,jpzy01.com,DIRECT
 HOST-SUFFIX,kuaiyunzy.com,DIRECT
 HOST-SUFFIX,kuaiyun2-cdn.com,DIRECT
 HOST-SUFFIX,kuaiyun4-cdn.com,DIRECT
@@ -147,6 +152,8 @@ HOST-SUFFIX,kuaikan-play2.com,DIRECT
 HOST-SUFFIX,kczyapi.com,DIRECT
 HOST-SUFFIX,kuaichezy.com,DIRECT
 HOST-SUFFIX,kczybf.com,DIRECT
+HOST-SUFFIX,leduocdn.com,DIRECT
+HOST-SUFFIX,leduozy1.com,DIRECT
 HOST-SUFFIX,lywyx.com,DIRECT
 HOST-SUFFIX,liangzipic.com,DIRECT
 HOST-SUFFIX,lzzypic.com,DIRECT
@@ -154,6 +161,7 @@ HOST-SUFFIX,lzzyimg.com,DIRECT
 HOST-SUFFIX,lziapi.com,DIRECT
 HOST-SUFFIX,lz-cdn1.com,DIRECT
 HOST-SUFFIX,lzcdn2.com,DIRECT
+HOST-SUFFIX,cdnlz2.com,DIRECT
 HOST-SUFFIX,cdnlz3.com,DIRECT
 HOST-SUFFIX,cdnlz12.com,DIRECT
 HOST-SUFFIX,cdnlz19.com,DIRECT
@@ -166,6 +174,7 @@ HOST-SUFFIX,leshizyimg.com,DIRECT
 HOST-SUFFIX,leshibf.com,DIRECT
 HOST-SUFFIX,lianjianxsw.com,DIRECT
 HOST-SUFFIX,moguys.xyz,DIRECT
+HOST-SUFFIX,m3u8.hmrvideo.com,DIRECT
 HOST-SUFFIX,modupic.com,DIRECT
 HOST-SUFFIX,moduzy.com,DIRECT
 HOST-SUFFIX,mstopq.com,DIRECT
@@ -173,6 +182,7 @@ HOST-SUFFIX,mzxay.com,DIRECT
 HOST-SUFFIX,ppsm3u8.com,DIRECT
 HOST-SUFFIX,pe12369.com,DIRECT
 HOST-SUFFIX,rrcdnbf3.com,DIRECT
+HOST-SUFFIX,rrcdnbf2.com,DIRECT
 HOST-SUFFIX,snzycdn.com,DIRECT
 HOST-SUFFIX,suoniapi.com,DIRECT
 HOST-SUFFIX,suonizy-youku.com,DIRECT
@@ -187,6 +197,7 @@ HOST-SUFFIX,tiankongapi.com,DIRECT
 HOST-SUFFIX,ukuapi.com,DIRECT
 HOST-SUFFIX,ukubf4.com,DIRECT
 HOST-SUFFIX,vim-cn.com,DIRECT
+HOST-SUFFIX,viptulz.com,DIRECT
 HOST-SUFFIX,vdtuzv.com,DIRECT
 HOST-SUFFIX,v666v.vip,DIRECT
 HOST-SUFFIX,wujinpp.com,DIRECT
@@ -554,6 +565,7 @@ HOST-SUFFIX,xmcdn.com,DIRECT
 HOST-SUFFIX,yangkeduo.com,DIRECT
 HOST-SUFFIX,ydstatic.com,DIRECT
 HOST-SUFFIX,youku.com,DIRECT
+HOST-SUFFIX,youkupic.com,DIRECT
 HOST-SUFFIX,ykimg.com,DIRECT
 HOST-SUFFIX,zhangzishi.cc,DIRECT
 HOST-SUFFIX,zhihu.com,DIRECT
