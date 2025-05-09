@@ -8,9 +8,6 @@
 ^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$ url script-response-header https://raw.githubusercontent.com/fhqievg/rules/main/script/header.js
 
 # >>>>>>>>>>>>>> ✅ A ✅ <<<<<<<<<<<<<<<
-# > amdc处理
-^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch url script-response-header https://raw.githubusercontent.com/fhqievg/rules/main/script/header.js
-
 # > aptv
 ^http:\/\/159\.75\.85\.63:\d+\/(.*\/)?ad\/ url reject
 
@@ -32,27 +29,6 @@
 ^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/(\/)?((.*\/)?(?:advert|adpub)|content|infoflow|notice|wow|CheLaiLe-ios|DataAnalysisInfo|goocity\/(?:getTagTitle|city!configureTag\.action\?|flowPos/listByPos)|bus\/(?:stop!encryptedRecommLine|ai\/config)\.action|ip46A\?|operative_position\/infoflow\/homepage) url reject
 #优化
 ^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/goocity\/(?:flowPos\/home|config\/notices)\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/cheLaiLe.js
-
-# > caiNiao
-^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(?:adkeyword\.get|nbopen\.miniapp\.recommend\.cpc|nbmensa\.research\.researchservice\.(?:acquire|event|close)|cncommunity\.my\.station\.query|app\.home\.tabbar\.marketing\.get)\.cn url reject-dict
-^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.((?:longquan\.place\.getpageresourcecontent|cncreditmarket\.hit\.getactivityhit)\.cn|cnactivitycenter) url reject-dict
-^https:\/\/(?:cn-acs\.m|.+-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo(\.nbnetflow)?\.ads\.(?:batch\.show\.v2|click\.reply|expose\.m?reply|index)\.cn url reject-dict
-^https:\/\/(?:cn-acs\.m|mtop-bff-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(?:homepage\.merge|tabbar\.marketing)\.get\.cn url reject-dict
-#优化
-#移除首页图标
-^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.protocol\.homepage\.get\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
-#取件页面
-^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(?:nbpresentation|bffengine)\.pickup\.empty\.page\.get\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
-#首页及个人中心
-^https:\/\/(?:e2e-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch(.\cn)? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
-#消息列表
-^https:\/\/(?:nbfriend-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.nbfriend\.msg\.conversation\.list\.new\.query\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
-#移除首页推广
-^https:\/\/(?:netflow-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
-#aliPay 小程序
-^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad url reject-dict
-#优化
-^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
 
 # > caiYun
 ^https:\/\/(?:api\.caiyunapp\.com|wrapper\.cyapi\.cn)\/v1\/activity\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiYun.js
@@ -128,4 +104,4 @@
 # > yangShiYingYin
 ^https?:\/\/api\.app\.cctv\.com\/api\/getVersion url reject
 
-hostname = *.chelaileapp.cn,*.chelaile.net.cn,www.xiachufang.com,api.xiachufang.com,pan.baidu.com,issuecdn.baidupcs.com,update.pan.baidu.com,staticsns.cdn.bcebos.com,ndstatic.cdn.bcebos.com,res.kfc.com.cn,api.mcd.cn,ad.12306.cn,mobile.12306.cn,app.thepaper.cn,api.app.cctv.com,cn-acs.m.cainiao.com,guide-acs.m.taobao.com,*-mtop.cainiao.com,run.api.qyfxgd.cn,vip7.fzwdyy.cn,a.weilai555.com,a.ecoliving168.com,app-v1.ecoliving168.com,i.video.qq.com,iacc.qq.com,appapi.51job.com,blog.nilbt.com,api.aliyundrive.com,www.xiaoxiongyouhao.com,api.caiyunapp.com,wrapper.cyapi.cn,biz.cyapi.cn,starplucker.cyapi.cn,*.zzjz.top,iqyi.ylylfun.com,baidu.ylylfun.com,conf.chuangke.tv,d.chuangke.tv,res.chuangke.tv,api.7littlemen.com
+hostname = *.chelaileapp.cn, *.chelaile.net.cn, www.xiachufang.com, api.xiachufang.com, pan.baidu.com, issuecdn.baidupcs.com, update.pan.baidu.com, staticsns.cdn.bcebos.com, ndstatic.cdn.bcebos.com, res.kfc.com.cn, api.mcd.cn, ad.12306.cn, mobile.12306.cn, app.thepaper.cn, api.app.cctv.com, run.api.qyfxgd.cn, vip7.fzwdyy.cn, a.weilai555.com, a.ecoliving168.com, app-v1.ecoliving168.com, i.video.qq.com, iacc.qq.com, appapi.51job.com, blog.nilbt.com, api.aliyundrive.com, www.xiaoxiongyouhao.com, api.caiyunapp.com, wrapper.cyapi.cn, biz.cyapi.cn, starplucker.cyapi.cn, *.zzjz.top, iqyi.ylylfun.com, baidu.ylylfun.com, conf.chuangke.tv, d.chuangke.tv, res.chuangke.tv, api.7littlemen.com
