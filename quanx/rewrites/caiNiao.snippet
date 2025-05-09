@@ -1,0 +1,35 @@
+#!name=菜鸟合集
+#!desc=去广告及优化
+
+# > amdc处理
+^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch Cainiao url-and-header reject
+
+# > 其它
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(?:adkeyword\.get|nbopen\.miniapp\.recommend\.cpc|nbmensa\.research\.researchservice\.(?:acquire|event|close)|cncommunity\.my\.station\.query|app\.home\.tabbar\.marketing\.get)\.cn url reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.((?:longquan\.place\.getpageresourcecontent|cncreditmarket\.hit\.getactivityhit)\.cn|cnactivitycenter) url reject-dict
+^https:\/\/(?:cn-acs\.m|.+-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo(\.nbnetflow)?\.ads\.(?:batch\.show\.v2|click\.reply|expose\.m?reply|index)\.cn url reject-dict
+^https:\/\/(?:cn-acs\.m|mtop-bff-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(?:homepage\.merge|tabbar\.marketing)\.get\.cn url reject-dict
+
+# > 首页相关
+# > > > tab栏及模块显示
+^https:\/\/(?:e2e-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+# > > > 移除推广图标
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.protocol\.homepage\.get\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+# > > > 移除推广
+^https:\/\/(?:netflow-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+# > > > 取包裹页面
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(?:nbpresentation|bffengine)\.pickup\.empty\.page\.get\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+
+# > 消息页面相关
+# > > > 消息列表
+^https:\/\/(?:nbfriend-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.nbfriend\.msg\.conversation\.list\.new\.query\.cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+
+# > 我的页面
+# > > > 模块显示
+^https:\/\/(?:e2e-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch.\cn url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+
+# > aliPay 小程序
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad url reject-dict
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
+
+hostname = cn-acs.m.cainiao.com, *-mtop.cainiao.com, guide-acs.m.taobao.com
