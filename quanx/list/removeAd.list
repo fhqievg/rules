@@ -37,9 +37,17 @@ HOST,kepler.jd.com,REJECT
 HOST,mapi.m.jd.com,REJECT
 HOST,orbit.jd.com,REJECT
 
+# > 极光
+HOST,smartop-sdkapi-ipv6.jiguang.cn,REJECT
+HOST,smartop-sdkapi.jiguang.cn,REJECT
+HOST-SUFFIX,jiguang.cn,REJECT
+
 # >>>>>>>>>>>>>> ✅ K ✅ <<<<<<<<<<<<<<<
 # > 狂野
 HOST,a314.gameloft.com,REJECT
+
+# > 夸克
+HOST-SUFFIX,unet.quark.cn,REJECT
 
 # >>>>>>>>>>>>>> ✅ P ✅ <<<<<<<<<<<<<<<
 # > pengPaiNews
@@ -56,6 +64,8 @@ HOST-SUFFIX,alenable.com,REJECT-DICT
 HOST-SUFFIX,aoyiluoad.com,REJECT
 HOST-SUFFIX,adkwai.com,REJECT
 HOST-SUFFIX,adjust.com,REJECT
+HOST-SUFFIX,adjust.world,REJECT
+HOST-SUFFIX,adjust.net.in,REJECT
 HOST-SUFFIX,adservertq.com,REJECT
 HOST-SUFFIX,adtianmai.com,REJECT
 HOST-SUFFIX,appsflyersdk.com,REJECT
@@ -64,6 +74,7 @@ HOST-SUFFIX,appier.net,REJECT
 HOST-SUFFIX,applvn.com,REJECT
 HOST-SUFFIX,applovin.com,REJECT
 HOST,app-measurement.com,REJECT
+HOST,app-analytics-services.com,REJECT
 HOST,ad.doubleclick.net,REJECT
 HOST,adservice.google.com,REJECT
 HOST-SUFFIX,bjcathay.com,REJECT
@@ -73,6 +84,8 @@ HOST-SUFFIX,czwe.cn,REJECT
 HOST-SUFFIX,cnzz.com,REJECT
 HOST,cnzz.mmstat.com,REJECT
 HOST-SUFFIX,cluod.cn,REJECT
+HOST-SUFFIX,clarity.ms,REJECT
+HOST,cs.nuosike.cn,REJECT
 HOST-SUFFIX,dutils.com,REJECT
 HOST-SUFFIX,dcloud.io,REJECT
 HOST-SUFFIX,dcloud.net.cn,REJECT
@@ -80,9 +93,14 @@ HOST-SUFFIX,dcloud.cn,REJECT
 HOST-SUFFIX,drapro1.com,REJECT
 HOST-SUFFIX,drapro2.com,REJECT
 HOST,error.com,REJECT
+HOST,e.jparking.cn,REJECT
+HOST,errorpage.b0.upaiyun.com,REJECT
 HOST-SUFFIX,etoolads.cn,REJECT
 HOST-KEYWORD,irc.drapro,REJECT
 HOST,firebaselogging-pa.googleapis.com,REJECT
+HOST,firebase-settings.crashlytics.com,REJECT
+HOST,gather.colorfulclouds.net,REJECT
+HOST,crashlyticsreports-pa.googleapis.com,REJECT
 HOST-SUFFIX,g.doubleclick.net,REJECT
 HOST-SUFFIX,googleadservices.com,REJECT
 #HOST,googleads.g.doubleclick.net,REJECT
@@ -105,6 +123,7 @@ HOST-SUFFIX,mob.com,REJECT
 HOST-SUFFIX,moatads.com,REJECT
 HOST-SUFFIX,miaozhen.com,REJECT
 HOST-SUFFIX,mixpanel.com,REJECT
+HOST,mobads-pre-config.cdn.bcebos.com,REJECT
 HOST-SUFFIX,newadserver.com,REJECT
 HOST-SUFFIX,nx-perf.cn,REJECT
 HOST,open.e.kuaishou.com,REJECT
