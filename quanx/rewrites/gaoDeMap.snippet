@@ -13,9 +13,6 @@
 ^https:\/\/m5\.amap\.com\/ws\/(?:faas\/amap-navigation\/(?:ridewalk-end-fc|main-page-location)|mapapi\/hint_text\/offline_data) url reject-dict
 ^https:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\? url reject-dict
 
-# > 打车页,红点角标,弹窗,天气图标,推广卡片,路径规划页推荐
-^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:order\/car\/king_toolbox_car_bubble|tips\/onscene_visual_optimization|transportation\/diversion\/resource\/driving) url reject-dict
-
 # > 其它
 # > > > 开屏广告
 ^https:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
@@ -71,6 +68,7 @@
 # > 导航相关
 # > > > 路径规划页打车推荐
 ^https:\/\/m5\.amap\.com\/ws\/(?:faas\/amap-navigation\/card-service-route-plan|aos_public_travel\/recommend_plan) url reject-dict
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/transportation\/diversion\/resource\/driving url reject-dict
 # > > > 导航结束页
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-car-end url reject-dict
 # > > > 步行导航结束
@@ -81,6 +79,10 @@
 ^https:\/\/m5\.amap\.com\/ws\/perception\/drive\/(?:routePlan|routeInfo) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
 # > 打车页相关
+# > > > 打车页icon图标右上角tips文字
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/order\/car\/king_toolbox_car_bubble url reject-dict
+# > > > 打车页左下角天气图标
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/tips\/onscene_visual_optimization url reject-dict
 # > > > 打车页
 ^https:\/\/m5-zb\.amap\.com\/ws\/(?:promotion-web\/resource(\/home)?\?|sharedtrip\/taxi\/order_detail_car_tips\?|boss\/(?:car\/order\/content_info|order_web\/friendly_information)) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
