@@ -126,6 +126,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
             "369",
             "615",
             "616",
+            "618",
             "727",
             "793", // 支付宝 小程序 搜索框
             "954", // 支付宝 小程序 置顶图标
@@ -146,6 +147,7 @@ if (url.includes("/mtop.cainiao.app.e2e.engine.page.fetch.cn")) {
             "1563", //首页左上角tips
             "1638", //为你精选了一些商品
             "1692", //其它提示
+            "1827",
             "1893", //授权其它平台取件
             "2087"
         ];
