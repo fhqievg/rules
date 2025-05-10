@@ -532,7 +532,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
 
     //处理详情信息
     if (obj.data?.modules?.baseInfo?.hasOwnProperty('data')) {
-        //去除位置旁边的地图icon及其它icon右上方的文字
+        //去除位置旁边的地图icon图标及其它icon图标角标文字
         if (obj.data.modules.baseInfo.data.hasOwnProperty('iconsList') && Array.isArray(obj.data.modules.baseInfo.data.iconsList) && obj.data.modules.baseInfo.data.iconsList.length > 0) {
             obj.data.modules.baseInfo.data.iconsList = obj.data.modules.baseInfo.data.iconsList.filter((i) => {
                 if (i.type === 'map' && i.label === '地图') {
@@ -546,7 +546,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             });
         }
 
-        //去除地点名称旁边的咨询icon
+        //去除地点名称旁边的咨询icon图标
         if (obj.data.modules.baseInfo.data.hasOwnProperty('imInfo')) {
             delete obj.data.modules.baseInfo.data.imInfo;
         }
@@ -616,7 +616,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
             delete list.map.main_point.dynamic_texture;
 
-            //改变类型以显示icon
+            //改变类型以显示icon图标
             if (list?.map?.main_point?.hasOwnProperty("card_id")) {
                 list.map.main_point.card_id = "normal_lottie";
             }
@@ -672,7 +672,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
                 delete list.map.main_point.dynamic_texture;
 
-                //改变类型以显示icon
+                //改变类型以显示icon图标
                 if (list?.map?.main_point?.hasOwnProperty("card_id")) {
                     list.map.main_point.card_id = "normal_lottie";
                 }
