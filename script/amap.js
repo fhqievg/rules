@@ -570,6 +570,15 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     if (obj?.data?.headerHotWord?.length > 0) {
         obj.data.headerHotWord = [];
     }
+    
+    //搜索框 下方icon图标角标文字
+    if (obj?.data?.hotwordWithIcon?.length > 0) {
+        for (let i of obj.data.hotwordWithIcon) {
+            if (i.hasOwnProperty("cornerText")) {
+                i.cornerText = "";
+            }
+        }
+    }
 } else if (url.includes("/shield/search_business/process/marketingOperationStructured")) {
     // 详情页 顶部优惠横幅
     if (obj?.data?.tipsOperationLocation) {
