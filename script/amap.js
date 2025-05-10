@@ -80,6 +80,15 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     if (obj?.data?.modules?.C1EndNaviEngine?.data) {
         obj.data.modules.C1EndNaviEngine.data = {};
     }
+} else if (url.includes("/boss/order/car/king_toolbox_info")) {
+    // 路线规划页 代驾推广
+    if (obj?.data?.tabHomePage?.length > 0) {
+        obj.data.tabHomePage = obj.data.tabHomePage.filter(
+                        (i) => !(
+                            i?.id === "chauffeur_homepage_king_info"
+                        )
+                    );
+    }
 } else if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
     // 路线规划页
     if (obj?.data?.children?.length > 0) {
