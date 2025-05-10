@@ -30,7 +30,7 @@
 # > 首页相关
 # > > > 顶部消息横幅
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-assets url reject-dict
-# > > > 工具栏动的图标、工具栏图标icon右上角tips文字
+# > > > 工具栏动的icon图标、工具栏图标icon角标文字
 ^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? url reject-dict
 ^https:\/\/(?:m5|center)\.amap\.com\/ws\/message\/notice\/list url reject-dict
 # > > > 底部卡片
@@ -79,7 +79,7 @@
 ^https:\/\/m5\.amap\.com\/ws\/perception\/drive\/(?:routePlan|routeInfo) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
 # > 打车页相关
-# > > > 打车页icon图标右上角tips文字
+# > > > 打车页icon图标角标文字
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/order\/car\/king_toolbox_car_bubble url reject-dict
 # > > > 打车页左下角天气图标
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/tips\/onscene_visual_optimization url reject-dict
