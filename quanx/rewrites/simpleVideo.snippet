@@ -1,0 +1,18 @@
+#!name=三方影视合集
+#!desc=去广告
+
+^https?:\/\/(.+\.(?:ailbaba\.me|zzjz.top)|(?:iqyi|baidu)\.ylylfun\.com|27\.151\.29\.56(:\d+)?)\/.+\/(?:top_notice|version|advert\?position=(?!(2)(?=&))) url reject
+^https?:\/\/(.+\.(?:ailbaba\.me|zzjz.top)|(?:iqyi|baidu)\.ylylfun\.com|(27\.151\.29\.56|162\.209\.174\.25(2|3))(:\d+)?)\/.+\/actuator_info url reject-200
+^http:\/\/162\.209\.174\.25(2|3)(:\d+)?\/.+\/(?:top_notice|advert\?position=(?!(2)(?=&))) url reject
+^http:\/\/162\.209\.174\.25(2|3)(:\d+)?\/.+\/app_config\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/simpleVideo/xiaoShiZi.js
+^https?:\/\/vip7\.fzwdyy\.cn(:\d+)?\/api\/(?:getAdvertInfo|getGOOGAdvert) url reject
+
+# > 555
+^https?:\/\/(?:run\.api\.qyfxgd\.cn|a\.weilai555\.com|(?:a|app-v1)\.ecoliving168\.com)(:\d+)?\/api\/v1\/advert url reject
+^https?:\/\/(?:run\.api\.qyfxgd\.cn|a\.weilai555\.com|(?:a|app-v1)\.ecoliving168\.com)(:\d+)?\/api\/v1\/movie\/index_recommend url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/simpleVideo/555.js
+
+# > keEr
+^http:\/\/(?:kekeoo|ereroo)\.com\/(?:Aios\/(?:config|clothes|Climber|zixingche)|banner|Aios1\/wordss)\.json url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/simpleVideo/keEr.js
+^http:\/\/api\.juliangcili\.com\/(\/)?api\/adver\/(?:data\/insert|space\/all\/list) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/simpleVideo/keEr.js
+
+hostname = run.api.qyfxgd.cn, vip7.fzwdyy.cn, a.weilai555.com, a.ecoliving168.com, app-v1.ecoliving168.com, *.zzjz.top, iqyi.ylylfun.com, baidu.ylylfun.com
