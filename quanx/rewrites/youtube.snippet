@@ -2,6 +2,9 @@
 #!desc = 去广告(iOS>=15)、字幕(默认单语简体中文)
 #!author = Maasea
 
+#AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
+#AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
+
 # > 播放页广告
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad url reject-dict
 
@@ -13,4 +16,4 @@
 # > 翻译字幕
 ^https:\/\/www\.youtube\.com\/api\/timedtext\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/youtube/subtitle.js
 
-hostname = *.googlevideo.com,youtubei.googleapis.com,setting.youtube.com,www.youtube.com
+hostname = *.googlevideo.com, youtubei.googleapis.com, setting.youtube.com, www.youtube.com
