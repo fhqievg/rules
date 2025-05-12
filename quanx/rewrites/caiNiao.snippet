@@ -5,12 +5,14 @@
 ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch Cainiao url-and-header reject
 
 # > 其它
-^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(?:adkeyword\.get|nbopen\.miniapp\.recommend\.cpc|nbmensa\.research\.researchservice\.(?:acquire|event|close)|cncommunity\.my\.station\.query|app\.home\.tabbar\.marketing\.get)\.cn url reject-dict
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.(?:nbopen\.miniapp\.recommend\.cpc|nbmensa\.research\.researchservice\.(?:acquire|event|close)|cncommunity\.my\.station\.query|app\.home\.tabbar\.marketing\.get)\.cn url reject-dict
 ^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.((?:longquan\.place\.get(page)?resourcecontent|cncreditmarket\.hit\.getactivityhit)\.cn|cnactivitycenter) url reject-dict
 ^https:\/\/(?:cn-acs\.m|.+-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo(\.nbnetflow)?\.ads\.(?:batch\.show\.v2|click\.reply|expose\.m?reply|index)\.cn url reject-dict
 ^https:\/\/(?:cn-acs\.m|mtop-bff-mtop)\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(?:homepage\.merge|tabbar\.marketing)\.get\.cn url reject-dict
 
 # > 首页相关
+# > > > 首页顶部搜索框搜索词推荐
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword\.(?:associate|get)\.cn url reject-dict
 # > > > tab栏及模块显示
 ^https:\/\/(?:e2e-mtop|cn-acs\.m)\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiNiao.js
 # > > > 移除推广图标
