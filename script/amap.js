@@ -874,6 +874,36 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     if (obj?.data?.modules?.hasOwnProperty('contentPoster')) {
         delete obj.data.modules.contentPoster;
     }
+} else if (url.includes("/amc/server/conv/raise_list")) {
+    //消息列表通知过滤
+	if (obj.data?.dataList?.length > 0) {
+		const idItems = [
+			//"M_100001", //我的反馈
+			//"M_100007", //订单提醒
+			"M_100009", //高德旺铺
+			//"M_100011", //服务通知
+			//"M_100012", //交通实况LIVE
+			//"M_100016", //地点评论
+			"M_100021", //数字工厂- 我的个人主页
+			"M_100023", //出行侠
+			//"M_100032", //高德达人
+			"M_100036", //高德运动
+			"M_100038", //高德出游服务
+			//"M_100044", //通知权限提醒
+			"M_100046", //天天领福利
+			"M_100050", //高德快报
+			"M_100051", //高德·超划算
+			"M_100053", //游戏中心
+			"M_100059", //高德酒店
+		]
+		
+		obj.data.dataList = obj.data.dataList.filter((i) => {
+            if (i.data?.hasOwnProperty("id") && idItems.includes(i.data.id)) {
+                return false;
+            }
+            return true;
+        });
+	}
 }
 $done({ body: JSON.stringify(obj) });
 
