@@ -79,6 +79,10 @@
 # > > > 路径规划页及导航详情页
 ^https:\/\/m5\.amap\.com\/ws\/perception\/drive\/(?:routePlan|routeInfo) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
+# > 消息相关
+# > > >消息列表消息过滤
+^https:\/\/center\.amap\.com\/ws\/amc\/server\/conv\/raise_list\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
+
 # > 打车页相关
 # > > > 打车页icon图标角标文字
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/order\/car\/king_toolbox_car_bubble url reject-dict
