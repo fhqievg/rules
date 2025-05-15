@@ -559,6 +559,25 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         if (obj.data.modules.baseInfo.data.hasOwnProperty('imInfo')) {
             delete obj.data.modules.baseInfo.data.imInfo;
         }
+        
+        //去除位置旁边的地图icon图标(旧的样式)
+        if (obj.data.modules.baseInfo.data.address_info?.icons?.length > 0) {
+            obj.data.modules.baseInfo.data.address_info.icons = obj.data.modules.baseInfo.data.address_info.icons.filter((i) => {
+                if (i.type === 'map' && i.label === '地图') {
+                    return false;
+                }
+                return true;
+            });
+        
+            if(obj.data.modules.baseInfo.data.address_info.iconSort?.length > 0){
+                obj.data.modules.baseInfo.data.address_info.iconSort = obj.data.modules.baseInfo.data.address_info.iconSort.filter((i) => {
+                    if (i === 'map') {
+                        return false;
+                    }
+                    return true;
+                });
+            }
+        }
     }
 
     //处理icon推广
