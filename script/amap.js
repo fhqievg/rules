@@ -894,10 +894,11 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         delete obj.data.modules.contentPoster;
     }
 } else if (url.includes("/amc/server/conv/raise_list")) {
-    console.log("修改前：");
-    console.log(JSON.stringify(obj));
     //消息列表通知过滤
 	if (obj.data?.dataList?.length > 0) {
+        console.log("修改前：");
+        console.log(JSON.stringify(obj));
+        
 		const idItems = [
 			//"M_100001", //我的反馈
 			//"M_100007", //订单提醒
@@ -924,9 +925,10 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             }
             return true;
         });
+        
+        console.log("修改后：");
+        console.log(JSON.stringify(obj));
 	}
-    console.log("修改后：");
-    console.log(JSON.stringify(obj));
 }
 $done({ body: JSON.stringify(obj) });
 
