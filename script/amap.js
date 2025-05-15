@@ -875,6 +875,8 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         delete obj.data.modules.contentPoster;
     }
 } else if (url.includes("/amc/server/conv/raise_list")) {
+    console.log("修改前：");
+    console.log(JSON.stringify(obj));
     //消息列表通知过滤
 	if (obj.data?.dataList?.length > 0) {
 		const idItems = [
@@ -904,6 +906,8 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             return true;
         });
 	}
+    console.log("修改后：");
+    console.log(JSON.stringify(obj));
 }
 $done({ body: JSON.stringify(obj) });
 
