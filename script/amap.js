@@ -1060,4 +1060,5 @@ function skuListFilter(skuList){
                     i?.skuInfo?.skuId === 458  //猫冰箱贴
                         )
                 );
+    return skuList;
 }
