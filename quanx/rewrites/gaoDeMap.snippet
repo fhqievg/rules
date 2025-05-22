@@ -60,7 +60,7 @@
 # > > > 详情页顶部
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 地点详情
-^https:\/\/m5\.amap\.com\/ws\/shield\/search\/poi\/detail url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
+^https:\/\/(?:m5|info)\.amap\.com\/ws\/shield\/search\/poi\/detail url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 居住指数页
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/contentDetail\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
@@ -105,4 +105,4 @@
 # > > > 达人抽奖sku过滤
 ^https:\/\/m5\.amap\.com\/ws\/user\/activity\/talent\/lottery\/skuList\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
-hostname = m5.amap.com, m5-zb.amap.com, oss.amap.com, sns.amap.com, center.amap.com
+hostname = m5.amap.com, m5-zb.amap.com, oss.amap.com, sns.amap.com, center.amap.com, info.amap.com
