@@ -862,12 +862,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
                 case "UserCenterLotteryCard":
                     //达人抽奖去掉不想要的
                     if (i?.cardData?.hasOwnProperty('skuList') && i.cardData.skuList.length > 0) {
-                        i.cardData.skuList = i.cardData.skuList.filter(
-                            (j) => !(
-                                j?.skuInfo?.skuId === 1063 || //实体勋章
-                                j?.skuInfo?.skuId === 458  //猫冰箱贴
-                            )
-                        );
+                        i.cardData.skuList = skuListFilter(i.cardData.skuList);
                     }
                     break;
                 default:
@@ -929,6 +924,10 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         console.log("==========修改后：==========");
         console.log(JSON.stringify(obj));
 	}
+} else if (url.includes("/user/activity/talent/lottery/skuList")) {
+    if(obj?.data?.skuList?.length > 0) {
+    	obj.data.skuList = skuListFilter(obj.data.skuList);
+    }
 }
 $done({ body: JSON.stringify(obj) });
 
@@ -1052,4 +1051,13 @@ function footprintHandle(topMixedCard, fixedData) {
     topMixedCard.cardData.data = newData;
 
     return topMixedCard;
+}
+
+function skuListFilter(skuList){
+	skuList = skuList.filter(
+                (i) => !(
+                    i?.skuInfo?.skuId === 1063 || //实体勋章
+                    i?.skuInfo?.skuId === 458  //猫冰箱贴
+                        )
+                );
 }
