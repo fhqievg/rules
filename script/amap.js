@@ -331,6 +331,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "first_surround_estate_tab", // 周边小区
         // "floor_guide_second", // 楼层导览
         // "footer_logo",
+        "footer_tel_button", //右下角电话咨询浮框
         // "foreclosurehouse",
         // "gallery_info", // 现场照片
         // "ggc_entry",
