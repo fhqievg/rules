@@ -37,15 +37,15 @@
 # > > > 去除推广
 ^https:\/\/m5\.amap\.com\/ws\/(?:shield\/search\/nearbyrec_smart|smartui\/near_recommend)\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 附近页去除右下角写笔记浮框
-^https:\/\/m5\.amap\.com\/ws\/c3frontend\/af-nearby\/nearby\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
+^https:\/\/(?:m5|info)\.amap\.com\/ws\/c3frontend\/af-nearby\/nearby\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
 # > 搜索相关
 # > > > 顶部搜索词推荐（猜你想搜）、搜索框热词热词
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/(?:back_sug_recommend|new_hotword) url reject-dict
 # > > > 搜索框热榜logo
-^https:\/\/m5\.amap\.com\/ws\/shield\/search_bff\/hotword\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
+^https:\/\/(?:m5|info)\.amap\.com\/ws\/shield\/search_bff\/hotword\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 搜索框推广标签
-^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/homepage url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
+^https:\/\/(?:m5|info)\.amap\.com\/ws\/shield\/search_poi\/homepage url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 从附近页点击顶部分类搜索
 ^https:\/\/m5\.amap\.com\/ws\/c3frontend\/af-hotel\/page\/main\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 搜索页底部
