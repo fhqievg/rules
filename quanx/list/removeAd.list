@@ -68,6 +68,7 @@ HOST-SUFFIX,adjust.world,REJECT
 HOST-SUFFIX,adjust.net.in,REJECT
 HOST-SUFFIX,adservertq.com,REJECT
 HOST-SUFFIX,adtianmai.com,REJECT
+HOST-SUFFIX,anythinktech.com,REJECT
 HOST-SUFFIX,appsflyersdk.com,REJECT
 HOST-SUFFIX,appsflyer.com,REJECT
 HOST-SUFFIX,appier.net,REJECT
@@ -144,6 +145,8 @@ HOST-SUFFIX,shujupie.com,REJECT
 HOST-SUFFIX,shuzilm.cn,REJECT
 HOST-SUFFIX,split.io,REJECT
 HOST-SUFFIX,tingyun.com,REJECT
+HOST-SUFFIX,toponad.com,REJECT
+HOST-SUFFIX,tobidad.cn,REJECT
 HOST-SUFFIX,unity.cn,REJECT
 HOST-SUFFIX,unitychina.cn,REJECT
 HOST-SUFFIX,unity3d.com,REJECT
