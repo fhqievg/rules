@@ -815,6 +815,9 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     if(obj?.data?.homePageData?.userData?.identity?.annualBill?.length > 0){
         obj.data.homePageData.userData.identity.annualBill = [];
     }
+    if(obj?.data?.homePageData?.userData?.identity?.achieveList?.length > 0){
+        obj.data.homePageData.userData.identity.achieveList = [];
+    }
 
     //模块处理
     if (obj?.data?.homePageData?.cardList?.length > 0) {
