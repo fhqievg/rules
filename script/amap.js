@@ -812,9 +812,9 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         obj.data.homePageData.medalData.guideList = [];
     }
     //去除已获得成就的勋章显示
-    /*if(obj?.data?.homePageData?.userData?.identity?.annualBill?.length > 0){
+    if(obj?.data?.homePageData?.userData?.identity?.annualBill?.length > 0){
         obj.data.homePageData.userData.identity.annualBill = [];
-    }*/
+    }
 
     //模块处理
     if (obj?.data?.homePageData?.cardList?.length > 0) {
@@ -825,7 +825,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             //"UserCenterSkuCard", //达人专属抢
             //"UserCenterLotteryCard", //达人抽奖
             "UserCenterLevelActivityCard", //线下活动
-            //"UserCenterInteractCard", //互动专区（合成烟花、达人形象那一块）
+            "UserCenterInteractCard", //互动专区（合成烟花、达人形象那一块）
             //"UserCenterGrowthTaskCard", //我的成长
             "UserCenterMemberVideoCard" //底部视频
         ];
