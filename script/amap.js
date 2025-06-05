@@ -812,12 +812,12 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         obj.data.homePageData.medalData.guideList = [];
     }
     //去除已获得成就的勋章显示
-    if(obj?.data?.homePageData?.userData?.identity?.annualBill?.length > 0){
+    /*if(obj?.data?.homePageData?.userData?.identity?.annualBill?.length > 0){
         obj.data.homePageData.userData.identity.annualBill = [];
     }
     if(obj?.data?.homePageData?.userData?.identity?.achieveList?.length > 0){
         obj.data.homePageData.userData.identity.achieveList = [];
-    }
+    }*/
 
     //模块处理
     if (obj?.data?.homePageData?.cardList?.length > 0) {
