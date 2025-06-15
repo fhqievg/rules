@@ -509,13 +509,15 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         }
         obj.data.modules.reviews.data.write_comment.activity_name_tag = "";
 
-        if (obj.data?.modules?.reviews?.data?.write_comment?.task_entrance) {
+        if (obj.data.modules.reviews.data.write_comment.task_entrance) {
             delete obj.data.modules.reviews.data.write_comment.task_entrance; //评价模块右上角活动入口
         }
     }
     //新版评价
     if (!obj.data?.modules?.combineReviews?.data?.hasOwnProperty("total") || obj.data?.modules?.combineReviews?.data?.total === "") {
-        items.push('combineReviews');
+        if (obj.data?.modules?.combineReviews?.data?.evaluation?.hasOwnProperty("score") && obj.data?.modules?.combineReviews?.data?.evaluation?.score === "0.0") {
+            items.push('combineReviews');
+        }
     }
     if (obj.data?.modules?.combineReviews?.data?.hasOwnProperty("nav_bar_write_comment")) {
         //delete obj.data.modules.combineReviews.data.nav_bar_write_comment; //右上角写评价入口
@@ -524,7 +526,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         obj.data.modules.combineReviews.data.write_comment.is_activity = false;
         obj.data.modules.combineReviews.data.write_comment.title = "";
         
-        if (obj.data?.modules?.combineReviews?.data?.write_comment?.task_entrance) {
+        if (obj.data.modules.combineReviews.data.write_comment.task_entrance) {
             delete obj.data.modules.combineReviews.data.write_comment.task_entrance; //评价模块右上角活动入口
         }
     }
