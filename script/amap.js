@@ -513,6 +513,18 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             delete obj.data.modules.reviews.data.write_comment.task_entrance; //评价模块右上角活动入口
         }
     }
+    //新版评价
+    if (!obj.data?.modules?.combineReviews?.data?.hasOwnProperty("total") || obj.data?.modules?.combineReviews?.data?.total === "") {
+        items.push('combineReviews');
+    }
+    if (obj.data?.modules?.combineReviews?.data?.hasOwnProperty("nav_bar_write_comment")) {
+        //delete obj.data.modules.combineReviews.data.nav_bar_write_comment; //右上角写评价入口
+    }
+    if (obj.data?.modules?.combineReviews?.data?.write_comment) {
+        if (obj.data?.modules?.combineReviews?.data?.write_comment?.task_entrance) {
+            delete obj.data.modules.combineReviews.data.write_comment.task_entrance; //评价模块右上角活动入口
+        }
+    }
 
     //处理出行评分
     if (!obj.data?.modules?.evaluateVO?.data?.hasOwnProperty("score") || obj.data?.modules?.evaluateVO?.data?.score === "0.0") {
