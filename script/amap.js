@@ -525,6 +525,8 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     if (obj.data?.modules?.combineReviews?.data?.write_comment) {
         obj.data.modules.combineReviews.data.write_comment.is_activity = false;
         obj.data.modules.combineReviews.data.write_comment.title = "";
+        obj.data.modules.combineReviews.data.write_comment.showScore = 0;
+        obj.data.modules.combineReviews.data.write_comment.display_tips = "";
         
         if (obj.data.modules.combineReviews.data.write_comment.task_entrance) {
             delete obj.data.modules.combineReviews.data.write_comment.task_entrance; //评价模块右上角活动入口
