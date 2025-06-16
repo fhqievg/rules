@@ -515,7 +515,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     }
     //新版评价
     if (!obj.data?.modules?.combineReviews?.data?.hasOwnProperty("total") || obj.data?.modules?.combineReviews?.data?.total === "") {
-        if (obj.data?.modules?.combineReviews?.data?.evaluation?.hasOwnProperty("score") && obj.data?.modules?.combineReviews?.data?.evaluation?.score === "0.0") {
+        if ((obj.data?.modules?.combineReviews?.data?.evaluation?.hasOwnProperty("score") && obj.data?.modules?.combineReviews?.data?.evaluation?.score === "0.0") || !obj.data?.modules?.combineReviews?.data?.hasOwnProperty("evaluation")) {
             items.push('combineReviews');
         }
     }
