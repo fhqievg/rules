@@ -321,8 +321,6 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "detail_bottom_shop_service", //买卖二手房
         "discount_commodity", // 优惠团购
         "divergentRecommendModule", // 你可能还喜欢
-        // "evaluate", // 高德出行评分
-        //"evaluateVO", //出行评分
         // "events",
         "everyOneToSee", // 大家还在看
         "enhanceCustomerServicePoiModule",  //品牌服务专区
@@ -365,6 +363,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "house_price",
         "house_price_v2", // 小区房屋售价
         "house_rent_sale_agency",
+        "houseService", //买卖房
         "hospital_strategy", //就医攻略
         // "human_traffic", // 人流量情况 有统计图
         "image_banner",
@@ -428,7 +427,6 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "rentsaleagencyv3",
         "rentsalehouse",
         "residentialOwners", // 小区业主
-        //"reviews", // 用户评价
         // "roomSelect", // 选择订房日期 悬浮菜单
         "recommend_designer_card", //设计师推荐
         "rec_legal_document", //推荐下方的说明文字
