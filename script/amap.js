@@ -368,6 +368,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "hospital_strategy", //就医攻略
         // "human_traffic", // 人流量情况 有统计图
         "image_banner",
+        "imBottomGuide", //底部客服横幅
         "kaMarketingCampaign", // 附近品牌动态
         "kaProductMixServiceShelf", //骑手送药上门
         "ka_not_enter", // 移动办卡 套餐服务
@@ -415,6 +416,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         // "poi_intercept",
         "portal_entrance", // 高德旅游版块 引流到旅游频道
         "poiDetailNewBeltV2", //横幅广告图
+        "privateSphereChannel", //门店微信
         // "question_answer_card", // 问问 地点附近的热门问题
         "quickLink", // 地点详情页图标 酒店 景点 热榜
         "relatedRecommends", // 附近同类型酒店
