@@ -400,6 +400,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
         "officesellhouse",
         "official_account", // 其他平台官方账号
         "official_account_hospital", //官方渠道（支付宝小程序）
+        "oilPriceSubscription", //油价订阅按钮
         "oldsellhouse",
         // "opentime", // 营业时间
         "operation_banner", // 横版图片推广
