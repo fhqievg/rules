@@ -188,7 +188,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             if (delArr.includes(i?.dataKey)) {
                 return false;
             }
-
+            
             //去除我的页面底部待评价订单的提示
             if (i?.dataKey === 'MyOrderCard') {
                 if (i?.content?.hasOwnProperty('statusBar') && i?.content.statusBar.length > 0) {
@@ -197,6 +197,17 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
                             j?.status === "comment" //待评价
                         )
                     );
+                }
+            }
+            
+            //去除语音及车标推荐
+            if (i?.dataKey === 'MineNewVirtualAssetCard') {
+                if (i?.content?.ownedList?.length > 0) {
+                    for (let j of i.content.ownedList) {
+                        if(j.hasOwnProperty("bottomTips")) {
+                            delete j.bottomTips;
+                        }
+                    }
                 }
             }
             return true;
