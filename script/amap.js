@@ -177,8 +177,15 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
 } else if (url.includes("/shield/dsp/profile/index/nodefaasv3")) {
     // 我的页面
     if (obj?.data?.cardList?.length > 0) {
+        let delArr = [
+            "MineNewBEntranceCard", //快捷入口
+            "MineNewDoubleRowCard", //车辆管理
+            "MineNewShopCard", //店铺管理
+            "MineGoodsDisplayCard", //语音包推荐
+            "PopularActivitiesCard" //互动专区
+        ];
         obj.data.cardList = obj.data.cardList.filter((i) => {
-            if (i?.dataKey === 'MineNewBEntranceCard' || i?.dataKey === "MineNewDoubleRowCard" || i?.dataKey === "MineNewShopCard" || i?.dataKey === "MineGoodsDisplayCard" || i?.dataKey === "PopularActivitiesCard") {
+            if (delArr.includes(i?.dataKey)) {
                 return false;
             }
 
