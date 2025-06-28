@@ -178,8 +178,8 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     // 我的页面
     if (obj?.data?.cardList?.length > 0) {
         obj.data.cardList = obj.data.cardList.filter((i) => {
-            if (i?.dataKey !== 'MyOrderCard' && i?.dataKey !== "MineCoreAreaAsset") {
-                //return false;
+            if (i?.dataKey === 'MineNewBEntranceCard' || i?.dataKey === "MineNewDoubleRowCard" || i?.dataKey === "MineNewShopCard" || i?.dataKey === "MineGoodsDisplayCard" || i?.dataKey === "PopularActivitiesCard") {
+                return false;
             }
 
             //去除我的页面底部待评价订单的提示
