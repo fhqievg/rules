@@ -178,7 +178,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     // 我的页面
     if (obj?.data?.cardList?.length > 0) {
         let delArr = [
-            "MineNewBEntranceCard", //快捷入口
+            //"MineNewBEntranceCard", //快捷入口
             "MineNewDoubleRowCard", //车辆管理
             "MineNewShopCard", //店铺管理
             "MineGoodsDisplayCard", //语音包推荐
