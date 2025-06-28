@@ -210,6 +210,13 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
                     }
                 }
             }
+            
+            //保留订单入口
+            if (i?.dataKey === 'MineNewBEntranceCard') {
+                if (i?.content?.entranceList?.length > 0) {
+                    i.content.entranceList = i.content.entranceList.filter((k) => k?.id === 7);
+                }
+            }
             return true;
         });
     }
