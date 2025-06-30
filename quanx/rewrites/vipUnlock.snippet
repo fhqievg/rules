@@ -1,5 +1,5 @@
 #!name=VIP解锁
-#!desc=caiyun、拦截100(<=3.0.2，版本ID:847028887)、Nicegram(<=1.0.7)、xmind思维导图(解锁订阅到2030年)、baiDuPan解锁倍率播放、aliDrive
+#!desc=caiyun、拦截100(<=3.0.2，版本ID:847028887)、Nicegram(<=1.0.7)、xmind思维导图(解锁订阅到2030年)、baiDuPan解锁倍率播放、aliDrive、emby播放权限
 #来源仓库：Maasea、id77/QuantumultX、I-am-R-E/Functional-Store-Hub、RuCu6
 
 # > caiYun
@@ -24,4 +24,7 @@
 # > xiaoXiongYouHao
 ^https?:\/\/www\.xiaoxiongyouhao\.com\/api\/(?:account_sync\.php|vip\/index\.php\?a=query_membership) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/vipUnlock/xiaoXiongYouHao.js
 
-hostname = biz.cyapi.cn, tagit.hyhuo.com, restore-access.indream.app, www.xmind.cn, www.xmind.net, www.xmind.app, pan.baidu.com, api.aliyundrive.com, member.aliyundrive.com, www.xiaoxiongyouhao.com
+# > emby播放权限解锁
+^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/vipUnlock/emby.js
+
+hostname = biz.cyapi.cn, tagit.hyhuo.com, restore-access.indream.app, www.xmind.cn, www.xmind.net, www.xmind.app, pan.baidu.com, api.aliyundrive.com, member.aliyundrive.com, www.xiaoxiongyouhao.com, mb3admin.com
