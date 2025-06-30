@@ -1,4 +1,4 @@
-if ($request.url.indexOf("mb3admin.com/admin/service/registration/validateDevice") != -1) {
+if ($request.url.includes("/admin/service/registration/validateDevice")) {
   if ($response.statusCode != 200) {
     $done({
       status: "HTTP/1.1 200 OK",
