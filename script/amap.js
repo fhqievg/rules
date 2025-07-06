@@ -943,8 +943,8 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
 } else if (url.includes("/amc/server/conv/raise_list")) {
     //消息列表通知过滤
 	if (obj.data?.dataList?.length > 0) {
-        console.log("**********修改前：**********");
-        console.log(JSON.stringify(obj));
+        /*console.log("**********修改前：**********");
+        console.log(JSON.stringify(obj));*/
         
 		const idItems = [
 			//"M_100001", //我的反馈
@@ -974,8 +974,8 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
             return true;
         });
         
-        console.log("==========修改后：==========");
-        console.log(JSON.stringify(obj));
+        /*console.log("==========修改后：==========");
+        console.log(JSON.stringify(obj));*/
 	}
 } else if (url.includes("/user/activity/talent/lottery/skuList")) {
     if(obj?.data?.skuList?.length > 0) {
