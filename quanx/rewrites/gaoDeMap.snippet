@@ -31,7 +31,7 @@
 ^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? url reject-dict
 ^https:\/\/(?:m5|center)\.amap\.com\/ws\/message\/notice\/list url reject-dict
 # > > > 底部卡片
-^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page(-aiqs)\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
 # > 附近及搜索周边相关
 # > > > 去除推广
