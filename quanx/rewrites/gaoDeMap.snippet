@@ -33,6 +33,8 @@ HOST, amap-aos-info-nogw.amap.com, REJECT
 # > > > 工具栏动的icon图标及icon图标的角标文字
 ^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? url reject-dict
 ^https:\/\/(?:m5|center)\.amap\.com\/ws\/message\/notice\/list url reject-dict
+# > > > ai
+^https:\/\/ai\.amap\.com\/v1\/ai_rec\/home_qs\? url reject
 # > > > 底部卡片
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page(-aiqs)?\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
@@ -108,4 +110,4 @@ HOST, amap-aos-info-nogw.amap.com, REJECT
 # > > > 达人抽奖sku过滤
 ^https:\/\/m5\.amap\.com\/ws\/user\/activity\/talent\/lottery\/skuList\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
-hostname = m5.amap.com, m5-zb.amap.com, oss.amap.com, sns.amap.com, center.amap.com, info.amap.com
+hostname = m5.amap.com, m5-zb.amap.com, oss.amap.com, sns.amap.com, center.amap.com, info.amap.com, ai.amap.com
