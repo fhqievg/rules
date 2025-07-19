@@ -10,23 +10,8 @@ HOST-SUFFIX,ut.taobao.com,REJECT
 HOST,mobads.baidu.com,REJECT
 
 # >>>>>>>>>>>>>> ✅ C ✅ <<<<<<<<<<<<<<<
-# > cheLaiLe
-HOST,atrace.chelaile.net.cn,REJECT
-HOST,logs.chelaile.net.cn,REJECT
-
-# > caiNiao
-HOST,adashx.ut.cainiao.com,REJECT
-HOST,h-adashx.ut.cainiao.com,REJECT
-
-# > caiYun
-HOST,ad.cyapi.cn,REJECT
-
 //colorful widget
 HOST-SUFFIX,unbing.cn,REJECT
-
-# >>>>>>>>>>>>>> ✅ G ✅ <<<<<<<<<<<<<<<
-# > gaoDeMap
-HOST,amap-aos-info-nogw.amap.com,REJECT
 
 # >>>>>>>>>>>>>> ✅ J ✅ <<<<<<<<<<<<<<<
 # > 捷径
@@ -48,12 +33,6 @@ HOST,a314.gameloft.com,REJECT
 
 # > 夸克
 HOST-SUFFIX,unet.quark.cn,REJECT
-
-# >>>>>>>>>>>>>> ✅ P ✅ <<<<<<<<<<<<<<<
-# > pengPaiNews
-HOST,applog.thepaper.cn,REJECT-200
-HOST,applogs.thepaper.cn,REJECT-200
-HOST,adpai.thepaper.cn,REJECT
 
 # >>>>>>>>>>>>>> ✅ S ✅ <<<<<<<<<<<<<<<
 # > 三方
@@ -190,19 +169,7 @@ HOST-KEYWORD,trace.qq.com,REJECT
 HOST-KEYWORD,trace.video.qq.com,REJECT
 IP-CIDR,47.110.187.87/32,REJECT
 
-# >>>>>>>>>>>>>> ✅ W ✅ <<<<<<<<<<<<<<<
-# > wechat
-HOST,badjs.weixinbridge.com,REJECT
-
-# >>>>>>>>>>>>>> ✅ X ✅ <<<<<<<<<<<<<<<
-# > xiaChuFang
-HOST,track.xiachufang.com,REJECT
-HOST,trackbeat.xiachufang.com,REJECT
-
 # >>>>>>>>>>>>>> ✅ Y ✅ <<<<<<<<<<<<<<<
-# > 影视
-IP-CIDR,47.99.219.178/32,REJECT
-
 # > youKu
 HOST,adashx.ut.youku.com,REJECT
 HOST,amdc.m.youku.com,REJECT
