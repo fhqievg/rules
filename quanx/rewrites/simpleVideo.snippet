@@ -1,6 +1,9 @@
 #!name=三方影视合集
 #!desc=去广告
 
+# > 分流
+IP-CIDR,47.99.219.178/32,REJECT
+
 ^https?:\/\/(.+\.(?:ailbaba\.me|zzjz.top)|(?:iqyi|baidu)\.ylylfun\.com|27\.151\.29\.56(:\d+)?)\/.+\/(?:top_notice|version|advert\?position=(?!(2)(?=&))) url reject
 ^https?:\/\/(.+\.(?:ailbaba\.me|zzjz.top)|(?:iqyi|baidu)\.ylylfun\.com|(27\.151\.29\.56|162\.209\.174\.25(2|3))(:\d+)?)\/.+\/actuator_info url reject-200
 ^http:\/\/162\.209\.174\.25(2|3)(:\d+)?\/.+\/(?:top_notice|advert\?position=(?!(2)(?=&))) url reject
