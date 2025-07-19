@@ -84,6 +84,8 @@ HOST,adpai.thepaper.cn,REJECT
 
 # >>>>>>>>>>>>>> ✅ X ✅ <<<<<<<<<<<<<<<
 # > xiaChuFang
+HOST,track.xiachufang.com,REJECT
+HOST,trackbeat.xiachufang.com,REJECT
 ^https?:\/\/(?:www|api)\.xiachufang\.com\/.+\/ad\/ url reject
 #优化
 ^https:\/\/api\.xiachufang\.com\/v2\/(?:account\/detail|homepage.*\/(?:init_page|paged_waterfall_recommendations|ranking_list\/paged_homepage_ranking_list_section_v\d*)|recipe\/(?:bottom_list|detail_v\d*)|search\/(?:popular_queries|universal_search_v\d*)|user\/get_profile)\.json url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/xiaChuFang.js
