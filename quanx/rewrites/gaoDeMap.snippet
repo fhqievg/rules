@@ -2,6 +2,9 @@
 #!desc=去广告
 #!author=RuCu6
 
+# > 分流
+HOST, amap-aos-info-nogw.amap.com, REJECT
+
 # > amdc处理
 ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch AMap url-and-header script-response-header https://raw.githubusercontent.com/fhqievg/rules/main/script/header.js
 
