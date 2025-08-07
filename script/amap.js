@@ -190,6 +190,11 @@ if (url.includes("/shield/scene/recommend")) {
             "PopularActivitiesCard" //互动专区
         ];
         obj.data.cardList = obj.data.cardList.filter((i) => {
+            //去除2025入口
+            if (i?.dataKey === 'MineArrowActionCard' && i?.content?.card?.hasOwnProperty("title") && i?.content?.card?.title === "高德2025") {
+                delArr.push(i.dataKey);
+            }
+            
             if (delArr.includes(i?.dataKey)) {
                 return false;
             }
