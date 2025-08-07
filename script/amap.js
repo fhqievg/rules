@@ -2,7 +2,12 @@ const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
-if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
+if (url.includes("/shield/scene/recommend")) {
+    //首页工具栏icon右上角文字
+	if (obj.data?.toolsRecommend?.hasOwnProperty('data')) {
+		obj.data.toolsRecommend.data.choiceTools = [];
+	}
+} else if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     // 公交出行 底部卡路里数值
     if (obj?.data?.common_data?.bus_plan_bottom_event?.data?.length > 0) {
         obj.data.common_data.bus_plan_bottom_event.data = [];
