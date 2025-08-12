@@ -558,8 +558,9 @@ if (url.includes("/shield/scene/recommend")) {
     if (obj.data?.modules?.combineReviews?.data?.hasOwnProperty("nav_bar_write_comment")) {
         //delete obj.data.modules.combineReviews.data.nav_bar_write_comment; //右上角写评价入口
     }
-    if (obj.data?.modules?.combineReviews?.data?.write_comment) {
+    if (obj.data?.modules?.combineReviews?.data?.hasOwnProperty("write_comment")) {
         obj.data.modules.combineReviews.data.write_comment.is_activity = false;
+        obj.data.modules.combineReviews.data.write_comment.btnRightTag = "";
         obj.data.modules.combineReviews.data.write_comment.title = "";
         obj.data.modules.combineReviews.data.write_comment.showScore = 0;
         obj.data.modules.combineReviews.data.write_comment.display_tips = "";
