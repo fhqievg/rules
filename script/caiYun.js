@@ -1,7 +1,12 @@
 const url = $request.url;
 let obj = JSON.parse($response.body);
 
-if (url.includes("/api.caiyunapp.com/v1/activity")) {
+if (url.includes("/v3/config")) {
+    //搜索建议
+    if(obj?.search_suggestions) {
+        obj.search_suggestions = [];
+    }
+} else if (url.includes("/api.caiyunapp.com/v1/activity")) {
     if (url.includes("&type_id=A03&")) {
       // 底栏控制项目 主页图标 天气助手 彩云ai
       if (obj?.interval) {
