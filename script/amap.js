@@ -221,11 +221,22 @@ if (url.includes("/shield/scene/recommend")) {
                 }
             }
             
-            //保留订单入口
+            //保留入口
             if (i?.dataKey === 'MineNewBEntranceCard') {
                 if (i?.content?.entranceList?.length > 0) {
-                    console.log(JSON.stringify(i.content.entranceList));
-                    i.content.entranceList = i.content.entranceList.filter((k) => k?.id === 7);
+                    let entranceArr = [
+                        //"7", //订单
+                        "8", //收藏
+                        "17", //钱包卡券
+                        "10", //待评价
+                        "27", //地图共建
+                        "4", //家人地图
+                        "9", //地图小程序
+                        "16", //代驾
+                        "15", //油耗
+                        //"14" //工具箱
+                    ];
+                    i.content.entranceList = i.content.entranceList.filter((k) => !entranceArr?.includes(k?.id));
                 }
             }
             return true;
