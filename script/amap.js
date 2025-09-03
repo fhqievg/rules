@@ -225,18 +225,18 @@ if (url.includes("/shield/scene/recommend")) {
             if (i?.dataKey === 'MineNewBEntranceCard') {
                 if (i?.content?.entranceList?.length > 0) {
                     const entranceArr = [
-                        //"7", //订单
-                        "8", //收藏
-                        "17", //钱包卡券
-                        "10", //待评价
-                        "27", //地图共建
-                        "4", //家人地图
-                        "9", //地图小程序
-                        "16", //代驾
-                        "15", //油耗
-                        //"14" //工具箱
+                        4, //家人地图
+                        //7, //订单
+                        8, //收藏
+                        9, //地图小程序
+                        10, //待评价
+                        //14, //工具箱
+                        15, //油耗
+                        16, //代驾
+                        17, //钱包卡券
+                        27, //地图共建
                     ];
-                    i.content.entranceList = i.content.entranceList.filter((k) => !(entranceArr.includes(k?.id)));
+                    i.content.entranceList = i.content.entranceList.filter((k) => !entranceArr.includes(k?.id));
                 }
             }
             return true;
