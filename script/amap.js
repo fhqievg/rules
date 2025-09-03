@@ -224,7 +224,7 @@ if (url.includes("/shield/scene/recommend")) {
             //保留入口
             if (i?.dataKey === 'MineNewBEntranceCard') {
                 if (i?.content?.entranceList?.length > 0) {
-                    let entranceArr = [
+                    const entranceArr = [
                         //"7", //订单
                         "8", //收藏
                         "17", //钱包卡券
@@ -236,7 +236,7 @@ if (url.includes("/shield/scene/recommend")) {
                         "15", //油耗
                         //"14" //工具箱
                     ];
-                    i.content.entranceList = i.content.entranceList.filter((k) => !entranceArr?.includes(k?.id));
+                    i.content.entranceList = i.content.entranceList.filter((k) => !(entranceArr.includes(k?.id)));
                 }
             }
             return true;
