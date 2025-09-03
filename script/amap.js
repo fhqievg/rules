@@ -224,6 +224,7 @@ if (url.includes("/shield/scene/recommend")) {
             //保留订单入口
             if (i?.dataKey === 'MineNewBEntranceCard') {
                 if (i?.content?.entranceList?.length > 0) {
+                    console.log(JSON.stringify(i.content.entranceList));
                     i.content.entranceList = i.content.entranceList.filter((k) => k?.id === 7);
                 }
             }
@@ -233,11 +234,6 @@ if (url.includes("/shield/scene/recommend")) {
 
     if (obj?.data?.tipData) {
         delete obj.data.tipData;
-    }
-
-    //解决新样式足迹数据不显示的问题
-    if (obj?.data?.footPrintV2?.fixed_data?.length > 0 && obj?.data?.topMixedCard?.hasOwnProperty("cardKey") && obj?.data?.topMixedCard.cardKey === "mineTopMixedCard") {
-        obj.data.topMixedCard = footprintHandle(obj.data.topMixedCard, obj.data.footPrintV2.fixed_data);
     }
 } else if (url.includes("/shield/frogserver/aocs/updatable/")) {
     // 整体图层
@@ -1020,101 +1016,6 @@ function growthInteractiveCardHandle(data) {
         }
     }
     return data;
-}
-
-//解决新样式足迹数据不显示的问题
-function footprintHandle(topMixedCard, fixedData) {
-    if (!topMixedCard.hasOwnProperty('cardData') || !topMixedCard.cardData.hasOwnProperty('data') || topMixedCard.cardData.data.length === 0) {
-        return topMixedCard;
-    }
-
-    let footprintCity = ''; //点亮城市
-    let footprintTown = ''; //探索角落
-    let currentCity = '';
-    let footprintPoint = ''; //打卡点
-    let footprintNavi = ''; //出行里程
-    for (let i of fixedData) {
-        if (!i.hasOwnProperty('key')) {
-            continue;
-        }
-        switch (i.key) {
-            case "footprint_city":
-                if (i.hasOwnProperty('city_num')) {
-                    footprintCity = i.city_num;
-                }
-                break;
-            case "footprint_town":
-                if (i.hasOwnProperty('town_percent')) {
-                    footprintTown = i.town_percent;
-                }
-                if (i.hasOwnProperty('current_city')) {
-                    currentCity = i.current_city;
-                }
-                break;
-            case "footprint_point":
-                if (i.hasOwnProperty('point_num')) {
-                    footprintPoint = i.point_num;
-                }
-                break;
-            case "footprint_navi":
-                if (i.hasOwnProperty('navi_dist')) {
-                    footprintNavi = Number(i.navi_dist.toFixed(0));
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-    let data = topMixedCard.cardData.data;
-    let newData = [];
-    for (let j in data) {
-        if (!data[j].hasOwnProperty('name') || data[j].rows?.length === 0) {
-            newData.push(data[j]);
-            continue;
-        }
-
-        switch (data[j].name) {
-            case '足迹':
-                for (let k of data[j].rows) {
-                    for (let g of k) {
-                        if (!g.hasOwnProperty('redDotKey') || !g.hasOwnProperty('value') || !g.value.hasOwnProperty('text') || !g.value.text.includes("-")) {
-                            continue;
-                        }
-                        switch (g.redDotKey) {
-                            case "mine_footprint_city":
-                                g.value.text = footprintCity;
-                                break;
-                            case "mine_footprint_town":
-                                g.value.text = footprintTown + '%';
-                                g.SPMEventName = '走过' + currentCity;
-                                if (g.hasOwnProperty('label')) {
-                                    g.label.text = g.SPMEventName;
-                                }
-                                break;
-                            case "mine_footprint_point":
-                                g.value.text = footprintPoint;
-                                break;
-                            case "mine_footprint_navi":
-                                g.value.text = footprintNavi;
-                                g.scheme = "amapuri://footprint/FootPrintMainPage?cardName=driver";
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-                newData.push(data[j]);
-                break;
-            default:
-                //此处不push表示需要删除过滤其它的，比如<贡献>板块
-                newData.push(data[j]);
-                break;
-        }
-    }
-    topMixedCard.cardData.data = newData;
-
-    return topMixedCard;
 }
 
 function skuListFilter(skuList){
