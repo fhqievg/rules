@@ -187,6 +187,8 @@ if (url.includes("/shield/scene/recommend")) {
             "MineNewDoubleRowCard", //车辆管理
             "MineNewShopCard", //店铺管理
             "MineGoodsDisplayCard", //语音包推荐
+            "MineUserBenefitCard", //达人福利任务
+            "MineUserEmblemCard", //成就勋章
             "PopularActivitiesCard" //互动专区
         ];
         obj.data.cardList = obj.data.cardList.filter((i) => {
