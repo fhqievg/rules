@@ -201,17 +201,6 @@ if (url.includes("/shield/scene/recommend")) {
                 return false;
             }
             
-            //去除我的页面底部待评价订单的提示
-            if (i?.dataKey === 'MyOrderCard') {
-                if (i?.content?.hasOwnProperty('statusBar') && i?.content.statusBar.length > 0) {
-                    i.content.statusBar = i.content.statusBar.filter(
-                        (j) => !(
-                            j?.status === "comment" //待评价
-                        )
-                    );
-                }
-            }
-            
             //去除语音及车标推荐
             if (i?.dataKey === 'MineNewVirtualAssetCard') {
                 if (i?.content?.ownedList?.length > 0) {
@@ -226,7 +215,7 @@ if (url.includes("/shield/scene/recommend")) {
             //保留入口
             if (i?.dataKey === 'MineNewBEntranceCard') {
                 if (i?.content?.entranceList?.length > 0) {
-                    const entranceArr = [
+                    const entranceDelArr = [
                         4, //家人地图
                         //7, //订单
                         8, //收藏
@@ -238,7 +227,7 @@ if (url.includes("/shield/scene/recommend")) {
                         17, //钱包卡券
                         27, //地图共建
                     ];
-                    i.content.entranceList = i.content.entranceList.filter((k) => !entranceArr.includes(k?.id));
+                    i.content.entranceList = i.content.entranceList.filter((k) => !entranceDelArr.includes(k?.id));
                 }
             }
             return true;
