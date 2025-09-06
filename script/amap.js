@@ -367,6 +367,7 @@ if (url.includes("/shield/scene/recommend")) {
         // "gallery_info", // 现场照片
         // "ggc_entry",
         "gas_station_recommend", //加油站推荐
+        "gasStationRecommend", //加油站推荐
         //"governmentInformation",
         "hotInfoList", //左下角浮层
         "halfGalleryInfo", //名称下方画廊
