@@ -3,9 +3,16 @@ if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
 if (url.includes("/shield/scene/recommend")) {
-    //首页工具栏icon右上角文字
+    //首页工具栏icon角标文字
 	if (obj.data?.toolsRecommend?.hasOwnProperty('data')) {
-		obj.data.toolsRecommend.data.choiceTools = [];
+		obj.data.toolsRecommend.data.choiceTools = []; //更多工具角标文字
+        
+        if(obj.data.toolsRecommend.data.exist_tool?.length > 0) {
+            for (let i of obj.data.toolsRecommend.data.exist_tool) {
+                i.tips = ""; //角标文字
+                i.name = i.name + "1";
+            }
+        }
 	}
 } else if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     // 公交出行 底部卡路里数值
