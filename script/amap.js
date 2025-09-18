@@ -11,7 +11,6 @@ if (url.includes("/shield/scene/recommend")) {
             for (let i of obj.data.toolsRecommend.data.exist_tool) {
                 i.tips_type = 0;
                 i.tips = ""; //角标文字
-                i.name = i.name + "1";
             }
         }
 	}
