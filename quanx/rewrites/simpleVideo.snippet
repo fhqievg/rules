@@ -4,8 +4,8 @@
 # > 分流
 IP-CIDR,47.99.219.178/32,REJECT
 
-^https?:\/\/(.+\.(?:ailbaba\.me|zzjz.top|xiqi98\.com)|(?:iqyi|baidu)\.ylylfun\.com|27\.151\.29\.56(:\d+)?)\/.+\/(?:top_notice|version|advert\?position=(?!(2)(?=&))) url reject
-^https?:\/\/(.+\.(?:ailbaba\.me|zzjz.top|xiqi98\.com)|(?:iqyi|baidu)\.ylylfun\.com|(27\.151\.29\.56|162\.209\.174\.25(2|3))(:\d+)?|app\.dsx\.ac)\/.+\/actuator_info url reject-200
+^https?:\/\/(.+\.(?:ailbaba\.me|zzjz.top|xiqi98\.com|dsx\.ac)|(?:iqyi|baidu)\.ylylfun\.com|27\.151\.29\.56(:\d+)?)\/.+\/(?:top_notice|version|advert\?position=(?!(2)(?=&))) url reject
+^https?:\/\/(.+\.(?:ailbaba\.me|zzjz.top|xiqi98\.com|dsx\.ac)|(?:iqyi|baidu)\.ylylfun\.com|(27\.151\.29\.56|162\.209\.174\.25(2|3))(:\d+)?)\/.+\/actuator_info url reject-200
 ^http:\/\/162\.209\.174\.25(2|3)(:\d+)?\/.+\/(?:top_notice|advert\?position=(?!(2)(?=&))) url reject
 ^http:\/\/162\.209\.174\.25(2|3)(:\d+)?\/.+\/app_config\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/simpleVideo/xiaoShiZi.js
 ^https?:\/\/vip7\.fzwdyy\.cn(:\d+)?\/api\/(?:getAdvertInfo|getGOOGAdvert) url reject
