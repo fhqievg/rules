@@ -36,7 +36,7 @@ HOST,logs.chelaile.net.cn,REJECT
 # > caiYun
 HOST,ad.cyapi.cn,REJECT
 ^https:\/\/(?:api\.caiyunapp\.com|wrapper\.cyapi\.cn)\/v1\/activity\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiYun.js
-^https?:\/\/biz\.cyapi\.cn\/(?:p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product) url reject-dict
+#^https?:\/\/biz\.cyapi\.cn\/(?:p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product) url reject-dict
 ^https?:\/\/starplucker\.cyapi\.cn\/v3\/(?:config\/cypage\/(?:home_activity\/conditions|(?:home|personal)\/conditions\/local)|notification\/message_center|operation\/homefeatures) url reject-dict
 ^https:\/\/starplucker\.cyapi\.cn\/v3\/config url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiYun.js
 
@@ -123,4 +123,4 @@ HOST,trackbeat.xiachufang.com,REJECT
 # > yangShiYingYin
 ^https?:\/\/api\.app\.cctv\.com\/api\/getVersion url reject
 
-hostname = *.chelaileapp.cn, *.chelaile.net.cn, www.xiachufang.com, api.xiachufang.com, pan.baidu.com, issuecdn.baidupcs.com, update.pan.baidu.com, staticsns.cdn.bcebos.com, ndstatic.cdn.bcebos.com, res.kfc.com.cn, api.mcd.cn, ad.12306.cn, mobile.12306.cn, app.thepaper.cn, api.app.cctv.com, i.video.qq.com, iacc.qq.com, appapi.51job.com, appapi.51jobapp.com, blog.nilbt.com, api.aliyundrive.com, www.xiaoxiongyouhao.com, api.caiyunapp.com, wrapper.cyapi.cn, biz.cyapi.cn, starplucker.cyapi.cn, conf.chuangke.tv, d.chuangke.tv, res.chuangke.tv, api.7littlemen.com
+hostname = *.chelaileapp.cn, *.chelaile.net.cn, www.xiachufang.com, api.xiachufang.com, pan.baidu.com, issuecdn.baidupcs.com, update.pan.baidu.com, staticsns.cdn.bcebos.com, ndstatic.cdn.bcebos.com, res.kfc.com.cn, api.mcd.cn, ad.12306.cn, mobile.12306.cn, app.thepaper.cn, api.app.cctv.com, i.video.qq.com, iacc.qq.com, appapi.51job.com, appapi.51jobapp.com, blog.nilbt.com, api.aliyundrive.com, www.xiaoxiongyouhao.com, api.caiyunapp.com, wrapper.cyapi.cn, starplucker.cyapi.cn, conf.chuangke.tv, d.chuangke.tv, res.chuangke.tv, api.7littlemen.com
