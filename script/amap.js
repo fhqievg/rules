@@ -332,6 +332,7 @@ if (url.includes("/shield/scene/recommend")) {
         "brand_shop_bar",
         // "brand_story",
         "brand_service", // 品牌服务
+        "brandAdModule", //底部横幅广告
         "carServiceCard", //车主中心
         "CouponBanner", // 高德红包
         "checkIn",
@@ -409,6 +410,7 @@ if (url.includes("/shield/scene/recommend")) {
         // "human_traffic", // 人流量情况 有统计图
         "image_banner",
         "imBottomGuide", //底部客服横幅
+        "inviteReview", //邀请评价
         "kaMarketingCampaign", // 附近品牌动态
         "kaProductMixServiceShelf", //骑手送药上门
         "ka_not_enter", // 移动办卡 套餐服务
