@@ -567,7 +567,8 @@ if (url.includes("/shield/scene/recommend")) {
         //delete obj.data.modules.combineReviews.data.nav_bar_write_comment; //右上角写评价入口
     }
     if (obj.data?.modules?.combineReviews?.data?.hasOwnProperty("write_comment")) {
-        obj.data.modules.combineReviews.data.write_comment.is_activity = false;
+        delete obj.data.modules.combineReviews.data.write_comment; //评价按钮
+        /*obj.data.modules.combineReviews.data.write_comment.is_activity = false;
         obj.data.modules.combineReviews.data.write_comment.btnRightTag = "";
         obj.data.modules.combineReviews.data.write_comment.title = "";
         obj.data.modules.combineReviews.data.write_comment.showScore = 0;
@@ -575,7 +576,7 @@ if (url.includes("/shield/scene/recommend")) {
         
         if (obj.data.modules.combineReviews.data.write_comment.task_entrance) {
             delete obj.data.modules.combineReviews.data.write_comment.task_entrance; //评价模块右上角活动入口
-        }
+        }*/
     }
 
     //处理出行评分
