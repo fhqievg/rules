@@ -196,12 +196,15 @@ if (url.includes("/shield/scene/recommend")) {
             "MineGoodsDisplayCard", //语音包推荐
             "MineUserBenefitCard", //达人福利任务
             "MineUserEmblemCard", //成就勋章
+            //"MineStatisticCard", //一周成长
             "PopularActivitiesCard" //互动专区
         ];
         obj.data.cardList = obj.data.cardList.filter((i) => {
             //去除2025入口
-            if (i?.dataKey === 'MineArrowActionCard' && i?.content?.card?.hasOwnProperty("title") && i?.content?.card?.title === "高德2025") {
-                delArr.push(i.dataKey);
+            if (i?.dataKey === 'MineArrowActionCard' && i?.content?.card?.hasOwnProperty("title")) {
+                if (i?.content?.card?.title === "高德2025" || i?.content?.card?.title.includes("真探计划")) {
+                    delArr.push(i.dataKey);
+                }
             }
             
             if (delArr.includes(i?.dataKey)) {
@@ -223,6 +226,7 @@ if (url.includes("/shield/scene/recommend")) {
             if (i?.dataKey === 'MineNewBEntranceCard') {
                 if (i?.content?.entranceList?.length > 0) {
                     const entranceDelArr = [
+                        3, //我的店铺
                         4, //家人地图
                         //7, //订单
                         8, //收藏
@@ -462,6 +466,7 @@ if (url.includes("/shield/scene/recommend")) {
         "privateSphereChannel", //门店微信
         // "question_answer_card", // 问问 地点附近的热门问题
         "quickLink", // 地点详情页图标 酒店 景点 热榜
+        "quickLinksPortal", //房产频道
         "relatedRecommends", // 附近同类型酒店
         // "realtorRealStep",
         "renthouse",
@@ -655,6 +660,11 @@ if (url.includes("/shield/scene/recommend")) {
             obj.data.modules.poiMapModule.data.map.main_point.card_id = 'normal_lottie';
         }
         delete obj.data.modules.poiMapModule.data.map.main_point.dynamic_texture;
+    }
+    
+    //处理问答
+    if (!obj.data.modules.travelGuideAndQa?.data?.questionAndAnswer?.hasOwnProperty('log_param')) {
+        items.push('travelGuideAndQa'); //没有提问就去掉问答
     }
 
     if (obj?.data?.modules) {
