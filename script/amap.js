@@ -190,13 +190,13 @@ if (url.includes("/shield/scene/recommend")) {
     // 我的页面
     if (obj?.data?.cardList?.length > 0) {
         let delArr = [
+            "MineGoodsDisplayCard", //语音包推荐
             //"MineNewBEntranceCard", //快捷入口
             "MineNewDoubleRowCard", //车辆管理
             "MineNewShopCard", //店铺管理
-            "MineGoodsDisplayCard", //语音包推荐
+            "MineStatisticCard", //一周成长
             "MineUserBenefitCard", //达人福利任务
             "MineUserEmblemCard", //成就勋章
-            //"MineStatisticCard", //一周成长
             "PopularActivitiesCard" //互动专区
         ];
         obj.data.cardList = obj.data.cardList.filter((i) => {
