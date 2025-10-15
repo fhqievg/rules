@@ -194,6 +194,7 @@ if (url.includes("/shield/scene/recommend")) {
             //"MineNewBEntranceCard", //快捷入口
             "MineNewDoubleRowCard", //车辆管理
             "MineNewShopCard", //店铺管理
+            "MinePeriodTaskCard", //每日任务
             "MineStatisticCard", //一周成长
             "MineUserBenefitCard", //达人福利任务
             "MineUserEmblemCard", //成就勋章
@@ -900,6 +901,7 @@ if (url.includes("/shield/scene/recommend")) {
     //模块处理
     if (obj?.data?.homePageData?.cardList?.length > 0) {
         let delCard = [
+            "UserCenterDailyActivities", //每日活动
             //"UserCenterGrowthInteractiveCard" , //达人基础信息
             //"UserCenterGetActivityCarGuideCard", //活动
             //"UserCenterRightCard",  //达人权益
