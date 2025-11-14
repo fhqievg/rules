@@ -201,6 +201,10 @@ if (url.includes("/shield/scene/recommend")) {
             "PopularActivitiesCard" //互动专区
         ];
         obj.data.cardList = obj.data.cardList.filter((i) => {
+            if (delArr.includes(i?.dataKey)) {
+                return false;
+            }
+            
             switch (i.dataKey) {
                 case "MineArrowActionCard":
                     //去除2025入口
@@ -241,10 +245,6 @@ if (url.includes("/shield/scene/recommend")) {
                     break;
                 default:
                     break;
-            }
-            
-            if (delArr.includes(i?.dataKey)) {
-                return false;
             }
             return true;
         });
