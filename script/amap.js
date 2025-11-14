@@ -201,46 +201,50 @@ if (url.includes("/shield/scene/recommend")) {
             "PopularActivitiesCard" //互动专区
         ];
         obj.data.cardList = obj.data.cardList.filter((i) => {
-            //去除2025入口
-            if (i?.dataKey === 'MineArrowActionCard' && i?.content?.card?.hasOwnProperty("title")) {
-                if (i?.content?.card?.title === "高德2025" || i?.content?.card?.title.includes("真探计划")) {
-                    delArr.push(i.dataKey);
-                }
+            switch (i.dataKey) {
+                case "MineArrowActionCard":
+                    //去除2025入口
+                    if (i?.content?.card?.hasOwnProperty("title")) {
+                        if (i?.content?.card?.title === "高德2025" || i?.content?.card?.title.includes("真探计划") || i?.content?.card?.title.includes("真探创作者计划")) {
+                            delArr.push(i.dataKey);
+                        }
+                    }
+                    break;
+                case "MineNewVirtualAssetCard":
+                    //去除语音及车标推荐
+                    if (i?.content?.ownedList?.length > 0) {
+                        for (let j of i.content.ownedList) {
+                            if(j.hasOwnProperty("bottomTips")) {
+                                delete j.bottomTips;
+                            }
+                        }
+                    }
+                    break;
+                case "MineNewBEntranceCard":
+                    //保留入口
+                    if (i?.content?.entranceList?.length > 0) {
+                        const entranceDelArr = [
+                            3, //我的店铺
+                            4, //家人地图
+                            //7, //订单
+                            8, //收藏
+                            9, //地图小程序
+                            10, //待评价
+                            //14, //工具箱
+                            15, //油耗
+                            16, //代驾
+                            17, //钱包卡券
+                            27, //地图共建
+                        ];
+                        i.content.entranceList = i.content.entranceList.filter((k) => !entranceDelArr.includes(k?.id));
+                    }
+                    break;
+                default:
+                    break;
             }
             
             if (delArr.includes(i?.dataKey)) {
                 return false;
-            }
-            
-            //去除语音及车标推荐
-            if (i?.dataKey === 'MineNewVirtualAssetCard') {
-                if (i?.content?.ownedList?.length > 0) {
-                    for (let j of i.content.ownedList) {
-                        if(j.hasOwnProperty("bottomTips")) {
-                            delete j.bottomTips;
-                        }
-                    }
-                }
-            }
-            
-            //保留入口
-            if (i?.dataKey === 'MineNewBEntranceCard') {
-                if (i?.content?.entranceList?.length > 0) {
-                    const entranceDelArr = [
-                        3, //我的店铺
-                        4, //家人地图
-                        //7, //订单
-                        8, //收藏
-                        9, //地图小程序
-                        10, //待评价
-                        //14, //工具箱
-                        15, //油耗
-                        16, //代驾
-                        17, //钱包卡券
-                        27, //地图共建
-                    ];
-                    i.content.entranceList = i.content.entranceList.filter((k) => !entranceDelArr.includes(k?.id));
-                }
             }
             return true;
         });
