@@ -198,7 +198,8 @@ if (url.includes("/shield/scene/recommend")) {
             "MineStatisticCard", //一周成长
             "MineUserBenefitCard", //达人福利任务
             "MineUserEmblemCard", //成就勋章
-            "PopularActivitiesCard" //互动专区
+            "PopularActivitiesCard", //互动专区
+            "UserCircleCard" //好友动态
         ];
         obj.data.cardList = obj.data.cardList.filter((i) => {
             switch (i.dataKey) {
