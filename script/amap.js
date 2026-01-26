@@ -1002,6 +1002,7 @@ if (url.includes("/shield/scene/recommend")) {
 			"M_100051", //高德·超划算
 			"M_100053", //游戏中心
 			"M_100059", //高德酒店
+            "M_100063" //ai助手
 		]
 		
 		obj.data.dataList = obj.data.dataList.filter((i) => {
