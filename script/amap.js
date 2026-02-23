@@ -190,7 +190,9 @@ if (url.includes("/shield/scene/recommend")) {
     // 我的页面
     if (obj?.data?.cardList?.length > 0) {
         let delArr = [
+            "HappyNewYearCard", //新年板块
             "MineGoodsDisplayCard", //语音包推荐
+            "MineMemberRecommendTaskCard", //达人任务
             //"MineNewBEntranceCard", //快捷入口
             "MineNewDoubleRowCard", //车辆管理
             "MineNewShopCard", //店铺管理
