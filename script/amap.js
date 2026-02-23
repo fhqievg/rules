@@ -809,6 +809,15 @@ if (url.includes("/shield/scene/recommend")) {
             }
         }
     }
+} else if (url.includes("/shield/search_business/process/middleLayer/sug")) {
+    //搜索列表结果下方商品推广
+    if (obj?.tip_list?.length > 0) {
+        for (let item of obj.tip_list) {
+            if (item?.tip?.hasOwnProperty("product_vo")) {
+                delete item.tip.product_vo;
+            }
+        }
+    }
 } else if (url.includes("/shield/search_poi/sug")) {
     if (obj?.tip_list) {
         let newLists = [];
