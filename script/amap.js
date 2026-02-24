@@ -349,6 +349,7 @@ if (url.includes("/shield/scene/recommend")) {
         "CouponBanner", // 高德红包
         "checkIn",
         "check_in", // 足迹打卡
+        "commonGoodsShelf", //商品推广
         "cityCardFeed", // 景点卡片
         // "cityPhoto", // 城市照片
         "city_discount", // 专业老师在线答疑
@@ -418,6 +419,7 @@ if (url.includes("/shield/scene/recommend")) {
         "house_price_v2", // 小区房屋售价
         "house_rent_sale_agency",
         "houseService", //买卖房
+        "houseAgentService", //买卖房
         "hospital_strategy", //就医攻略
         // "human_traffic", // 人流量情况 有统计图
         "image_banner",
