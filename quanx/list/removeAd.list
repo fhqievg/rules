@@ -158,7 +158,7 @@ HOST,ykad-data.youku.com,REJECT
 # > zhiJie
 HOST-SUFFIX,ad.toutiao.com,REJECT
 HOST-SUFFIX,log.snssdk.com,REJECT
-HOST-SUFFIX,pstatp.com,REJECT
+#HOST-SUFFIX,pstatp.com,REJECT
 HOST-SUFFIX,pglstatp-toutiao.com,REJECT
 HOST-SUFFIX,pangolin-sdk-toutiao.com,REJECT
 HOST-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
