@@ -349,7 +349,7 @@ if (url.includes("/shield/scene/recommend")) {
         "CouponBanner", // 高德红包
         "checkIn",
         "check_in", // 足迹打卡
-        "commonGoodsShelf", //商品推广
+        //"commonGoodsShelf", //商品推广
         "cityCardFeed", // 景点卡片
         // "cityPhoto", // 城市照片
         "city_discount", // 专业老师在线答疑
