@@ -818,6 +818,9 @@ if (url.includes("/shield/scene/recommend")) {
             if (item?.tip?.hasOwnProperty("product_vo")) {
                 delete item.tip.product_vo;
             }
+            if (item?.tip?.hasOwnProperty("product_info")) {
+                delete item.tip.product_info;
+            }
         }
     }
 } else if (url.includes("/shield/search_poi/sug")) {
