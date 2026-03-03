@@ -1,7 +1,7 @@
 const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
-let isEnableVip = true; //是否启用vip
+let isEnableVip = false; //是否启用vip
 
 if (url.includes("/x/resource/show/skin")) {
   // 皮肤推送
