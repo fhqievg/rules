@@ -468,6 +468,7 @@ if (url.includes("/shield/scene/recommend")) {
         "platformCustomerComplianceInfo", //定制推广下方的说明文字
         "poiDetailWaterFeed", //发现好去处瀑布流
         "poiDetailWaterFeedTitle", //发现好去处
+        "poiDetailAQModule", //ai相关
         "poster_banner",
         "poiTipBar",  // 提示栏
         // "poi_intercept",
