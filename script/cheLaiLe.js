@@ -67,6 +67,11 @@ if (url.includes("goocity/flowPos/home")) {
     if (obj.jsonr?.data?.advertList) {
         obj.jsonr.data.advertList = pointListHandle(obj.jsonr.data.advertList);
     }
+    
+    //首页右上角icon
+    if (obj.jsonr?.data?.operationNavRightItems) {
+        obj.jsonr.data.operationNavRightItems = operationNavHandle(obj.jsonr.data.operationNavRightItems);
+    }
 }
 
 body = dataObj.startStr + JSON.stringify(obj) + dataObj.endStr;
@@ -138,4 +143,14 @@ function tabHandle(tab) {
             )
     );
     return tab;
+}
+
+function operationNavHandle(operationNav) {
+    operationNav = operationNav.filter(
+        (i) =>
+            !(
+                i.id === 500888 //签到
+            )
+    );
+    return operationNav;
 }
