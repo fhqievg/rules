@@ -912,7 +912,7 @@ if (url.includes("/shield/scene/recommend")) {
 	//达人主页
 	//去除多余板块
 	let delCard = [
-	    "HeaderCard", //头部
+	    //"HeaderCard", //头部
 	    "MemberCenterCard",  //达人中心
 	    //"UserProfileBadgeCard", //成就勋章
 	    "UserProfileTabContentCard", //动态、赞过、贡献
