@@ -811,6 +811,15 @@ if (url.includes("/shield/scene/recommend")) {
                 list.content = list.content.filter((i) => !["brandAdCard", "toplist_al"]?.includes(i?.item_type));
             }
         }
+
+		//搜索列表
+		if(obj?.data?.modules?.listResult?.data?.list?.length > 0){
+		    obj.data.modules.listResult.data.list = obj.data.modules.listResult.data.list.filter(
+		        (i) => !(
+		            i?.card_id === "RecommendEveryoneSearch" //大家还在搜
+		        )
+		    );
+		}
     }
 } else if (url.includes("/shield/search_business/process/middleLayer/sug")) {
     //搜索列表结果下方商品推广
@@ -895,6 +904,42 @@ if (url.includes("/shield/scene/recommend")) {
             item.creative[0].end_time = 3818419199; // Unix 时间戳 2090-12-31 23:59:59
         }
     }
+} else if (url.includes("/promote/person/homepage")) {
+	//达人主页
+	//去除多余板块
+	let delCard = [
+	    "HeaderCard", //头部
+	    "MemberCenterCard",  //达人中心
+	    //"UserProfileBadgeCard", //成就勋章
+	    "UserProfileTabContentCard", //动态、赞过、贡献
+	    "PersonalPageLocationDocumentsCard" //地点档案
+	]
+	if(obj?.data?.bizData?.hasOwnProperty('cardData')){
+	    for (i in obj.data.bizData.cardData) {
+	        if (delCard.includes(i)) {
+	            delete obj.data.bizData.cardData[i];
+	        }
+	    }
+	}
+	
+	if(obj?.data?.hasOwnProperty('uiData')){
+	    if(obj.data.uiData.hasOwnProperty('cardUi')){
+	        for (i in obj.data.uiData.cardUi) {
+	            if (delCard.includes(i)) {
+	                delete obj.data.uiData.cardUi[i];
+	            }
+	        }
+	    }
+	
+	    if(obj.data.uiData.pageUi?.cardIdList?.length > 0){
+	        obj.data.uiData.pageUi.cardIdList = obj.data.uiData.pageUi.cardIdList.filter((i) => {
+	            if (delCard.includes(i)) {
+	                return false;
+	            }
+	            return true;
+	        });
+	    }
+	}
 } else if (url.includes("/faas/amap-navigation/usr-profile-fc/homeV2")) {
     //去除顶部日日签tab
     if (obj?.data?.homePageData?.pageHeaderConfig?.headerConfigList?.length > 0) {
