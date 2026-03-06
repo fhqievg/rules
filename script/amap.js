@@ -920,6 +920,12 @@ if (url.includes("/shield/scene/recommend")) {
 	]
 	if(obj?.data?.bizData?.hasOwnProperty('cardData')){
 	    for (i in obj.data.bizData.cardData) {
+			if (i === "HeaderCard") {
+	            if (obj.data.bizData.cardData[i].content?.hasOwnProperty('footprint')) {
+	                delete obj.data.bizData.cardData[i].content.footprint;
+	            }
+	        }
+			
 	        if (delCard.includes(i)) {
 	            delete obj.data.bizData.cardData[i];
 	        }
