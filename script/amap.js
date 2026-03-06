@@ -814,11 +814,15 @@ if (url.includes("/shield/scene/recommend")) {
 
 		//搜索列表
 		if(obj?.data?.modules?.listResult?.data?.list?.length > 0){
-		    obj.data.modules.listResult.data.list = obj.data.modules.listResult.data.list.filter(
-		        (i) => !(
-		            i?.card_id === "RecommendEveryoneSearch" //大家还在搜
-		        )
-		    );
+			let items = [
+				"RecommendEveryoneSearch" //大家还在搜
+			];
+			obj.data.modules.listResult.data.list = obj.data.modules.listResult.data.list.filter((i) => {
+	            if (i.hasOwnProperty("card_id") && items.includes(i.card_id)) {
+	                return false;
+	            }
+	            return true;
+	        });
 		}
     }
 } else if (url.includes("/shield/search_business/process/middleLayer/sug")) {
