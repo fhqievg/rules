@@ -376,6 +376,7 @@ if (url.includes("/shield/scene/recommend")) {
         "discount_commodity", // 优惠团购
         "divergentRecommendModule", // 你可能还喜欢
         // "events",
+        "expertNote", //笔记
         "everyOneToSee", // 大家还在看
         "enhanceCustomerServicePoiModule",  //品牌服务专区
         "enhanceCustomerServiceFixedBottom", //品牌服务专区
@@ -629,7 +630,7 @@ if (url.includes("/shield/scene/recommend")) {
         //去除位置旁边的地图icon图标及其它icon图标角标文字
         if (obj.data.modules.baseInfo.data.hasOwnProperty('iconsList') && Array.isArray(obj.data.modules.baseInfo.data.iconsList) && obj.data.modules.baseInfo.data.iconsList.length > 0) {
             obj.data.modules.baseInfo.data.iconsList = obj.data.modules.baseInfo.data.iconsList.filter((i) => {
-                if (i.type === 'map' && i.label === '地图') {
+                if (i.type === 'map' && i.label.includes('地图')) {
                     return false;
                 }
 
