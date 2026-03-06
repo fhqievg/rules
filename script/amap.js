@@ -916,7 +916,7 @@ if (url.includes("/shield/scene/recommend")) {
 	let delCard = [
 	    //"HeaderCard", //头部
 	    "MemberCenterCard",  //达人中心
-	    //"UserProfileBadgeCard", //成就勋章
+	    "UserProfileBadgeCard", //成就勋章
 	    "UserProfileTabContentCard", //动态、赞过、贡献
 	    "PersonalPageLocationDocumentsCard" //地点档案
 	]
