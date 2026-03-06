@@ -306,7 +306,7 @@ if (url.includes("/shield/scene/recommend")) {
         "small_biz_news",
         "splashscreen",
         "splashview_config",
-        "sur_bar", // 十一特惠
+        //"sur_bar", // 十一特惠
         "taxi_activity", // 打车活动
         "testflight_adiu",
         "tf_remind", // tf测试版
