@@ -543,6 +543,7 @@ if (url.includes("/shield/scene/recommend")) {
         "travelGuideRec", // 人气景点 路线 购票
         "uploadBar",
         "upload_bar", // 上传照片
+        "unionAuthBanner", //联盟授权
         "verification", // 商家已入驻
         // "video",
         "waistRecEntrance", // 更多人气好去处
