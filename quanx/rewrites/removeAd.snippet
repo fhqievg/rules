@@ -15,10 +15,10 @@
 ^http:\/\/159\.75\.85\.63:\d+\/(.*\/)?ad\/ url reject
 
 # > aLi
-HOST,adashx.m.taobao.com,REJECT
-HOST,h-adashx4bc.ut.taobao.com,REJECT
-HOST,httpdns.alicdn.com,REJECT
-HOST-SUFFIX,ut.taobao.com,REJECT
+HOST, adashx.m.taobao.com, REJECT
+HOST, h-adashx4bc.ut.taobao.com, REJECT
+HOST, httpdns.alicdn.com, REJECT
+HOST-SUFFIX, ut.taobao.com, REJECT
 
 # > aliDrive
 #优化
@@ -26,7 +26,7 @@ HOST-SUFFIX,ut.taobao.com,REJECT
 
 # >>>>>>>>>>>>>> ✅ B ✅ <<<<<<<<<<<<<<<
 # > baiDuPan
-HOST,mobads.baidu.com,REJECT
+HOST, mobads.baidu.com, REJECT
 ^https?:\/\/pan\.baidu\.com\/(act\/(api\/activityentry|.+\/bchannel\/list)|pmall\/order\/privilege\/info|rest\/.+\/pcs\/adx|api\/(useractivity\/activity|certuser\/get)|component\/view\/(1510|1130)\?vip) url reject
 ^https?:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/guanggao url reject
 ^https?:\/\/update\.pan\.baidu\.com\/statistics url reject
@@ -35,18 +35,18 @@ HOST,mobads.baidu.com,REJECT
 
 # >>>>>>>>>>>>>> ✅ C ✅ <<<<<<<<<<<<<<<
 //colorful widget
-HOST-SUFFIX,unbing.cn,REJECT
+HOST-SUFFIX, unbing.cn, REJECT
 
 # > cheLaiLe
-HOST,atrace.chelaile.net.cn,REJECT
-HOST,logs.chelaile.net.cn,REJECT
+HOST, atrace.chelaile.net.cn, REJECT
+HOST, logs.chelaile.net.cn, REJECT
 ^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/led-weather\/v\d+\/condition_brief\? url reject-200
 ^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/(\/)?((.*\/)?(?:advert|adpub)|content|infoflow|notice|wow|CheLaiLe-ios|DataAnalysisInfo|goocity\/(?:getTagTitle|city!configureTag\.action\?|flowPos/listByPos)|bus\/(?:stop!encryptedRecommLine|ai\/config)\.action|ip46A\?|operative_position\/infoflow\/homepage|user-survey\/survey\/(v\d+\/)?list) url reject
 #优化
 ^https?:\/\/(124\.(70\.194\.16|71\.153\.172)|.+\.chelaile.*\.cn)\/goocity\/(?:flowPos\/home|config\/notices)\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/cheLaiLe.js
 
 # > caiYun
-HOST,ad.cyapi.cn,REJECT
+HOST, ad.cyapi.cn, REJECT
 ^https:\/\/(?:api\.caiyunapp\.com|wrapper\.cyapi\.cn)\/v1\/activity\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiYun.js
 #^https?:\/\/biz\.cyapi\.cn\/(?:p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product) url reject-dict
 ^https?:\/\/starplucker\.cyapi\.cn\/v3\/(?:config\/cypage\/(?:home_activity\/conditions|(?:home|personal)\/conditions\/local)|notification\/message_center|operation\/homefeatures) url reject-dict
@@ -54,17 +54,17 @@ HOST,ad.cyapi.cn,REJECT
 
 # >>>>>>>>>>>>>> ✅ J ✅ <<<<<<<<<<<<<<<
 # > 捷径
-HOST,yh.miidii.tech,REJECT
+HOST, yh.miidii.tech, REJECT
 
 # >>>>>>>>>>>>>> ✅ K ✅ <<<<<<<<<<<<<<<
 # > KFC
 ^https?:\/\/res\.kfc\.com\.cn\/CRM\/kfcad\/apphome(5|6)\/apphome url reject-200
 
 # > 狂野
-HOST,a314.gameloft.com,REJECT
+HOST, a314.gameloft.com, REJECT
 
 # > 夸克
-HOST-SUFFIX,unet.quark.cn,REJECT
+HOST-SUFFIX, unet.quark.cn, REJECT
 
 # >>>>>>>>>>>>>> ✅ M ✅ <<<<<<<<<<<<<<<
 # > maiDangLao
@@ -81,9 +81,9 @@ HOST-SUFFIX,unet.quark.cn,REJECT
 
 # >>>>>>>>>>>>>> ✅ P ✅ <<<<<<<<<<<<<<<
 # > pengPaiNews
-HOST,applog.thepaper.cn,REJECT
-HOST,applogs.thepaper.cn,REJECT
-HOST,adpai.thepaper.cn,REJECT
+HOST, applog.thepaper.cn, REJECT
+HOST, applogs.thepaper.cn, REJECT
+HOST, adpai.thepaper.cn, REJECT
 ^https:\/\/app\.thepaper\.cn\/clt\/jsp\/v6\/lastReadRecommend url reject-dict
 ^https?:\/\/app\.thepaper\.cn\/.+\/getWeather url reject
 #优化
@@ -96,15 +96,15 @@ HOST,adpai.thepaper.cn,REJECT
 
 # >>>>>>>>>>>>>> ✅ T ✅ <<<<<<<<<<<<<<<
 # > txVideo
-HOST,info4.video.qq.com,REJECT
-HOST,info6.video.qq.com,REJECT
-HOST,ios.video.mpush.qq.com,REJECT
-HOST,tmead.y.qq.com,REJECT
-HOST,tmeadbak.y.qq.com,REJECT
-HOST,tmeadcomm.y.qq.com,REJECT
-HOST,vv.video.qq.com,REJECT
-HOST-KEYWORD,trace.video.qq.com,REJECT
-IP-CIDR,47.110.187.87/32,REJECT
+HOST, info4.video.qq.com, REJECT
+HOST, info6.video.qq.com, REJECT
+HOST, ios.video.mpush.qq.com, REJECT
+HOST, tmead.y.qq.com, REJECT
+HOST, tmeadbak.y.qq.com, REJECT
+HOST, tmeadcomm.y.qq.com, REJECT
+HOST, vv.video.qq.com, REJECT
+HOST-KEYWORD, trace.video.qq.com, REJECT
+IP-CIDR, 47.110.187.87/32, REJECT
 ^http:\/\/.+\/vmind\.qqvideo\.tc\.qq\.com\/.+mp4 url reject-dict
 
 # >>>>>>>>>>>>>> ✅ V ✅ <<<<<<<<<<<<<<<
@@ -113,8 +113,8 @@ IP-CIDR,47.110.187.87/32,REJECT
 
 # >>>>>>>>>>>>>> ✅ X ✅ <<<<<<<<<<<<<<<
 # > xiaChuFang
-HOST,track.xiachufang.com,REJECT
-HOST,trackbeat.xiachufang.com,REJECT
+HOST, track.xiachufang.com, REJECT
+HOST, trackbeat.xiachufang.com, REJECT
 ^https?:\/\/(?:www|api)\.xiachufang\.com\/.+\/ad\/ url reject
 #优化
 ^https:\/\/api\.xiachufang\.com\/v2\/(?:account\/detail|homepage.*\/(?:init_page|paged_waterfall_recommendations|ranking_list\/paged_homepage_ranking_list_section_v\d*)|recipe\/(?:bottom_list|detail_v\d*)|search\/(?:popular_queries|universal_search_v\d*)|user\/get_profile)\.json url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/xiaChuFang.js
@@ -128,6 +128,6 @@ HOST,trackbeat.xiachufang.com,REJECT
 
 # >>>>>>>>>>>>>> ✅ Z ✅ <<<<<<<<<<<<<<<
 # > zhongGuoLianTong
-HOST,m1.ad.10010.com,REJECT
+HOST, m1.ad.10010.com, REJECT
 
 hostname = *.chelaileapp.cn, *.chelaile.net.cn, www.xiachufang.com, api.xiachufang.com, pan.baidu.com, issuecdn.baidupcs.com, update.pan.baidu.com, staticsns.cdn.bcebos.com, ndstatic.cdn.bcebos.com, res.kfc.com.cn, api.mcd.cn, ad.12306.cn, mobile.12306.cn, app.thepaper.cn, api.app.cctv.com, i.video.qq.com, iacc.qq.com, appapi.51job.com, appapi.51jobapp.com, blog.nilbt.com, api.aliyundrive.com, www.xiaoxiongyouhao.com, api.caiyunapp.com, wrapper.cyapi.cn, starplucker.cyapi.cn, conf.chuangke.tv, d.chuangke.tv, res.chuangke.tv, api.7littlemen.com, gab.122.gov.cn
