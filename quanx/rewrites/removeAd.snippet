@@ -1,5 +1,5 @@
 #!name=常规去广告
-#!desc=基础
+#!desc=合集
 
 # >>>>>>>>>>>>>> ✅ 0 ✅ <<<<<<<<<<<<<<<
 # > 12123
@@ -13,6 +13,12 @@
 # >>>>>>>>>>>>>> ✅ A ✅ <<<<<<<<<<<<<<<
 # > aptv
 ^http:\/\/159\.75\.85\.63:\d+\/(.*\/)?ad\/ url reject
+
+# > aLi
+HOST,adashx.m.taobao.com,REJECT
+HOST,h-adashx4bc.ut.taobao.com,REJECT
+HOST,httpdns.alicdn.com,REJECT
+HOST-SUFFIX,ut.taobao.com,REJECT
 
 # > aliDrive
 #优化
@@ -28,6 +34,9 @@ HOST,mobads.baidu.com,REJECT
 ^https?:\/\/staticsns\.cdn\.bcebos\.com\/amis\/.+/banner.png url reject
 
 # >>>>>>>>>>>>>> ✅ C ✅ <<<<<<<<<<<<<<<
+//colorful widget
+HOST-SUFFIX,unbing.cn,REJECT
+
 # > cheLaiLe
 HOST,atrace.chelaile.net.cn,REJECT
 HOST,logs.chelaile.net.cn,REJECT
@@ -43,9 +52,19 @@ HOST,ad.cyapi.cn,REJECT
 ^https?:\/\/starplucker\.cyapi\.cn\/v3\/(?:config\/cypage\/(?:home_activity\/conditions|(?:home|personal)\/conditions\/local)|notification\/message_center|operation\/homefeatures) url reject-dict
 ^https:\/\/starplucker\.cyapi\.cn\/v3\/config url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/caiYun.js
 
+# >>>>>>>>>>>>>> ✅ J ✅ <<<<<<<<<<<<<<<
+# > 捷径
+HOST,yh.miidii.tech,REJECT
+
 # >>>>>>>>>>>>>> ✅ K ✅ <<<<<<<<<<<<<<<
 # > KFC
 ^https?:\/\/res\.kfc\.com\.cn\/CRM\/kfcad\/apphome(5|6)\/apphome url reject-200
+
+# > 狂野
+HOST,a314.gameloft.com,REJECT
+
+# > 夸克
+HOST-SUFFIX,unet.quark.cn,REJECT
 
 # >>>>>>>>>>>>>> ✅ M ✅ <<<<<<<<<<<<<<<
 # > maiDangLao
@@ -59,10 +78,6 @@ HOST,ad.cyapi.cn,REJECT
 # >>>>>>>>>>>>>> ✅ N ✅ <<<<<<<<<<<<<<<
 # > ntPlayer
 ^https?:\/\/blog\.nilbt\.com\/static\/api\/update\.json url reject
-
-# >>>>>>>>>>>>>> ✅ O ✅ <<<<<<<<<<<<<<<
-# > other
-^http:\/\/.+\.hzsanjiaomao\.com\/.+\.json url reject-dict
 
 # >>>>>>>>>>>>>> ✅ P ✅ <<<<<<<<<<<<<<<
 # > pengPaiNews
@@ -81,28 +96,13 @@ HOST,adpai.thepaper.cn,REJECT
 
 # >>>>>>>>>>>>>> ✅ T ✅ <<<<<<<<<<<<<<<
 # > txVideo
-HOST,adsmind.gdtimg.com,REJECT
-HOST,adsmind.ugdtimg.com,REJECT
-HOST-SUFFIX,bugly.qq.com,REJECT
-HOST-SUFFIX,btrace.qq.com,REJECT
-HOST-SUFFIX,e.qq.com,REJECT
-HOST-SUFFIX,gdtimg.com,REJECT
-HOST-SUFFIX,gdt.qq.com,REJECT
-HOST-SUFFIX,huatuo.qq.com,REJECT
 HOST,info4.video.qq.com,REJECT
 HOST,info6.video.qq.com,REJECT
 HOST,ios.video.mpush.qq.com,REJECT
-HOST-SUFFIX,mtrace.qq.com,REJECT
-HOST,otheve.beacon.qq.com,REJECT
-HOST,qzs.qq.com,REJECT
-HOST,pgdt.gtimg.cn,REJECT
-HOST-SUFFIX,trace.qq.com,REJECT
-HOST,tpns.qq.com,REJECT
 HOST,tmead.y.qq.com,REJECT
 HOST,tmeadbak.y.qq.com,REJECT
 HOST,tmeadcomm.y.qq.com,REJECT
 HOST,vv.video.qq.com,REJECT
-HOST-KEYWORD,trace.qq.com,REJECT
 HOST-KEYWORD,trace.video.qq.com,REJECT
 IP-CIDR,47.110.187.87/32,REJECT
 ^http:\/\/.+\/vmind\.qqvideo\.tc\.qq\.com\/.+mp4 url reject-dict
@@ -125,5 +125,9 @@ HOST,trackbeat.xiachufang.com,REJECT
 # >>>>>>>>>>>>>> ✅ Y ✅ <<<<<<<<<<<<<<<
 # > yangShiYingYin
 ^https?:\/\/api\.app\.cctv\.com\/api\/getVersion url reject
+
+# >>>>>>>>>>>>>> ✅ Z ✅ <<<<<<<<<<<<<<<
+# > zhongGuoLianTong
+HOST,m1.ad.10010.com,REJECT
 
 hostname = *.chelaileapp.cn, *.chelaile.net.cn, www.xiachufang.com, api.xiachufang.com, pan.baidu.com, issuecdn.baidupcs.com, update.pan.baidu.com, staticsns.cdn.bcebos.com, ndstatic.cdn.bcebos.com, res.kfc.com.cn, api.mcd.cn, ad.12306.cn, mobile.12306.cn, app.thepaper.cn, api.app.cctv.com, i.video.qq.com, iacc.qq.com, appapi.51job.com, appapi.51jobapp.com, blog.nilbt.com, api.aliyundrive.com, www.xiaoxiongyouhao.com, api.caiyunapp.com, wrapper.cyapi.cn, starplucker.cyapi.cn, conf.chuangke.tv, d.chuangke.tv, res.chuangke.tv, api.7littlemen.com, gab.122.gov.cn
