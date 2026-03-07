@@ -4,16 +4,16 @@ let obj = JSON.parse($response.body);
 
 if (url.includes("/shield/scene/recommend")) {
     //首页工具栏icon角标文字
-	if (obj.data?.toolsRecommend?.hasOwnProperty('data')) {
-		obj.data.toolsRecommend.data.choiceTools = []; //更多工具角标文字
-        
-        if(obj.data.toolsRecommend.data.exist_tool?.length > 0) {
+    if (obj.data?.toolsRecommend?.hasOwnProperty('data')) {
+        obj.data.toolsRecommend.data.choiceTools = []; //更多工具角标文字
+
+        if (obj.data.toolsRecommend.data.exist_tool?.length > 0) {
             for (let i of obj.data.toolsRecommend.data.exist_tool) {
                 i.tips_type = 0;
                 i.tips = ""; //角标文字
             }
         }
-	}
+    }
 } else if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     // 公交出行 底部卡路里数值
     if (obj?.data?.common_data?.bus_plan_bottom_event?.data?.length > 0) {
@@ -96,10 +96,10 @@ if (url.includes("/shield/scene/recommend")) {
     // 路线规划页 代驾推广
     if (obj?.data?.tabHomePage?.length > 0) {
         obj.data.tabHomePage = obj.data.tabHomePage.filter(
-                        (i) => !(
-                            i?.id === "chauffeur_homepage_king_info"
-                        )
-                    );
+            (i) => !(
+                i?.id === "chauffeur_homepage_king_info"
+            )
+        );
     }
 } else if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
     // 路线规划页
@@ -217,7 +217,7 @@ if (url.includes("/shield/scene/recommend")) {
                     //去除语音及车标推荐
                     if (i?.content?.ownedList?.length > 0) {
                         for (let j of i.content.ownedList) {
-                            if(j.hasOwnProperty("bottomTips")) {
+                            if (j.hasOwnProperty("bottomTips")) {
                                 delete j.bottomTips;
                             }
                         }
@@ -245,7 +245,7 @@ if (url.includes("/shield/scene/recommend")) {
                 default:
                     break;
             }
-            
+
             if (delArr.includes(i?.dataKey)) {
                 return false;
             }
@@ -562,9 +562,9 @@ if (url.includes("/shield/scene/recommend")) {
     if (!obj.data?.modules?.reviews?.data?.hasOwnProperty("total") || obj.data?.modules?.reviews?.data?.total === 0) {
         items.push('reviews');
     }
-    if (obj.data?.modules?.reviews?.data?.nav_bar_write_comment) {
-        //delete obj.data.modules.reviews.data.nav_bar_write_comment; //右上角写评价入口
-    }
+    /*if (obj.data?.modules?.reviews?.data?.nav_bar_write_comment) {
+        delete obj.data.modules.reviews.data.nav_bar_write_comment; //右上角写评价入口
+    }*/
     if (obj.data?.modules?.reviews?.data?.write_comment) {
         if (obj.data?.modules?.reviews?.data?.write_comment?.btnRightTag) {
             obj.data.modules.reviews.data.write_comment.btnRightTag = "";
@@ -591,11 +591,11 @@ if (url.includes("/shield/scene/recommend")) {
     if (obj.data?.modules?.combineReviews?.data?.evaluation?.rating_array?.length > 0) {
         obj.data.modules.combineReviews.data.evaluation.rating_array = obj.data.modules.combineReviews.data.evaluation.rating_array.filter(
             (i) => !(
-                        i?.rating === "" || //无评分
-                        i?.rating === 0 ||
-                        i?.rating === "0.0"
-                    )
-            );
+                i?.rating === "" || //无评分
+                i?.rating === 0 ||
+                i?.rating === "0.0"
+            )
+        );
     }
 
     //处理出行评分
@@ -647,7 +647,7 @@ if (url.includes("/shield/scene/recommend")) {
         if (obj.data.modules.baseInfo.data.hasOwnProperty('imInfo')) {
             delete obj.data.modules.baseInfo.data.imInfo;
         }
-        
+
         //去除位置旁边的地图icon图标(旧的样式)
         if (obj.data.modules.baseInfo.data.address_info?.icons?.length > 0) {
             obj.data.modules.baseInfo.data.address_info.icons = obj.data.modules.baseInfo.data.address_info.icons.filter((i) => {
@@ -656,8 +656,8 @@ if (url.includes("/shield/scene/recommend")) {
                 }
                 return true;
             });
-        
-            if(obj.data.modules.baseInfo.data.address_info.iconSort?.length > 0){
+
+            if (obj.data.modules.baseInfo.data.address_info.iconSort?.length > 0) {
                 obj.data.modules.baseInfo.data.address_info.iconSort = obj.data.modules.baseInfo.data.address_info.iconSort.filter((i) => {
                     if (i === 'map') {
                         return false;
@@ -675,7 +675,7 @@ if (url.includes("/shield/scene/recommend")) {
         }
         delete obj.data.modules.poiMapModule.data.map.main_point.dynamic_texture;
     }
-    
+
     //处理问答
     if (!obj.data.modules.travelGuideAndQa?.data?.questionAndAnswer?.hasOwnProperty('log_param')) {
         items.push('travelGuideAndQa'); //没有提问就去掉问答
@@ -691,7 +691,7 @@ if (url.includes("/shield/scene/recommend")) {
     if (obj?.data?.headerHotWord?.length > 0) {
         obj.data.headerHotWord = [];
     }
-    
+
     //搜索框 下方icon图标角标文字
     if (obj?.data?.hotwordWithIcon?.length > 0) {
         for (let i of obj.data.hotwordWithIcon) {
@@ -815,18 +815,18 @@ if (url.includes("/shield/scene/recommend")) {
             }
         }
 
-		//搜索列表
-		if(obj?.data?.modules?.listResult?.data?.list?.length > 0){
-			let items = [
-				"RecommendEveryoneSearch" //大家还在搜
-			];
-			obj.data.modules.listResult.data.list = obj.data.modules.listResult.data.list.filter((i) => {
-	            if (i.hasOwnProperty("card_id") && items.includes(i.card_id)) {
-	                return false;
-	            }
-	            return true;
-	        });
-		}
+        //搜索列表
+        if (obj?.data?.modules?.listResult?.data?.list?.length > 0) {
+            let items = [
+                "RecommendEveryoneSearch" //大家还在搜
+            ];
+            obj.data.modules.listResult.data.list = obj.data.modules.listResult.data.list.filter((i) => {
+                if (i.hasOwnProperty("card_id") && items.includes(i.card_id)) {
+                    return false;
+                }
+                return true;
+            });
+        }
     }
 } else if (url.includes("/shield/search_business/process/middleLayer/sug")) {
     //搜索列表结果下方商品推广
@@ -912,47 +912,47 @@ if (url.includes("/shield/scene/recommend")) {
         }
     }
 } else if (url.includes("/promote/person/homepage")) {
-	//达人主页
-	//去除多余板块
-	let delCard = [
-	    //"HeaderCard", //头部
-	    "MemberCenterCard",  //达人中心
-	    "UserProfileBadgeCard", //成就勋章
-	    "UserProfileTabContentCard", //动态、赞过、贡献
-	    "PersonalPageLocationDocumentsCard" //地点档案
-	]
-	if(obj?.data?.bizData?.hasOwnProperty('cardData')){
-	    for (i in obj.data.bizData.cardData) {
-			if (i === "HeaderCard") {
-	            if (obj.data.bizData.cardData[i].content?.hasOwnProperty('footprint')) {
-	                delete obj.data.bizData.cardData[i].content.footprint;
-	            }
-	        }
-			
-	        if (delCard.includes(i)) {
-	            delete obj.data.bizData.cardData[i];
-	        }
-	    }
-	}
-	
-	if(obj?.data?.hasOwnProperty('uiData')){
-	    if(obj.data.uiData.hasOwnProperty('cardUi')){
-	        for (i in obj.data.uiData.cardUi) {
-	            if (delCard.includes(i)) {
-	                delete obj.data.uiData.cardUi[i];
-	            }
-	        }
-	    }
-	
-	    if(obj.data.uiData.pageUi?.cardIdList?.length > 0){
-	        obj.data.uiData.pageUi.cardIdList = obj.data.uiData.pageUi.cardIdList.filter((i) => {
-	            if (delCard.includes(i)) {
-	                return false;
-	            }
-	            return true;
-	        });
-	    }
-	}
+    //达人主页
+    //去除多余板块
+    let delCard = [
+        //"HeaderCard", //头部
+        "MemberCenterCard",  //达人中心
+        "UserProfileBadgeCard", //成就勋章
+        "UserProfileTabContentCard", //动态、赞过、贡献
+        "PersonalPageLocationDocumentsCard" //地点档案
+    ]
+    if (obj?.data?.bizData?.hasOwnProperty('cardData')) {
+        for (i in obj.data.bizData.cardData) {
+            if (i === "HeaderCard") {
+                if (obj.data.bizData.cardData[i].content?.hasOwnProperty('footprint')) {
+                    delete obj.data.bizData.cardData[i].content.footprint;
+                }
+            }
+
+            if (delCard.includes(i)) {
+                delete obj.data.bizData.cardData[i];
+            }
+        }
+    }
+
+    if (obj?.data?.hasOwnProperty('uiData')) {
+        if (obj.data.uiData.hasOwnProperty('cardUi')) {
+            for (i in obj.data.uiData.cardUi) {
+                if (delCard.includes(i)) {
+                    delete obj.data.uiData.cardUi[i];
+                }
+            }
+        }
+
+        if (obj.data.uiData.pageUi?.cardIdList?.length > 0) {
+            obj.data.uiData.pageUi.cardIdList = obj.data.uiData.pageUi.cardIdList.filter((i) => {
+                if (delCard.includes(i)) {
+                    return false;
+                }
+                return true;
+            });
+        }
+    }
 } else if (url.includes("/userview/footprint/v2/detail")) {
     //足迹页处理
     if (obj?.data?.city?.hasOwnProperty('tips')) {
@@ -971,57 +971,57 @@ if (url.includes("/shield/scene/recommend")) {
     }
 } else if (url.includes("/amc/server/conv/raise_list")) {
     //消息列表通知过滤
-	if (obj.data?.dataList?.length > 0) {
+    if (obj.data?.dataList?.length > 0) {
         /*console.log("**********修改前：**********");
         console.log(JSON.stringify(obj));*/
-        
-		const idItems = [
-			//"M_100001", //我的反馈
-			//"M_100007", //订单提醒
-			"M_100009", //高德旺铺
-			//"M_100011", //服务通知
-			//"M_100012", //交通实况LIVE
+
+        const idItems = [
+            //"M_100001", //我的反馈
+            //"M_100007", //订单提醒
+            "M_100009", //高德旺铺
+            //"M_100011", //服务通知
+            //"M_100012", //交通实况LIVE
             "M_100013", //天气
-			//"M_100016", //地点评论
-			"M_100021", //数字工厂- 我的个人主页
-			"M_100023", //出行侠
-			//"M_100032", //高德达人
-			"M_100036", //高德运动
-			"M_100038", //高德出游服务
-			//"M_100044", //通知权限提醒
-			"M_100046", //天天领福利
-			"M_100050", //高德快报
-			"M_100051", //高德·超划算
-			"M_100053", //游戏中心
-			"M_100059", //高德酒店
+            //"M_100016", //地点评论
+            "M_100021", //数字工厂- 我的个人主页
+            "M_100023", //出行侠
+            //"M_100032", //高德达人
+            "M_100036", //高德运动
+            "M_100038", //高德出游服务
+            //"M_100044", //通知权限提醒
+            "M_100046", //天天领福利
+            "M_100050", //高德快报
+            "M_100051", //高德·超划算
+            "M_100053", //游戏中心
+            "M_100059", //高德酒店
             "M_100063", //ai助手
             "M_100065", //打卡消息
             "M_100068", //借钱服务
-		]
-		
-		obj.data.dataList = obj.data.dataList.filter((i) => {
+        ]
+
+        obj.data.dataList = obj.data.dataList.filter((i) => {
             if (i.data?.hasOwnProperty("id") && idItems.includes(i.data.id)) {
                 return false;
             }
             return true;
         });
-        
+
         /*console.log("==========修改后：==========");
         console.log(JSON.stringify(obj));*/
-	}
+    }
 } else if (url.includes("/user/activity/talent/lottery/skuList")) {
-    if(obj?.data?.skuList?.length > 0) {
-    	obj.data.skuList = skuListFilter(obj.data.skuList);
+    if (obj?.data?.skuList?.length > 0) {
+        obj.data.skuList = skuListFilter(obj.data.skuList);
     }
 }
 $done({ body: JSON.stringify(obj) });
 
-function skuListFilter(skuList){
-	skuList = skuList.filter(
-                (i) => !(
-                    i?.skuInfo?.skuId === 1063 || //实体勋章
-                    i?.skuInfo?.skuId === 458  //猫冰箱贴
-                        )
-                );
+function skuListFilter(skuList) {
+    skuList = skuList.filter(
+        (i) => !(
+            i?.skuInfo?.skuId === 1063 || //实体勋章
+            i?.skuInfo?.skuId === 458  //猫冰箱贴
+        )
+    );
     return skuList;
 }
