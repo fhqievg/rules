@@ -581,10 +581,10 @@ if (url.includes("/shield/scene/recommend")) {
             items.push('combineReviews');
         }
     }
-    if (obj.data?.modules?.combineReviews?.data?.hasOwnProperty("nav_bar_write_comment")) {
-        //delete obj.data.modules.combineReviews.data.nav_bar_write_comment; //右上角写评价入口
-    }
     //去除多余的评价按钮
+    /*if (obj.data?.modules?.combineReviews?.data?.hasOwnProperty("nav_bar_write_comment")) {
+        delete obj.data.modules.combineReviews.data.nav_bar_write_comment; //右上角写评价入口
+    }*/
     if (obj.data?.modules?.combineReviews?.data?.hasOwnProperty("write_comment")) {
         delete obj.data.modules.combineReviews.data.write_comment; //评价按钮
     }
