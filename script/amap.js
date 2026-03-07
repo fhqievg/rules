@@ -584,17 +584,18 @@ if (url.includes("/shield/scene/recommend")) {
     if (obj.data?.modules?.combineReviews?.data?.hasOwnProperty("nav_bar_write_comment")) {
         //delete obj.data.modules.combineReviews.data.nav_bar_write_comment; //右上角写评价入口
     }
+    //去除多余的评价按钮
     if (obj.data?.modules?.combineReviews?.data?.hasOwnProperty("write_comment")) {
         delete obj.data.modules.combineReviews.data.write_comment; //评价按钮
-        /*obj.data.modules.combineReviews.data.write_comment.is_activity = false;
-        obj.data.modules.combineReviews.data.write_comment.btnRightTag = "";
-        obj.data.modules.combineReviews.data.write_comment.title = "";
-        obj.data.modules.combineReviews.data.write_comment.showScore = 0;
-        obj.data.modules.combineReviews.data.write_comment.display_tips = "";
-        
-        if (obj.data.modules.combineReviews.data.write_comment.task_entrance) {
-            delete obj.data.modules.combineReviews.data.write_comment.task_entrance; //评价模块右上角活动入口
-        }*/
+    }
+    if (obj.data?.modules?.combineReviews?.data?.evaluation?.rating_array?.length > 0) {
+        obj.data.modules.combineReviews.data.evaluation.rating_array = obj.data.modules.combineReviews.data.evaluation.rating_array.filter(
+            (i) => !(
+                        i?.rating === "" || //无评分
+                        i?.rating === 0 ||
+                        i?.rating === "0.0"
+                    )
+            );
     }
 
     //处理出行评分
