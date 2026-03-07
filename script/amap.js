@@ -952,89 +952,6 @@ if (url.includes("/shield/scene/recommend")) {
 	        });
 	    }
 	}
-} else if (url.includes("/faas/amap-navigation/usr-profile-fc/homeV2")) {
-    //去除顶部日日签tab
-    if (obj?.data?.homePageData?.pageHeaderConfig?.headerConfigList?.length > 0) {
-        obj.data.homePageData.pageHeaderConfig.headerConfigList = obj.data.homePageData.pageHeaderConfig.headerConfigList.filter(
-            (i) => !(
-                i?.type === "bullet" //日日签
-            )
-        );
-    }
-    if (obj?.data?.bulletData) {
-        delete obj.data.bulletData;
-    }
-
-    //去除进行中的勋章展示
-    if (obj?.data?.homePageData?.medalData?.guideList?.length > 0) {
-        obj.data.homePageData.medalData.guideList = [];
-    }
-    //去除已获得成就的勋章显示
-    /*if(obj?.data?.homePageData?.userData?.identity?.annualBill?.length > 0){
-        obj.data.homePageData.userData.identity.annualBill = [];
-    }
-    if(obj?.data?.homePageData?.userData?.identity?.achieveList?.length > 0){
-        obj.data.homePageData.userData.identity.achieveList = [];
-    }*/
-
-    //模块处理
-    if (obj?.data?.homePageData?.cardList?.length > 0) {
-        let delCard = [
-            "UserCenterDailyActivities", //每日活动
-            //"UserCenterGrowthInteractiveCard" , //达人基础信息
-            //"UserCenterGetActivityCarGuideCard", //活动
-            //"UserCenterRightCard",  //达人权益
-            //"UserCenterSkuCard", //达人专属抢
-            //"UserCenterLotteryCard", //达人抽奖
-            "UserCenterLevelActivityCard", //线下活动
-            "UserCenterInteractCard", //互动专区（合成烟花、达人形象那一块）
-            //"UserCenterGrowthTaskCard", //我的成长
-            "UserCenterMemberVideoCard" //底部视频
-        ];
-
-        let cardListNew = [];
-        for (let i of obj.data.homePageData.cardList) {
-            if (!i.hasOwnProperty("dataKey")) {
-                cardListNew.push(i);
-                continue;
-            }
-
-            if (delCard.includes(i.dataKey)) {
-                continue; //需要删除的跳过处理
-            }
-
-            switch (i.dataKey) {
-                case "UserCenterGrowthInteractiveCard":
-                    i = growthInteractiveCardHandle(i);
-                    break;
-                case "UserCenterRightCard":
-                    //达人权益模块去掉多余的
-                    if (i?.cardData?.hasOwnProperty('rights') && i?.cardData.rights.length > 0) {
-                        i.cardData.rights = i.cardData.rights.filter(
-                            (j) => !(
-                                 //j.id === 1 || //专区礼券包
-                                j?.id === 2 || //生日祝福
-                                 j.id === 3 || //专属抢购
-                                 //j.id === 6 || //新功能尝鲜
-                                 j?.id === 7  //线下活动
-                                 //j.id === 9 //道路救援
-                             )
-                        );
-                    }
-                    break;
-                case "UserCenterLotteryCard":
-                    //达人抽奖去掉不想要的
-                    if (i?.cardData?.hasOwnProperty('skuList') && i.cardData.skuList.length > 0) {
-                        i.cardData.skuList = skuListFilter(i.cardData.skuList);
-                    }
-                    break;
-                default:
-                    break;
-            }
-            cardListNew.push(i);
-        }
-        obj.data.homePageData.cardList = cardListNew;
-    }
 } else if (url.includes("/userview/footprint/v2/detail")) {
     //足迹页处理
     if (obj?.data?.city?.hasOwnProperty('tips')) {
@@ -1097,33 +1014,6 @@ if (url.includes("/shield/scene/recommend")) {
     }
 }
 $done({ body: JSON.stringify(obj) });
-
-//达人主页模块处理
-function growthInteractiveCardHandle(data) {
-    if (data.cardData?.assetCardList?.length === 0) {
-        return data;
-    }
-    
-    for (let i of data.cardData.assetCardList) {
-        switch (i.taskStrategy) {
-            //共建答题
-            case "USER_TASK_STRATEGY_FEEDBACK":
-            //待评价地点
-            case "USER_TASK_STRATEGY_POI":
-            //达人推荐
-            case "USER_TASK_STRATEGY_CUSTOM":
-            //小车限时活动
-            //case "USER_TASK_STRATEGY_ACTIVITY":
-                if (i.taskContentList?.length > 0) {
-                    i.taskContentList = [];
-                }
-                break;
-            default:
-                break;
-        }
-    }
-    return data;
-}
 
 function skuListFilter(skuList){
 	skuList = skuList.filter(
