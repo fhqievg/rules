@@ -954,6 +954,16 @@ if (url.includes("/shield/scene/recommend")) {
             });
         }
     }
+} else if (url.includes("/promote/member/page")) {
+    //达人任务页
+    if (obj?.data?.bizData?.cardData?.MemberRecommendTaskCard?.content?.taskList?.length > 0) {
+        //不需要任务中心
+        obj.data.bizData.cardData.MemberRecommendTaskCard.content = {};
+        //下方代码可保留任务中心，需注释上一行代码，二选一
+        /*let taskListArr = [];
+        arr.push(obj.data.bizData.cardData.MemberRecommendTaskCard.content.taskList[0]);
+        obj.data.bizData.cardData.MemberRecommendTaskCard.content.taskList = taskListArr;*/
+    }
 } else if (url.includes("/userview/footprint/v2/detail")) {
     //足迹页处理
     if (obj?.data?.city?.hasOwnProperty('tips')) {
