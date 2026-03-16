@@ -961,7 +961,7 @@ if (url.includes("/shield/scene/recommend")) {
         obj.data.bizData.cardData.MemberRecommendTaskCard.content = {};
         //下方代码可保留任务中心，需注释上一行代码，二选一
         /*let taskListArr = [];
-        arr.push(obj.data.bizData.cardData.MemberRecommendTaskCard.content.taskList[0]);
+        taskListArr.push(obj.data.bizData.cardData.MemberRecommendTaskCard.content.taskList[0]);
         obj.data.bizData.cardData.MemberRecommendTaskCard.content.taskList = taskListArr;*/
     }
 } else if (url.includes("/userview/footprint/v2/detail")) {
