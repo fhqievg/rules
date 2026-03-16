@@ -608,7 +608,8 @@ if (url.includes("/shield/scene/recommend")) {
 
     //处理顶部图片
     if (obj.data?.modules?.attractGalleryInfo?.hasOwnProperty("card_id") && obj.data?.modules?.attractGalleryInfo?.card_id === "AttractGalleryUpload") {
-        items.push('attractGalleryInfo'); //删除仅展示的上传图片入口
+        //删除仅展示的上传图片入口
+        obj.data.modules.attractGalleryInfo.card_id = 'AttractGalleryUpsssss';
     }
     if (obj.data?.modules?.attractGalleryInfo?.data?.log_data?.common_log?.NOTE) {
         obj.data.modules.attractGalleryInfo.data.log_data.common_log.NOTE = 0;
