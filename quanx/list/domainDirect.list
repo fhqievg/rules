@@ -1,6 +1,6 @@
 HOST-SUFFIX, aptvapp.com, DIRECT
 HOST-SUFFIX, aptv.app, DIRECT
-HOST, api.revenuecat.com, DIRECT
+HOST-SUFFIX, revenuecat.com, DIRECT
 HOST-SUFFIX, appraven.net, DIRECT
 HOST-SUFFIX, cooltv.top, DIRECT
 HOST, cdn.jsdelivr.net, DIRECT
