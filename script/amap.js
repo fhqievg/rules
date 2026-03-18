@@ -345,7 +345,6 @@ if (url.includes("/shield/scene/recommend")) {
         "CouponBanner", // 高德红包
         "checkIn",
         "check_in", // 足迹打卡
-        //"commonGoodsShelf", //商品推广
         "cityCardFeed", // 景点卡片
         // "cityPhoto", // 城市照片
         "city_discount", // 专业老师在线答疑
@@ -583,7 +582,7 @@ if (url.includes("/shield/scene/recommend")) {
 
     //处理顶部图片
     if (obj.data?.modules?.attractGalleryInfo?.hasOwnProperty("card_id") && obj.data?.modules?.attractGalleryInfo?.card_id === "AttractGalleryUpload") {
-        //删除仅展示的上传图片入口
+        //删除无图片时展示的上传图片入口
         obj.data.modules.attractGalleryInfo.card_id = 'AttractGalleryUpsssss';
     }
     if (obj.data?.modules?.attractGalleryInfo?.data?.log_data?.common_log?.NOTE) {
@@ -658,7 +657,7 @@ if (url.includes("/shield/scene/recommend")) {
         items.push('travelGuideAndQa'); //没有提问就去掉问答
     }
     
-    //处理底部功能按钮
+    //处理左下角功能按钮
     let delIcon = [
         'hotel' //酒店
     ];
@@ -953,9 +952,9 @@ if (url.includes("/shield/scene/recommend")) {
 } else if (url.includes("/promote/member/page")) {
     //达人任务页
     if (obj?.data?.bizData?.cardData?.MemberRecommendTaskCard?.content?.taskList?.length > 0) {
-        //不需要任务中心
+        //不需要任务中心入口
         obj.data.bizData.cardData.MemberRecommendTaskCard.content = {};
-        //下方代码可保留任务中心，需注释上一行代码，二选一
+        //下方代码可保留任务中心入口，需注释上一行代码，二选一
         /*let taskListArr = [];
         taskListArr.push(obj.data.bizData.cardData.MemberRecommendTaskCard.content.taskList[0]);
         obj.data.bizData.cardData.MemberRecommendTaskCard.content.taskList = taskListArr;*/
