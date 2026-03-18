@@ -844,13 +844,19 @@ if (url.includes("/shield/scene/recommend")) {
     //搜索列表结果下方商品推广
     if (obj?.tip_list?.length > 0) {
         const items = ["product_vo", "product_info"];
+        let newArr = [];
         for (let i of obj.tip_list) {
             for (let j of items) {
                 if (i?.tip?.hasOwnProperty(j)) {
                     delete i.tip[j];
                 }
             }
+            
+            if (!i.tip.hasOwnProperty("task_tag") || i.tip.task_tag !== "meta_special") {
+                newArr.push(i); //去除扫街榜
+            }
         }
+        obj.tip_list = newArr;
     }
 } else if (url.includes("/shield/search_poi/sug")) {
     if (obj?.tip_list) {
