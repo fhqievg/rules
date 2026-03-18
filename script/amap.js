@@ -618,7 +618,8 @@ if (url.includes("/shield/scene/recommend")) {
         obj.data.modules.attractGalleryInfo.data.list = obj.data.modules.attractGalleryInfo.data.list.filter(
             (i) =>
                 !(
-                    i?.source === "NOTE" //去除笔记
+                    i?.source === "NOTE" || //去除笔记
+                    i?.source === "NOTE_BEST" //精选笔记
                 )
         );
     }
@@ -680,6 +681,16 @@ if (url.includes("/shield/scene/recommend")) {
     //处理问答
     if (!obj.data.modules.travelGuideAndQa?.data?.questionAndAnswer?.hasOwnProperty('log_param')) {
         items.push('travelGuideAndQa'); //没有提问就去掉问答
+    }
+    
+    //处理底部功能按钮
+    let delIcon = [
+        'hotel' //酒店
+    ];
+    for (let i of delIcon) {
+        if (obj?.data?.modules?.poiDetailBottomBar?.data?.hasOwnProperty(i)) {
+            delete obj.data.modules.poiDetailBottomBar.data[i];
+        }
     }
 
     if (obj?.data?.modules) {
