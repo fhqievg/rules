@@ -333,16 +333,12 @@ if (url.includes("/shield/scene/recommend")) {
 } else if (url.includes("/shield/search/poi/detail")) {
     // 搜索结果 模块详情
     const items = [
-        // "anchor",
         "adv_compliance_info", // 服务提供方
         "adv_gift",
         "adStoreBigBannerModule", //广告横幅（打车券之类）
-        // "base_info",
         "bigListBizRec", // 周边景点推荐 三张景点大图
         "bottomDescription", // 底部描述 高德酒店 全网比价
-        // "brand_introduction",
         "brand_shop_bar",
-        // "brand_story",
         "brand_service", // 品牌服务
         "brandAdModule", //底部横幅广告
         "carServiceCard", //车主中心
@@ -361,21 +357,15 @@ if (url.includes("/shield/scene/recommend")) {
         // "companyInfo", // 简介
         "comprehensiveEditEntrance", // 编辑地点信息
         "commonAiAgent", //ai门店助手
-        // "consultancy",
         "contributor", // 地点贡献
         "CouponWidget", //右下角小图标
-        // "coupon_allowance",
-        // "coupon_entrance",
         "cpt_service_shop", //买卖二手房
         "cpt_service_simple", //买卖二手房按钮
-        // "craftsman_entry",
         // "crowd_index", // 人流量情况
         "dayTripList", // 热门一日游
-        // "detailFeedCommodity",
         "detail_bottom_shop_service", //买卖二手房
         "discount_commodity", // 优惠团购
         "divergentRecommendModule", // 你可能还喜欢
-        // "events",
         "expertNote", //笔记
         "everyOneToSee", // 大家还在看
         "enhanceCustomerServicePoiModule",  //品牌服务专区
@@ -383,11 +373,8 @@ if (url.includes("/shield/scene/recommend")) {
         "feedback", // 问题反馈
         "first_surround_estate_tab", // 周边小区
         // "floor_guide_second", // 楼层导览
-        // "footer_logo",
         "footer_tel_button", //右下角电话咨询浮框
-        // "foreclosurehouse",
         // "gallery_info", // 现场照片
-        // "ggc_entry",
         "gas_station_recommend", //加油站推荐
         "gasStationRecommend", //加油站推荐
         //"governmentInformation",
@@ -452,7 +439,6 @@ if (url.includes("/shield/scene/recommend")) {
         "new_operation_banner", // 精选活动 高德的推广
         "newsellhouse",
         // "normal_nav_bar", // 右上角图标 客服 反馈
-        // "notification",
         "officerenthouse",
         "officesellhouse",
         "official_account", // 其他平台官方账号
@@ -472,7 +458,6 @@ if (url.includes("/shield/scene/recommend")) {
         "poiDetailAQModule", //ai相关
         "poster_banner",
         "poiTipBar",  // 提示栏
-        // "poi_intercept",
         "portal_entrance", // 高德旅游版块 引流到旅游频道
         "poiDetailNewBeltV2", //横幅广告图
         "privateSphereChannel", //门店微信
@@ -480,7 +465,6 @@ if (url.includes("/shield/scene/recommend")) {
         "quickLink", // 地点详情页图标 酒店 景点 热榜
         "quickLinksPortal", //房产频道
         "relatedRecommends", // 附近同类型酒店
-        // "realtorRealStep",
         "renthouse",
         "rentSaleHouse", //租售房屋
         "rentsaleagencyv2",
@@ -497,22 +481,15 @@ if (url.includes("/shield/scene/recommend")) {
         "shoppingMallEvent", //购物商场活动
         "sameIndustryRecommendModule",
         "sameIndustry2RecommendModule",
-        // "same_price_new_estate",
         "scenic_coupon", // 优惠券过期提示
         "scenic_filter", // 购票悬浮菜单 可定明日 随时退
-        // "scenic_guide",
         // "scenic_helper", // 景区助手 开放时间 旺季 淡季
-        // "scenic_knowledge",
         "scenic_lifeservices", // 吃住购娱 餐厅 购物
         "scenic_mustplay", // 必游景点 四张景点大图
-        // "scenic_parking",
         "scenic_play_guide", // 景区攻略 游玩攻略 交通攻略
         "scenic_recommend", // 景点建议
-        // "scenic_route",
         // "scenic_route_intelligent", // 推荐游玩线路
-        // "scenic_service",
         // "scenic_ski", // 滑雪攻略 雪道数量 设施及服务
-        // "scenic_story",
         // "scenic_ticket", // 购票
         // "scenic_ticket_activity", // 购票活动
         "scenic_voice", // 语音讲解 付费的项目
@@ -520,7 +497,6 @@ if (url.includes("/shield/scene/recommend")) {
         "second_surround_estate_tab", // 周边房产
         "service_shop", // 中介门店
         "shopBaseCase", // 小区装修案例
-        // "shop_news",
         "shopStructGift", // 礼品广告位
         "similarShelfRecommend", //附近推荐门店
         "similarShopRecommend", //附近相似门店推荐
@@ -545,7 +521,6 @@ if (url.includes("/shield/scene/recommend")) {
         "upload_bar", // 上传照片
         "unionAuthBanner", //联盟授权
         "verification", // 商家已入驻
-        // "video",
         "waistRecEntrance", // 更多人气好去处
         "waterFallFeed", // 附近景点瀑布流
         "waterFallFeedTitle", // 更多人气好去处
@@ -857,7 +832,7 @@ if (url.includes("/shield/scene/recommend")) {
                 "meta_special" //扫街榜
             ];
             if (!i.tip.hasOwnProperty("task_tag") || !delArr.includes(i.tip.task_tag)) {
-                newArr.push(i); //去除扫街榜
+                newArr.push(i);
             }
         }
         obj.tip_list = newArr;
