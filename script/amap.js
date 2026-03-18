@@ -852,7 +852,11 @@ if (url.includes("/shield/scene/recommend")) {
                 }
             }
             
-            if (!i.tip.hasOwnProperty("task_tag") || i.tip.task_tag !== "meta_special") {
+            let delArr = [
+                "exact_topic_tpp", //夹杂其他搜索推荐
+                "meta_special" //扫街榜
+            ];
+            if (!i.tip.hasOwnProperty("task_tag") || !delArr.includes(i.tip.task_tag)) {
                 newArr.push(i); //去除扫街榜
             }
         }
