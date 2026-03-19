@@ -101,11 +101,34 @@ if (url.includes("/shield/scene/recommend")) {
             )
         );
     }
-} else if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
+} else if (url.includes("/faas/amap-navigation/card-service-plan-home") || || url.includes("/faas/amap-navigation/card-service-route-plan")) {
     // 路线规划页
     if (obj?.data?.children?.length > 0) {
-        // 有schema参数的为推广
-        obj.data.children = obj.data.children.filter((i) => !i.hasOwnProperty("schema"));
+        obj.data.children = obj.data.children.filter((i) => {
+            if (i.hasOwnProperty("schema")) {
+                // 有schema参数的为推广
+                return false;
+            }
+            
+            let items = [
+                "AntForestRideCard", //蚂蚁森林
+                "AntForestCard" //蚂蚁森林
+            ];
+            if (i.hasOwnProperty("componentName")) {
+                if (items.includes(i.componentName)) {
+                    return false;
+                }
+                
+                let  dataKey = [
+                    "c3_hkf_module_hasGoodsInfo", //火车、飞机票
+                    "NaviRanking" ////扫街榜
+                ];
+                if (i.componentName === "C3OutsideCastCard" && i.cardData?.hasOwnProperty("data_key") && dataKey.includes(i.cardData.data_key)) {
+                    return false;
+                }
+            }
+            return true;
+        });
     }
 } else if (url.includes("/faas/amap-navigation/main-page")) {
     // 首页底部卡片
