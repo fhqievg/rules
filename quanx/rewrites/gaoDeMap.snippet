@@ -57,7 +57,7 @@ HOST, adashx.ut.amap.com, REJECT
 # > > > 搜索框推广标签
 ^https:\/\/(?:m5|info)\.amap\.com\/ws\/shield\/search_poi\/homepage url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 搜索列表结果下方
-^https:\/\/info\.amap\.com\/ws\/shield\/search_business\/process\/middleLayer\/sug\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
+^https:\/\/(?:m5|info)\.amap\.com\/ws\/shield\/(?:search_poi|search_business\/process\/middleLayer)\/sug\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 从附近页点击顶部分类搜索
 ^https:\/\/m5\.amap\.com\/ws\/c3frontend\/af-hotel\/page\/main\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 搜索页底部
@@ -66,7 +66,6 @@ HOST, adashx.ut.amap.com, REJECT
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/(?:mps|search\/sp) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 其它
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/common\/coupon\/info url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
-^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/sug url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
 # > 地点相关
 # > > > 详情页顶部
