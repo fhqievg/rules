@@ -101,7 +101,7 @@ if (url.includes("/shield/scene/recommend")) {
             )
         );
     }
-} else if (url.includes("/faas/amap-navigation/card-service-plan-home") || || url.includes("/faas/amap-navigation/card-service-route-plan")) {
+} else if (url.includes("/faas/amap-navigation/card-service-plan-home") || url.includes("/faas/amap-navigation/card-service-route-plan")) {
     // 路线规划页
     if (obj?.data?.children?.length > 0) {
         obj.data.children = obj.data.children.filter((i) => {
