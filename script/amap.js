@@ -839,6 +839,7 @@ if (url.includes("/shield/scene/recommend")) {
         }
     }
 } else if (url.includes("/shield/search_poi/sug") || url.includes("/shield/search_business/process/middleLayer/sug")) {
+    //搜索列表
     if (obj?.tip_list) {
         let newLists = [];
         if (obj?.tip_list?.length > 0) {
