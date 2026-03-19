@@ -850,12 +850,13 @@ if (url.includes("/shield/scene/recommend")) {
                         delete item.tip[i]; //搜索列表结果下方商品推广
                     }
                 }
-                //"exact_topic_tpp" 夹杂其他搜索推荐
-                //"meta_special" 扫街榜
+                //exact_topic_tpp 夹杂其他搜索推荐
+                //meta_special 扫街榜
+                //common_content_toplist 扫街榜
                 if (
                     ["12"]?.includes(item?.tip?.datatype_spec) ||
                     (item?.tip?.hasOwnProperty("result_type") && ["ad", "poi_ad", "toplist"]?.includes(item?.tip?.result_type)) ||
-                    (item?.tip?.hasOwnProperty("task_tag") && ["ad", "exct_query_sug_merge_theme", "query_sug_merge_theme", "sp", "exact_topic_tpp", "meta_special"]?.includes(item?.tip?.task_tag))
+                    (item?.tip?.hasOwnProperty("task_tag") && ["ad", "exct_query_sug_merge_theme", "query_sug_merge_theme", "sp", "exact_topic_tpp", "meta_special", "common_content_toplist"]?.includes(item?.tip?.task_tag))
                 ) {
                     continue;
                 } else {
