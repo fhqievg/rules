@@ -838,37 +838,23 @@ if (url.includes("/shield/scene/recommend")) {
             });
         }
     }
-} else if (url.includes("/shield/search_business/process/middleLayer/sug")) {
-    //搜索列表结果下方商品推广
-    if (obj?.tip_list?.length > 0) {
-        const items = ["product_vo", "product_info"];
-        let newArr = [];
-        for (let i of obj.tip_list) {
-            for (let j of items) {
-                if (i?.tip?.hasOwnProperty(j)) {
-                    delete i.tip[j];
-                }
-            }
-            
-            let delArr = [
-                "exact_topic_tpp", //夹杂其他搜索推荐
-                "meta_special" //扫街榜
-            ];
-            if (!i.tip.hasOwnProperty("task_tag") || !delArr.includes(i.tip.task_tag)) {
-                newArr.push(i);
-            }
-        }
-        obj.tip_list = newArr;
-    }
-} else if (url.includes("/shield/search_poi/sug")) {
+} else if (url.includes("/shield/search_poi/sug") || url.includes("/shield/search_business/process/middleLayer/sug")) {
     if (obj?.tip_list) {
         let newLists = [];
         if (obj?.tip_list?.length > 0) {
+            const delArr = ["product_vo", "product_info"];
             for (let item of obj.tip_list) {
+                for (let i of delArr) {
+                    if (item?.tip?.hasOwnProperty(i)) {
+                        delete item.tip[i]; //搜索列表结果下方商品推广
+                    }
+                }
+                //"exact_topic_tpp" 夹杂其他搜索推荐
+                //"meta_special" 扫街榜
                 if (
                     ["12"]?.includes(item?.tip?.datatype_spec) ||
-                    ["ad", "poi_ad", "toplist"]?.includes(item?.tip?.result_type) ||
-                    ["ad", "exct_query_sug_merge_theme", "query_sug_merge_theme", "sp"]?.includes(item?.tip?.task_tag)
+                    (item?.tip?.hasOwnProperty("result_type") && ["ad", "poi_ad", "toplist"]?.includes(item?.tip?.result_type)) ||
+                    (item?.tip?.hasOwnProperty("task_tag") && ["ad", "exct_query_sug_merge_theme", "query_sug_merge_theme", "sp", "exact_topic_tpp", "meta_special"]?.includes(item?.tip?.task_tag))
                 ) {
                     continue;
                 } else {
