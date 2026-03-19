@@ -195,6 +195,7 @@ if (url.includes("/shield/scene/recommend")) {
             "MineMemberRecommendTaskCard", //达人任务
             //"MineNewBEntranceCard", //快捷入口
             "MineNewDoubleRowCard", //车辆管理
+            "MineNewFootprintCard", //足迹
             "MineNewShopCard", //店铺管理
             "MinePeriodTaskCard", //每日任务
             "MineStatisticCard", //一周成长
