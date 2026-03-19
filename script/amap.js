@@ -1,11 +1,11 @@
-const url = $request.url;
+eonst url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
 if (url.includes("/shield/scene/recommend")) {
     //首页工具栏icon角标文字
     if (obj.data?.toolsRecommend?.hasOwnProperty('data')) {
-        obj.data.toolsRecommend.data.choiceTools = []; //更多工具角标文字
+        obj.data.toolsRecommend.data.choiceTools = []; //更多工具icon角标文字
 
         if (obj.data.toolsRecommend.data.exist_tool?.length > 0) {
             for (let i of obj.data.toolsRecommend.data.exist_tool) {
@@ -121,7 +121,7 @@ if (url.includes("/shield/scene/recommend")) {
                 
                 let  dataKey = [
                     "c3_hkf_module_hasGoodsInfo", //火车、飞机票
-                    "NaviRanking" ////扫街榜
+                    "NaviRanking" //各种榜单入口
                 ];
                 if (i.componentName === "C3OutsideCastCard" && i.cardData?.hasOwnProperty("data_key") && dataKey.includes(i.cardData.data_key)) {
                     return false;
@@ -851,8 +851,8 @@ if (url.includes("/shield/scene/recommend")) {
                     }
                 }
                 //exact_topic_tpp 夹杂其他搜索推荐
-                //meta_special 扫街榜
-                //common_content_toplist 扫街榜
+                //meta_special 各种榜单入口
+                //common_content_toplist 各种榜单入口
                 if (
                     ["12"]?.includes(item?.tip?.datatype_spec) ||
                     (item?.tip?.hasOwnProperty("result_type") && ["ad", "poi_ad", "toplist"]?.includes(item?.tip?.result_type)) ||
@@ -964,7 +964,7 @@ if (url.includes("/shield/scene/recommend")) {
 } else if (url.includes("/promote/member/page")) {
     //达人任务页
     if (obj?.data?.bizData?.cardData?.MemberRecommendTaskCard?.content?.taskList?.length > 0) {
-        //不需要任务中心入口
+        //不需要保留任务中心入口
         obj.data.bizData.cardData.MemberRecommendTaskCard.content = {};
         //下方代码可保留任务中心入口，需注释上一行代码，二选一
         /*let taskListArr = [];
