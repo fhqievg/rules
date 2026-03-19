@@ -538,6 +538,7 @@ if (url.includes("/shield/scene/recommend")) {
         "surround_selloffice",
         "subscription", // 商家号
         "thirdparty_info", //第三方信息
+        "topListRecommendCard", //排行榜
         // "traffic", // 交通出行 地铁站 公交站 停车场
         "travelGuideRec", // 人气景点 路线 购票
         "uploadBar",
@@ -620,6 +621,10 @@ if (url.includes("/shield/scene/recommend")) {
                     i?.source === "NOTE_BEST" //精选笔记
                 )
         );
+    }
+    //去除笔记入口
+    if (obj.data?.modules?.attractGalleryInfo?.data?.contentMore?.log_data?.common_log?.hasOwnProperty("landingPage") && obj.data.modules.attractGalleryInfo.data.contentMore.log_data.common_log.landingPage === "gumdamNote") {
+         delete obj.data.modules.attractGalleryInfo.data.contentMore;
     }
 
     //处理底部去打车
