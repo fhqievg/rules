@@ -644,6 +644,9 @@ if (url.includes("/shield/scene/recommend")) {
                 if (i.hasOwnProperty('bubble_text')) {
                     delete i.bubble_text;
                 }
+                if (i.hasOwnProperty('adorn_icon')) {
+                    delete i.adorn_icon;
+                }
                 return true;
             });
         }
