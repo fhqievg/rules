@@ -19,7 +19,7 @@ if (url.includes("/shield/scene/recommend")) {
                     i.tips_type = 0;
                     i.tips = ""; //角标文字
                     i.label = "";
-                    if (i.id === 111) {
+                    if (i.id === 121) {
                         i.name = "一键报警";
                         i.schema = "amapuri://webview/amaponline?url=https%3A%2F%2Fits.amap.com%2Falarm%3Fgd_from%3Dalarm&sourceApplication=alarm&hide_title=0";
                         i.icon = "https://img.alicdn.com/imgextra/i3/O1CN01hl4vyb1mvpjXkaK8g_!!6000000005017-2-tps-180-180.png,https://gw.alicdn.com/imgextra/i3/O1CN01hl4vyb1mvpjXkaK8g_!!6000000005017-2-tps-180-180.png";
