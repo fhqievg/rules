@@ -8,10 +8,19 @@ if (url.includes("/shield/scene/recommend")) {
         obj.data.toolsRecommend.data.choiceTools = []; //更多工具icon角标文字
 
         if (obj.data.toolsRecommend.data.exist_tool?.length > 0) {
-            for (let i of obj.data.toolsRecommend.data.exist_tool) {
-                i.tips_type = 0;
-                i.tips = ""; //角标文字
-            }
+            obj.data.toolsRecommend.data.exist_tool = obj.data.toolsRecommend.data.exist_tool.filter(
+                (i) => {
+                    let delArr = [
+                        483 // 扫街榜
+                    ];
+                    if (delArr.includes(i?.id)) {
+                        i.tips_type = 0;
+                        i.tips = ""; //角标文字
+                        return true;
+                    }
+                    return false;
+                }
+            );
         }
     }
 } else if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
