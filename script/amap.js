@@ -757,6 +757,7 @@ if (url.includes("/shield/scene/recommend")) {
         if (list?.card?.card_id === "ImageBanner" && list?.item_type === "ImageBanner") {
             delete list.card;
         }
+        obj.data.list_data.content[0] = list;
     } else if (obj?.data?.district?.poi_list) {
         // 搜索列表详情页
         let poi = obj.data.district.poi_list[0];
@@ -770,7 +771,7 @@ if (url.includes("/shield/scene/recommend")) {
         }
     } else if (obj?.data?.modules) {
         if (obj?.data?.modules?.not_parse_result?.data?.list_data) {
-            let list = listHandle(obj.data.modules.not_parse_result.data.list_data.content[0]);
+            obj.data.modules.not_parse_result.data.list_data.content[0] = listHandle(obj.data.modules.not_parse_result.data.list_data.content[0]);
         }
         if (obj?.data?.modules?.list_data?.data) {
             // 搜索列表
