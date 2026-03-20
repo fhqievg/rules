@@ -746,39 +746,7 @@ if (url.includes("/shield/scene/recommend")) {
     }
 } else if (url.includes("/shield/search_poi/search/sp") || url.includes("/shield/search_poi/mps")) {
     if (obj?.data?.list_data) {
-        let list = obj.data.list_data.content[0];
-        // 详情页 底部 房产推广
-        if (list?.hookInfo) {
-            let hookData = list.hookInfo.data;
-            if (hookData?.header) {
-                delete hookData.header;
-            }
-            if (hookData?.house_info) {
-                delete hookData.house_info;
-            }
-        }
-        // 详情页 底部 订酒店
-        if (list?.map_bottom_bar?.hotel) {
-            delete list.map_bottom_bar.hotel;
-        }
-        if (list?.poi?.item_info?.tips_bottombar_button?.hotel) {
-            delete list.poi.item_info.tips_bottombar_button.hotel;
-        }
-        // 地图优惠推广
-        if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
-            delete list.map.main_point.dynamic_texture;
-
-            //改变类型以显示icon图标
-            if (list?.map?.main_point?.hasOwnProperty("card_id")) {
-                list.map.main_point.card_id = "normal_lottie";
-            }
-        }
-        if (list?.tips_operation_info) {
-            delete list.tips_operation_info;
-        }
-        if (list?.bottom?.bottombar_button?.hotel) {
-            delete list.bottom.bottombar_button.hotel;
-        }
+        let list = listHandle(obj.data.list_data.content[0]);
         // 搜索页 顶部卡片
         if (list?.card?.card_id === "SearchCardBrand" && list?.item_type === "brandAdCard") {
             delete list.card;
@@ -802,40 +770,7 @@ if (url.includes("/shield/scene/recommend")) {
         }
     } else if (obj?.data?.modules) {
         if (obj?.data?.modules?.not_parse_result?.data?.list_data) {
-            let list = obj.data.modules.not_parse_result.data.list_data.content[0];
-            // 详情页 底部 房产推广
-            if (list?.hookInfo) {
-                let hookData = list.hookInfo.data;
-                if (hookData?.header) {
-                    delete hookData.header;
-                }
-                if (hookData?.house_info) {
-                    delete hookData.house_info;
-                }
-            }
-            // 详情页 底部 订酒店
-            if (list?.map_bottom_bar?.hotel) {
-                delete list.map_bottom_bar.hotel;
-            }
-            if (list?.poi?.item_info?.tips_bottombar_button?.hotel) {
-                delete list.poi.item_info.tips_bottombar_button.hotel;
-            }
-            // 地图优惠推广
-            if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
-                delete list.map.main_point.dynamic_texture;
-
-                //改变类型以显示icon图标
-                if (list?.map?.main_point?.hasOwnProperty("card_id")) {
-                    list.map.main_point.card_id = "normal_lottie";
-                }
-            }
-            // 左上角动图推广
-            if (list?.tips_operation_info) {
-                delete list.tips_operation_info;
-            }
-            if (list?.bottom?.bottombar_button?.hotel) {
-                delete list.bottom.bottombar_button.hotel;
-            }
+            let list = listHandle(obj.data.modules.not_parse_result.data.list_data.content[0]);
         }
         if (obj?.data?.modules?.list_data?.data) {
             // 搜索列表
@@ -1063,4 +998,40 @@ function skuListFilter(skuList) {
         )
     );
     return skuList;
+}
+
+function listHandle(list) {
+    // 详情页 底部 房产推广
+    if (list?.hookInfo) {
+        let hookData = list.hookInfo.data;
+        if (hookData?.header) {
+            delete hookData.header;
+        }
+        if (hookData?.house_info) {
+            delete hookData.house_info;
+        }
+    }
+    // 详情页 底部 订酒店
+    if (list?.map_bottom_bar?.hotel) {
+        delete list.map_bottom_bar.hotel;
+    }
+    if (list?.poi?.item_info?.tips_bottombar_button?.hotel) {
+        delete list.poi.item_info.tips_bottombar_button.hotel;
+    }
+    // 地图优惠推广
+    if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
+        delete list.map.main_point.dynamic_texture;
+
+        //改变类型以显示icon图标
+        if (list?.map?.main_point?.hasOwnProperty("card_id")) {
+            list.map.main_point.card_id = "normal_lottie";
+        }
+    }
+    if (list?.tips_operation_info) {
+        delete list.tips_operation_info;
+    }
+    if (list?.bottom?.bottombar_button?.hotel) {
+        delete list.bottom.bottombar_button.hotel;
+    }
+    return list;
 }
