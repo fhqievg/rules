@@ -20,7 +20,8 @@ if (url.includes("/shield/scene/recommend")) {
                     i.tips = ""; //角标文字
                     i.label = "";
                     if (i.id === 111) {
-                        i.schema = "amapuri://webview/amaponline?url=https%3A%2F%2Fits.amap.com%2Falarm%3Fgd_from%3Dalarm&sourceApplication=alarm&hide_title=0"; //一键报警
+                        i.name = "一键报警";
+                        i.schema = "amapuri://webview/amaponline?url=https%3A%2F%2Fits.amap.com%2Falarm%3Fgd_from%3Dalarm&sourceApplication=alarm&hide_title=0";
                     }
                     return true;
                 }
