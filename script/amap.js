@@ -13,7 +13,7 @@ if (url.includes("/shield/scene/recommend")) {
                     let delArr = [
                         483 // 扫街榜
                     ];
-                    if (delArr.includes(i?.id)) {
+                    if (!delArr.includes(i?.id)) {
                         i.tips_type = 0;
                         i.tips = ""; //角标文字
                         return true;
