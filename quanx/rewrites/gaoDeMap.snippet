@@ -10,7 +10,7 @@ HOST, adashx.ut.amap.com, REJECT
 ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch AMap url-and-header script-response-header https://raw.githubusercontent.com/fhqievg/rules/main/script/header.js
 
 # > 导航详情页,路线规划,地点详情页,搜索详情页
-^https:\/\/m5\.amap\.com\/ws\/shield\/(?:search_poi\/tips_adv|search\/client\/push)\? url reject-dict
+^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? url reject-dict
 ^https:\/\/oss\.amap\.com\/ws\/banner\/lists\/\? url reject-dict
 
 # > 首页,推广卡片,红点角标,右上角动图
@@ -68,6 +68,8 @@ HOST, adashx.ut.amap.com, REJECT
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/common\/coupon\/info url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
 # > 地点相关
+# > > > 地点详情页顶部优惠券推送
+^https:\/\/info\.amap\.com\/ws\/shield\/search\/client\/push\? url reject-dict
 # > > > 详情页顶部
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 地点详情
