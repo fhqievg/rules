@@ -376,6 +376,7 @@ if (url.includes("/shield/scene/recommend")) {
         "adv_compliance_info", // 服务提供方
         "adv_gift",
         "adStoreBigBannerModule", //广告横幅（打车券之类）
+        "aiAgentFooterBar", //ai客服
         "bigListBizRec", // 周边景点推荐 三张景点大图
         "bottomDescription", // 底部描述 高德酒店 全网比价
         "brand_shop_bar",
@@ -1015,6 +1016,7 @@ function listHandle(list) {
             delete hookData.house_info;
         }
     }
+    
     // 详情页 底部 订酒店
     if (list?.map_bottom_bar?.hotel) {
         delete list.map_bottom_bar.hotel;
@@ -1022,15 +1024,16 @@ function listHandle(list) {
     if (list?.poi?.item_info?.tips_bottombar_button?.hotel) {
         delete list.poi.item_info.tips_bottombar_button.hotel;
     }
+    
     // 地图优惠推广
     if (list?.map?.main_point?.hasOwnProperty("dynamic_texture")) {
         delete list.map.main_point.dynamic_texture;
-
         //改变类型以显示icon图标
         if (list?.map?.main_point?.hasOwnProperty("card_id")) {
             list.map.main_point.card_id = "normal_lottie";
         }
     }
+    
     if (list?.tips_operation_info) {
         delete list.tips_operation_info;
     }
