@@ -891,7 +891,7 @@ if (url.includes("/shield/scene/recommend")) {
         "PersonalPageLocationDocumentsCard" //地点档案
     ]
     if (obj?.data?.bizData?.hasOwnProperty('cardData')) {
-        for (i in obj.data.bizData.cardData) {
+        for (let i in obj.data.bizData.cardData) {
             if (i === "HeaderCard") {
                 if (obj.data.bizData.cardData[i].content?.hasOwnProperty('footprint')) {
                     delete obj.data.bizData.cardData[i].content.footprint;
@@ -906,7 +906,7 @@ if (url.includes("/shield/scene/recommend")) {
 
     if (obj?.data?.hasOwnProperty('uiData')) {
         if (obj.data.uiData.hasOwnProperty('cardUi')) {
-            for (i in obj.data.uiData.cardUi) {
+            for (let i in obj.data.uiData.cardUi) {
                 if (delCard.includes(i)) {
                     delete obj.data.uiData.cardUi[i];
                 }
