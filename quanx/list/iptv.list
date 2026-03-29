@@ -1,4 +1,9 @@
+HOST-SUFFIX, aptvapp.com, DIRECT
+HOST-SUFFIX, aptv.app, DIRECT
+HOST, epg.112114.xyz, DIRECT
+HOST, epg.112114.eu.org, DIRECT
 HOST-SUFFIX, iill.top, Video
+HOST-SUFFIX, ottiptv.cc, DIRECT
 
 # > 澳门
 HOST-SUFFIX, tdm.com.mo, Video
