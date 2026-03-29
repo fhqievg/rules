@@ -248,7 +248,6 @@ HOST-KEYWORD, hd.lz-cdn, DIRECT
 HOST-KEYWORD, vip.lz-cdn, DIRECT
 HOST-KEYWORD, vod2.bdzybf, DIRECT
 HOST-KEYWORD, vod3.bdzybf, DIRECT
-USER-AGENT, AptvPlayer*, DIRECT
 
 # > 其它
 # Baidu/iqiyi
