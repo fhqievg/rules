@@ -1,12 +1,7 @@
-HOST-SUFFIX, aptvapp.com, DIRECT
-HOST-SUFFIX, aptv.app, DIRECT
-HOST-SUFFIX, revenuecat.com, DIRECT
 HOST-SUFFIX, appraven.net, DIRECT
 HOST, bit.ly, DIRECT
 HOST-SUFFIX, cooltv.top, DIRECT
 HOST, cdn.jsdelivr.net, DIRECT
-HOST, epg.112114.xyz, DIRECT
-HOST, epg.112114.eu.org, DIRECT
 HOST-SUFFIX, emulatorgames.net, DIRECT
 HOST-SUFFIX, fileball.app, DIRECT
 HOST-SUFFIX, foreca.com, DIRECT
@@ -18,6 +13,7 @@ HOST-SUFFIX, momentumdash.com, DIRECT
 HOST-SUFFIX, pansearch.me, DIRECT
 HOST-SUFFIX, qiyoujiage.com, DIRECT
 HOST-SUFFIX, qplaygame.com, DIRECT
+HOST-SUFFIX, revenuecat.com, DIRECT
 HOST-SUFFIX, resource.unbing.cn, DIRECT
 HOST-SUFFIX, tophub.app, DIRECT
 HOST-SUFFIX, tophub.today, DIRECT
