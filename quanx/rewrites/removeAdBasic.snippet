@@ -1,6 +1,11 @@
 #!name=常规去广告
 #!desc=基础
 
+# >>>>>>>>>>>>>> ✅ A ✅ <<<<<<<<<<<<<<<
+# > apple
+HOST-SUFFIX, iadsdk.apple.com, REJECT
+HOST-SUFFIX, api-adservices.apple.com, REJECT
+
 # >>>>>>>>>>>>>> ✅ J ✅ <<<<<<<<<<<<<<<
 # > jd
 HOST, kepler.jd.com, REJECT
@@ -145,8 +150,8 @@ HOST-SUFFIX, gdt.qq.com, REJECT
 HOST-SUFFIX, huatuo.qq.com, REJECT
 HOST-SUFFIX, mtrace.qq.com, REJECT
 HOST, otheve.beacon.qq.com, REJECT
-HOST, qzs.qq.com, REJECT
 HOST, pgdt.gtimg.cn, REJECT
+HOST, qzs.qq.com, REJECT
 HOST-SUFFIX, trace.qq.com, REJECT
 HOST, tpns.qq.com, REJECT
 HOST-KEYWORD, trace.qq.com, REJECT
@@ -172,23 +177,25 @@ HOST, ykad-data.youku.com, REJECT
 IP-CIDR, 101.126.85.15/32, REJECT
 IP-CIDR, 115.190.27.241/32, REJECT
 HOST-SUFFIX, ad.toutiao.com, REJECT
+HOST-SUFFIX, bdurl.net, REJECT
+HOST-SUFFIX, ctobsnssdk.com, REJECT
+HOST-SUFFIX, dsp.toutiao.com, REJECT
+HOST, is.snssdk.com, REJECT
+HOST-SUFFIX, ic.snssdk.com, REJECT
 HOST-SUFFIX, log.snssdk.com, REJECT
+#HOST, mon.zijieapi.com, REJECT
+HOST-SUFFIX, nativeapp.toutiao.com, REJECT
+HOST-SUFFIX, oceanengine.com, REJECT
 #HOST-SUFFIX, pstatp.com, REJECT
 HOST-SUFFIX, pglstatp-toutiao.com, REJECT
 HOST-SUFFIX, pangolin-sdk-toutiao.com, REJECT
 HOST-SUFFIX, pangolin-sdk-toutiao1.com, REJECT
 HOST-SUFFIX, pangolin-sdk-toutiao-b.com, REJECT
 HOST-SUFFIX, pangolin.snssdk.com, REJECT
-HOST-SUFFIX, dsp.toutiao.com, REJECT
-HOST, is.snssdk.com, REJECT
-HOST-SUFFIX, ic.snssdk.com, REJECT
-HOST, tnc3-aliec2.snssdk.com, REJECT
-HOST, tnc3-alisc1.snssdk.com, REJECT
 HOST-SUFFIX, partner.toutiao.com, REJECT
 HOST-SUFFIX, sm.toutiao.com, REJECT
-HOST-SUFFIX, nativeapp.toutiao.com, REJECT
-HOST-SUFFIX, ctobsnssdk.com, REJECT
+HOST, tnc3-aliec2.snssdk.com, REJECT
+HOST, tnc3-alisc1.snssdk.com, REJECT
 HOST-SUFFIX, zijieapi.com, REJECT
 #HOST, tnc3-alisc1.zijieapi.com, REJECT
 #HOST, tnc3-aliec2.zijieapi.com, REJECT
-#HOST, mon.zijieapi.com, REJECT
