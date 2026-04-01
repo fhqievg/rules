@@ -30,7 +30,7 @@ if (url.includes("/v3/config")) {
         if (url.includes(apiUrl)) {
             obj = { status: "ok", activities: [{ items: [] }] }
         } else if (url.includes(wrapperUrl)) {
-            if (!url.includes("&type_id=P04&") {
+            if (!url.includes("&type_id=P04&")) {
                 //不处理节假日
                 obj = { status: "ok", activities: [] };
             }
