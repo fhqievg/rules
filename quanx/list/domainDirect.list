@@ -76,11 +76,9 @@ HOST-SUFFIX, bfengbf.com, DIRECT
 HOST-SUFFIX, bftuvip.com, DIRECT
 HOST-SUFFIX, bfllvip.com, DIRECT
 HOST-SUFFIX, babakan.xyz, DIRECT
-HOST-SUFFIX, bdzybf11.com, DIRECT
-HOST-SUFFIX, bdzybf22.com, DIRECT
 HOST-SUFFIX, apibdzy.com, DIRECT
-HOST-SUFFIX, bdzybf3.com, DIRECT
-HOST-SUFFIX, bdzybf7.com, DIRECT
+HOST-WILDCARD, vod*.bdzybf*.com, DIRECT
+HOST-WILDCARD, *.bdzybf*.com, DIRECT
 HOST-SUFFIX, bdzyimg.com, DIRECT
 HOST-SUFFIX, bdzyimg1.com, DIRECT
 HOST-SUFFIX, bfzyapi.com, DIRECT
@@ -121,6 +119,9 @@ HOST-SUFFIX, ffzyapi.com, DIRECT
 HOST-SUFFIX, ffzy-video.com, DIRECT
 HOST-SUFFIX, ffzy888.com, DIRECT
 HOST-SUFFIX, ffzy-online6.com, DIRECT
+HOST-WILDCARD, vip.ffzy-play*.com, DIRECT
+HOST-WILDCARD, vip.ffzy-online*.com, DIRECT
+HOST-WILDCARD, vip.ffzyread*.com, DIRECT
 HOST-SUFFIX, imgffzy.com, DIRECT
 HOST-SUFFIX, picffzy.com, DIRECT
 HOST-SUFFIX, ffzypic.com, DIRECT
@@ -138,6 +139,7 @@ HOST-SUFFIX, huyall.com, DIRECT
 HOST-SUFFIX, huyajs.com, DIRECT
 HOST-SUFFIX, hyz1.top, DIRECT
 HOST-SUFFIX, ho4k.com, DIRECT
+HOST-SUFFIX, ho7k.com, DIRECT
 HOST, img.maimn.com, DIRECT
 HOST, image.maimn.com, DIRECT
 HOST-SUFFIX, instantts.top, DIRECT
@@ -163,6 +165,8 @@ HOST-SUFFIX, kuaiyun4-cdn.com, DIRECT
 HOST-SUFFIX, kuaikanzy.net, DIRECT
 HOST-SUFFIX, kuaikan-api.com, DIRECT
 HOST-SUFFIX, kuaikan-play2.com, DIRECT
+HOST-WILDCARD, vip.kuaikan-cdn*.com, DIRECT
+HOST-WILDCARD, vip.kuaikan-play*.com, DIRECT
 HOST-SUFFIX, kczyapi.com, DIRECT
 HOST-SUFFIX, kuaichezy.com, DIRECT
 HOST-SUFFIX, kczybf.com, DIRECT
@@ -173,18 +177,10 @@ HOST-SUFFIX, liangzipic.com, DIRECT
 HOST-SUFFIX, lzzypic.com, DIRECT
 HOST-SUFFIX, lzzyimg.com, DIRECT
 HOST-SUFFIX, lziapi.com, DIRECT
-HOST-SUFFIX, lz-cdn1.com, DIRECT
-HOST-SUFFIX, lzcdn2.com, DIRECT
-HOST-SUFFIX, lzcdn27.com, DIRECT
-HOST-SUFFIX, cdnlz2.com, DIRECT
-HOST-SUFFIX, cdnlz3.com, DIRECT
-HOST-SUFFIX, cdnlz12.com, DIRECT
-HOST-SUFFIX, cdnlz19.com, DIRECT
-HOST-SUFFIX, cdnlz21.com, DIRECT
-HOST-SUFFIX, cdnlz22.com, DIRECT
-HOST-SUFFIX, cdnlz14.com, DIRECT
-HOST-SUFFIX, cdnlz7.com, DIRECT
-HOST-SUFFIX, lz-cdn15.com, DIRECT
+HOST-WILDCARD, hd.lz-cdn*.com, DIRECT
+HOST-WILDCARD, vip.lz-cdn*.com, DIRECT
+HOST-WILDCARD, *.lz-?cdn*.com, DIRECT
+HOST-WILDCARD, *.cdnlz*.com, DIRECT
 HOST-SUFFIX, leshizyimg.com, DIRECT
 HOST-SUFFIX, leshibf.com, DIRECT
 HOST-SUFFIX, lianjianxsw.com, DIRECT
@@ -198,8 +194,7 @@ HOST-SUFFIX, ppsm3u8.com, DIRECT
 HOST-SUFFIX, pe12369.com, DIRECT
 HOST-SUFFIX, rrcdnbf3.com, DIRECT
 HOST-SUFFIX, rrcdnbf2.com, DIRECT
-HOST-SUFFIX, ryplay7.com, DIRECT
-HOST-SUFFIX, ryplay12.com, DIRECT
+HOST-WILDCARD, *.ryplay*.com, DIRECT
 HOST-SUFFIX, ryzypics.com, DIRECT
 HOST-SUFFIX, snzycdn.com, DIRECT
 HOST-SUFFIX, suoniapi.com, DIRECT
@@ -244,15 +239,6 @@ HOST-SUFFIX, zuidapic.com, DIRECT
 HOST-SUFFIX, zuidapi.com, DIRECT
 IP-CIDR, 162.209.190.70/32, DIRECT
 IP-CIDR, 45.154.13.199/32, DIRECT
-HOST-KEYWORD, vip.ffzy-play, DIRECT
-HOST-KEYWORD, vip.ffzy-online, DIRECT
-HOST-KEYWORD, vip.ffzyread, DIRECT
-HOST-KEYWORD, vip.kuaikan-cdn, DIRECT
-HOST-KEYWORD, vip.kuaikan-play, DIRECT
-HOST-KEYWORD, hd.lz-cdn, DIRECT
-HOST-KEYWORD, vip.lz-cdn, DIRECT
-HOST-KEYWORD, vod2.bdzybf, DIRECT
-HOST-KEYWORD, vod3.bdzybf, DIRECT
 
 # > 其它
 # Baidu/iqiyi
