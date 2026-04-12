@@ -194,7 +194,8 @@ HOST-SUFFIX, ppsm3u8.com, DIRECT
 HOST-SUFFIX, pe12369.com, DIRECT
 HOST-SUFFIX, rrcdnbf3.com, DIRECT
 HOST-SUFFIX, rrcdnbf2.com, DIRECT
-HOST-WILDCARD, *.ryplay*.com, DIRECT
+HOST-WILDCARD, svip.ryplay*.com, DIRECT
+HOST-WILDCARD, cdn*.ryplay*.com, DIRECT
 HOST-SUFFIX, ryzypics.com, DIRECT
 HOST-SUFFIX, snzycdn.com, DIRECT
 HOST-SUFFIX, suoniapi.com, DIRECT
