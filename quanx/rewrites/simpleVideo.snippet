@@ -11,11 +11,11 @@ IP-CIDR, 47.99.219.178/32, REJECT
 ^https?:\/\/vip7\.fzwdyy\.cn(:\d+)?\/api\/(?:getAdvertInfo|getGOOGAdvert) url reject
 
 # > 555
-^https?:\/\/(?:run\.api\.qyfxgd\.cn|a\.weilai555\.com|(?:a|app-(?:v1|site))\.ecoliving168\.com)(:\d+)?\/api\/v1\/advert url reject
-^https?:\/\/(?:run\.api\.qyfxgd\.cn|a\.weilai555\.com|(?:a|app-(?:v1|site))\.ecoliving168\.com)(:\d+)?\/api\/v1\/movie\/index_recommend url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/simpleVideo/555.js
+^https?:\/\/(?:run\.api\.qyfxgd\.cn|a\.weilai555\.com|(?:a|app-v1)\.ecoliving168\.com|uivrdi3p.thprv.cn)(:\d+)?\/api\/v1\/advert url reject
+^https?:\/\/(?:run\.api\.qyfxgd\.cn|a\.weilai555\.com|(?:a|app-v1)\.ecoliving168\.com|uivrdi3p.thprv.cn)(:\d+)?\/api\/v1\/movie\/index_recommend url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/simpleVideo/555.js
 
 # > keEr
 ^http:\/\/(?:kekeoo|ereroo)\.com\/(?:Aios\/(?:config|clothes|Climber|zixingche)|banner|Aios1\/wordss)\.json url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/simpleVideo/keEr.js
 ^http:\/\/api\.juliangcili\.com\/(\/)?api\/adver\/(?:data\/insert|space\/all\/list) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/simpleVideo/keEr.js
 
-hostname = run.api.qyfxgd.cn, vip7.fzwdyy.cn, a.weilai555.com, a.ecoliving168.com, app-v1.ecoliving168.com, app-site.ecoliving168.com, *.zzjz.top, iqyi.ylylfun.com, baidu.ylylfun.com
+hostname = run.api.qyfxgd.cn, vip7.fzwdyy.cn, a.weilai555.com, a.ecoliving168.com, app-v1.ecoliving168.com, uivrdi3p.thprv.cn, *.zzjz.top, iqyi.ylylfun.com, baidu.ylylfun.com
