@@ -10,8 +10,9 @@ HOST-SUFFIX, ho7k.com, REJECT
 HOST-SUFFIX, hxx2023.cc, REJECT
 HOST-SUFFIX, watchfreeinhd.com, REJECT
 
-^https?:\/\/(?:app\.dsx\.ac|.+\.(?:ailbaba\.me|zzjz.top|xiqi98\.com)|(?:iqyi|baidu)\.ylylfun\.com|27\.151\.29\.56(:\d+)?|162\.209\.174\.25(2|3)(:\d+)?)\/.+\/(?:advert\?position=(?!(2)(?=&))|top_notice) url reject
-^https?:\/\/(?:app\.dsx\.ac|.+\.(?:ailbaba\.me|zzjz.top|xiqi98\.com)|(?:iqyi|baidu)\.ylylfun\.com|27\.151\.29\.56(:\d+)?)\/.+\/version url reject
+^http:\/\/dd-static\.jd\.com\/ddimg\/ url reject-img
+^http:\/\/cdn\.jsdelivr\.net\/gh\/dsx77888\/ url reject-img
+^https?:\/\/(?:app\.dsx\.ac|.+\.(?:ailbaba\.me|zzjz.top|xiqi98\.com)|(?:iqyi|baidu)\.ylylfun\.com|27\.151\.29\.56(:\d+)?|162\.209\.174\.25(2|3)(:\d+)?)\/.+\/(?:advert\?position=(?!(2)(?=&))|top_notice|version) url reject
 ^https?:\/\/(?:app\.dsx\.ac|.+\.(?:ailbaba\.me|zzjz.top|xiqi98\.com)|(?:iqyi|baidu)\.ylylfun\.com|(27\.151\.29\.56|162\.209\.174\.25(2|3))(:\d+)?)\/.+\/actuator_info url reject-200
 #^http:\/\/162\.209\.174\.25(2|3)(:\d+)?\/.+\/app_config\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/simpleVideo/xiaoShiZi.js
 ^https?:\/\/vip7\.fzwdyy\.cn(:\d+)?\/api\/(?:getAdvertInfo|getGOOGAdvert) url reject
