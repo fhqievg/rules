@@ -1,6 +1,9 @@
+HOST-SUFFIX, apphunt.cc, DIRECT
 HOST-SUFFIX, appraven.net, DIRECT
 HOST-SUFFIX, appstoreprice.org, DIRECT
+HOST, api.cokepokes.com, DIRECT
 HOST, bit.ly, DIRECT
+HOST-SUFFIX, bsbsb.top, DIRECT
 HOST-SUFFIX, cooltv.top, DIRECT
 HOST, cdn.jsdelivr.net, DIRECT
 HOST-SUFFIX, emulatorgames.net, DIRECT
@@ -17,7 +20,10 @@ HOST-SUFFIX, qplaygame.com, DIRECT
 HOST-SUFFIX, revenuecat.com, DIRECT
 HOST-SUFFIX, resource.unbing.cn, DIRECT
 HOST-SUFFIX, ruanyifeng.com, DIRECT
+HOST, receiptcheck.quantumult.app, DIRECT
 HOST-SUFFIX, safeapp.studio, DIRECT
+HOST-SUFFIX, scriptable.app, DIRECT
+HOST, tools.lancely.tech, DIRECT
 HOST-SUFFIX, tophub.app, DIRECT
 HOST-SUFFIX, tophub.today, DIRECT
 HOST-SUFFIX, twapi.online, DIRECT
@@ -70,6 +76,7 @@ HOST-SUFFIX, biliapi.com, DIRECT
 HOST-SUFFIX, biliapi.net, DIRECT
 HOST-SUFFIX, bilibili.com, DIRECT
 HOST-SUFFIX, bilibili.tv, DIRECT
+HOST-SUFFIX, bilivideo.com, DIRECT
 HOST-SUFFIX, cctv.com, DIRECT
 HOST-SUFFIX, cctvpic.com, DIRECT
 HOST-SUFFIX, chinanetcenter.com, DIRECT
@@ -78,6 +85,7 @@ HOST-SUFFIX, cmbchina.com, DIRECT
 HOST-SUFFIX, cmbimg.com, DIRECT
 HOST-SUFFIX, cn, DIRECT
 HOST-SUFFIX, dingtalk.com, DIRECT
+HOST-SUFFIX, dianping.com, DIRECT
 HOST-SUFFIX, douban.com, DIRECT
 HOST-SUFFIX, doubanio.com, DIRECT
 HOST-SUFFIX, douyu.com, DIRECT
@@ -104,6 +112,7 @@ HOST-SUFFIX, mgtv.com, DIRECT
 HOST-SUFFIX, mi-img.com, DIRECT
 HOST-SUFFIX, miui.com, DIRECT
 HOST-SUFFIX, myqcloud.com, DIRECT
+HOST-SUFFIX, mysql.com, DIRECT
 HOST-SUFFIX, office365.com, DIRECT
 HOST-SUFFIX, open.cd, DIRECT
 HOST-SUFFIX, oracle.com, DIRECT
