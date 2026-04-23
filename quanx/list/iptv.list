@@ -4,6 +4,7 @@ HOST-SUFFIX, aptv.app, DIRECT
 HOST, epg.112114.xyz, DIRECT
 HOST, epg.112114.eu.org, DIRECT
 HOST-SUFFIX, iill.top, Video
+HOST-SUFFIX, mine.nu, DIRECT
 HOST-SUFFIX, ottiptv.cc, DIRECT
 USER-AGENT, AptvPlayer*, DIRECT
 
@@ -11,12 +12,12 @@ USER-AGENT, AptvPlayer*, DIRECT
 HOST-SUFFIX, tdm.com.mo, MO
 
 # > hk
-HOST-SUFFIX, hkdtmb.com, IptvHk
-HOST-SUFFIX, hklive.tv, IptvHk
-HOST-SUFFIX, hkanime.com.hk, IptvHk
-HOST-SUFFIX, hkanime.com, IptvHk
-HOST-SUFFIX, hkanimal.com, IptvHk
-HOST-SUFFIX, hkanime.live, IptvHk
+HOST-SUFFIX, hkdtmb.com, HK
+HOST-SUFFIX, hklive.tv, HK
+HOST-SUFFIX, hkanime.com.hk, HK
+HOST-SUFFIX, hkanime.com, HK
+HOST-SUFFIX, hkanimal.com, HK
+HOST-SUFFIX, hkanime.live, HK
 
 # > tw
 HOST-SUFFIX, hinet.net, TW
