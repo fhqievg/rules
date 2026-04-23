@@ -2,6 +2,9 @@
 #!desc = 去广告、优化
 #!author = RuCu6
 
+# > 分流
+HOST, httpdns.bilivideo.com, REJECT
+
 # Proto 动态广告,热门话题,播放页广告
 ^https:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.(app\.(dynamic\.v2\.Dynamic\/DynAll$|interface\.v1\.Teenagers\/ModeStatus|show\.v1\.Popular\/Index$|(view|viewunite)\.v1\.View\/(View|ViewProgress)$)|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|polymer\.app\.search\.v1\.Search\/SearchAll$) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/bilibili/proto.js
 
