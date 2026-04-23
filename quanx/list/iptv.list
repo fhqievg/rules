@@ -8,7 +8,7 @@ HOST-SUFFIX, ottiptv.cc, DIRECT
 USER-AGENT, AptvPlayer*, DIRECT
 
 # > 澳门
-HOST-SUFFIX, tdm.com.mo, Video
+HOST-SUFFIX, tdm.com.mo, MO
 
 # > hk
 HOST-SUFFIX, hkdtmb.com, IptvHk
