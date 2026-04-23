@@ -22,7 +22,7 @@ if (url.includes("/shield/scene/recommend")) {
                     if (i.id === 121) {
                         i.name = "详细地址";
                         i.schema = "amapuri://webview/amaponline?url=https%3A%2F%2Fits.amap.com%2Falarm%3Fgd_from%3Dalarm&sourceApplication=alarm&hide_title=0";
-                        i.icon = "https://img.alicdn.com/imgextra/i3/O1CN01hl4vyb1mvpjXkaK8g_!!6000000005017-2-tps-180-180.png,https://gw.alicdn.com/imgextra/i3/O1CN01hl4vyb1mvpjXkaK8g_!!6000000005017-2-tps-180-180.png";
+                        i.icon = "https://img.alicdn.com/imgextra/i3/O1CN01hl4vyb1mvpjXkaK8g_!!6000000005017-2-tps-180-180.png";
                         i.iconV2 = "http://aos-cdn-image.amap.com/opc/file/tools/20250711/131/f7f3cffe-5e04-11f0-a2c0-0605c4c6912b.png?ver=1752203588155";
                     }
                     return true;
@@ -706,13 +706,56 @@ if (url.includes("/shield/scene/recommend")) {
         items.push('travelGuideAndQa'); //没有提问就去掉问答
     }
     
-    //处理左下角功能按钮
+    //处理底部功能按钮
     let delIcon = [
-        'hotel' //酒店
+        //"add",  //新增
+        "car", //打车
+        "hotel", //酒店
+        "markPoint", //打卡
     ];
-    for (let i of delIcon) {
-        if (obj?.data?.modules?.poiDetailBottomBar?.data?.hasOwnProperty(i)) {
-            delete obj.data.modules.poiDetailBottomBar.data[i];
+    if (obj.data?.modules?.poiDetailBottomBar?.data?.items?.length > 0) {
+        obj.data.modules.poiDetailBottomBar.data.items = obj.data.modules.poiDetailBottomBar.data.items.filter(
+            (i) => {
+                return !(i?.hasOwnProperty('key') && delIcon.includes(i.key));
+            }
+        );
+    }
+    
+    //处理中间商品模块
+    if (obj.data?.modules?.commonGoodsShelf?.hasOwnProperty("data")) {
+        //处理侧边栏商品类型
+        //obj.data.modules.commonGoodsShelf.data.type === "combined" //该类型为侧边栏
+        let delTabids = [
+            "20100", //旅游咨询
+            "99001", //人气酒店
+        ];
+        if (obj.data.modules.commonGoodsShelf.data.tabList?.length > 0) {
+            obj.data.modules.commonGoodsShelf.data.tabList = obj.data.modules.commonGoodsShelf.data.tabList.filter(
+                (i) => {
+                    return !(i?.hasOwnProperty('tabId') && delTabids.includes(i.tabId));
+                }
+            );
+        }
+        
+        if (obj.data.modules.commonGoodsShelf.data.shelfList?.length > 0) {
+            obj.data.modules.commonGoodsShelf.data.shelfList = obj.data.modules.commonGoodsShelf.data.shelfList.filter(
+                (i) => {
+                    return !(i?.data?.meta?.hasOwnProperty('tabId') && delTabids.includes(i.data.meta.tabId));
+                }
+            );
+        }
+        
+        //非侧边栏商品类型
+        let typeItems = [
+            "secondHouse", //在售房源
+            "rentHouse" //在租房源
+        ];
+        if (obj.data.modules.commonGoodsShelf.data.filterShelfList?.length > 0) {
+            obj.data.modules.commonGoodsShelf.data.filterShelfList = obj.data.modules.commonGoodsShelf.data.filterShelfList.filter(
+                (i) => {
+                    return !(i?.hasOwnProperty('shelfType') && typeItems.includes(i.shelfType));
+                }
+            );
         }
     }
 
@@ -953,31 +996,8 @@ if (url.includes("/shield/scene/recommend")) {
     if (obj.data?.dataList?.length > 0) {
         /*console.log("**********修改前：**********");
         console.log(JSON.stringify(obj));*/
-
-        const idItems = [
-            //"M_100001", //我的反馈
-            //"M_100007", //订单提醒
-            "M_100009", //高德旺铺
-            //"M_100011", //服务通知
-            //"M_100012", //交通实况LIVE
-            "M_100013", //天气
-            //"M_100016", //地点评论
-            "M_100021", //数字工厂- 我的个人主页
-            "M_100023", //出行侠
-            //"M_100032", //高德达人
-            "M_100036", //高德运动
-            "M_100038", //高德出游服务
-            //"M_100044", //通知权限提醒
-            "M_100046", //天天领福利
-            "M_100050", //高德快报
-            "M_100051", //高德·超划算
-            "M_100053", //游戏中心
-            "M_100059", //高德酒店
-            "M_100063", //ai助手
-            "M_100065", //打卡消息
-            "M_100068", //借钱服务
-        ]
-
+        
+        let idItems = getMsgFilterIds();
         obj.data.dataList = obj.data.dataList.filter((i) => {
             if (i.data?.hasOwnProperty("id") && idItems.includes(i.data.id)) {
                 return false;
@@ -987,6 +1007,14 @@ if (url.includes("/shield/scene/recommend")) {
 
         /*console.log("==========修改后：==========");
         console.log(JSON.stringify(obj));*/
+    }
+} else if (url.includes("/amc/server/conv/operate")) {
+    //消息列表通知过滤
+    let msgFilterIds = getMsgFilterIds();
+    if (obj.data?.convData?.data?.hasOwnProperty('id')) {
+        if (msgFilterIds.includes(obj.data.convData.data.id)) {
+            obj = {};
+        }
     }
 } else if (url.includes("/user/activity/talent/lottery/skuList")) {
     if (obj?.data?.skuList?.length > 0) {
@@ -1041,4 +1069,31 @@ function listHandle(list) {
         delete list.bottom.bottombar_button.hotel;
     }
     return list;
+}
+
+function getMsgFilterIds() {
+    return [
+        //"M_100001", //我的反馈
+        //"M_100007", //订单提醒
+        "M_100009", //高德旺铺
+        //"M_100011", //服务通知
+        //"M_100012", //交通实况LIVE
+        "M_100013", //天气
+        //"M_100016", //地点评论
+        "M_100021", //数字工厂- 我的个人主页
+        "M_100023", //出行侠
+        //"M_100032", //高德达人
+        "M_100036", //高德运动
+        "M_100038", //高德出游服务
+        //"M_100044", //通知权限提醒
+        "M_100046", //天天领福利
+        "M_100050", //高德快报
+        "M_100051", //高德·超划算
+        "M_100053", //游戏中心
+        "M_100059", //高德酒店
+        "M_100063", //ai助手
+        "M_100065", //打卡消息
+        "M_100068", //借钱服务
+        "M_100071"  //地图大富翁
+    ];
 }
