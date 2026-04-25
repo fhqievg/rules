@@ -1,14 +1,15 @@
 #!name = YouTube合集
-#!desc = 去广告(iOS>=15)、字幕(默认单语简体中文)
-#!author = Maasea
+#!desc = 去广告(iOS>=15)、去除首页shorts区块、字幕(默认单语简体中文)
+#!author = Maasea + ZenmoFeiShi
 
 #AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
 #AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
 
-# > 播放页广告
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad url reject-dict
-
-^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$ url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/youtube/youtubeResponse.js
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?&ctier=L(&.+?),ctier,(.+) url 302 https://$1$2$3
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad url reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking|api\/stats\/ads) url reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext url reject-200
+^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/youtube/youtubeResponse.js
 
 # > 设置字幕
 ^https:\/\/shortcutsetting\.youtube\.com\/\?action=shortcutsSet url script-analyze-echo-response https://raw.githubusercontent.com/fhqievg/rules/main/script/youtube/subtitle.js
@@ -16,4 +17,4 @@
 # > 翻译字幕
 ^https:\/\/www\.youtube\.com\/api\/timedtext\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/youtube/subtitle.js
 
-hostname = *.googlevideo.com, youtubei.googleapis.com, shortcutsetting.youtube.com, www.youtube.com
+hostname = *.googlevideo.com, youtubei.googleapis.com, s.youtube.com, www.youtube.com, shortcutsetting.youtube.com
