@@ -14,12 +14,6 @@
 # > aptv
 ^http:\/\/159\.75\.85\.63:\d+\/(.*\/)?ad\/ url reject
 
-# > aLi
-HOST, adashx.m.taobao.com, REJECT
-HOST, h-adashx4bc.ut.taobao.com, REJECT
-HOST, httpdns.alicdn.com, REJECT
-HOST-SUFFIX, ut.taobao.com, REJECT
-
 # > aliDrive
 #优化
 ^https:\/\/api\.aliyundrive\.com\/apps\/v1\/users\/(?:apps|home)\/widgets url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/vipUnlock/aliDrive.js
