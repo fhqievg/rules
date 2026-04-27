@@ -1,7 +1,7 @@
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
-//主页列表
+//首页列表
 if (obj.data?.homeV3?.elements?.edges?.length > 0) {
     obj.data.homeV3.elements.edges = obj.data.homeV3.elements.edges.filter((i) => {
         return !(i?.node?.hasOwnProperty('adPayload') && i.node.adPayload !== null);
