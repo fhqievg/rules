@@ -50,6 +50,7 @@ if (obj.data?.postInfoById?.pdpCommentsAds?.adPosts?.length > 0) {
     obj.data.postInfoById.pdpCommentsAds.adPosts = [];
 }
 
+$done({ body: JSON.stringify(obj) });
 
 function adDataFilter(list) {
     return list.filter((i) => {
@@ -61,5 +62,3 @@ function adDataFilter(list) {
 function checkIsAd(item, key = 'node') {
     return (item.hasOwnProperty(key) && item[key].hasOwnProperty('adPayload') && item[key].adPayload !== null);
 }
-
-$done({ body: JSON.stringify(obj) });
