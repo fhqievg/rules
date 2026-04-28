@@ -19,6 +19,7 @@ if (obj.data?.popularV3?.elements?.edges?.length > 0) {
 }
 
 //社区相关
+//主页列表
 if (obj.data?.subredditV3?.elements?.edges?.length > 0) {
     obj.data.subredditV3.elements.edges = obj.data.subredditV3.elements.edges.filter((i) => {
         if (checkIsAd(i)) {
