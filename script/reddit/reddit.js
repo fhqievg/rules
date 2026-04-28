@@ -2,7 +2,7 @@ if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
 const isEnableRelatedCommunities = false; //是否启用相关社区
-const isEnableTopPost = false; //是否显示置顶贴
+const isEnableTopPost = true; //是否显示置顶贴
 
 //首页相关
 //最新列表
