@@ -1,25 +1,22 @@
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
-const isEnableRelatedCommunities = false; //是否启用相关社区
+const isEnableRelatedCommunities = false; //是否显示相关社区
 const isEnableTopPost = true; //是否显示置顶贴
 
 //首页相关
-//最新列表
-if (obj.data?.homeV3?.elements?.edges?.length > 0) {
-    obj.data.homeV3.elements.edges = adDataFilter(obj.data.homeV3.elements.edges);
-}
-//新闻列表
-if (obj.data?.newsV3?.elements?.edges?.length > 0) {
-    obj.data.newsV3.elements.edges = adDataFilter(obj.data.newsV3.elements.edges);
-}
-//热门列表
-if (obj.data?.popularV3?.elements?.edges?.length > 0) {
-    obj.data.popularV3.elements.edges = adDataFilter(obj.data.popularV3.elements.edges);
+let filterKeys = [
+    'homeV3',   //最新列表
+    'newsV3',   //新闻列表
+    'popularV3' //热门列表
+];
+for (let i of filterKeys) {
+    if (obj.data?.hasOwnProperty(i)) {
+        obj.data = objDataFilter(obj.data, i);
+    }
 }
 
 //社区相关
-//主页列表
 if (obj.data?.subredditV3?.elements?.edges?.length > 0) {
     obj.data.subredditV3.elements.edges = obj.data.subredditV3.elements.edges.filter((i) => {
         if (checkIsAd(i)) {
@@ -44,16 +41,21 @@ if (obj.data?.subredditInfoByName?.highlightedPosts?.length > 0) {
 if (obj.data?.postsInfoByIds?.length > 0) {
     obj.data.postsInfoByIds = obj.data.postsInfoByIds.filter(
         (i) =>
-            !(i?.hasOwnProperty("adSupplementaryTextRichtext"))
+            !(i?.hasOwnProperty('adSupplementaryTextRichtext'))
     );
 }
 if (obj.data?.postInfoById?.pdpCommentsAds?.adPosts?.length > 0) {
     obj.data.postInfoById.pdpCommentsAds.adPosts = [];
 }
 
-$done({ body: JSON.stringify(obj) });
+function objDataFilter(objData, key) {
+    if (objData[key].elements?.edges?.length > 0) {
+        objData[key].elements.edges = adFilter(objData[key].elements.edges);
+    }
+    return objData;
+}
 
-function adDataFilter(list) {
+function adFilter(list) {
     return list.filter((i) => {
         return !checkIsAd(i);
     });
@@ -63,3 +65,5 @@ function adDataFilter(list) {
 function checkIsAd(item, key = 'node') {
     return (item.hasOwnProperty(key) && item[key].hasOwnProperty('adPayload') && item[key].adPayload !== null);
 }
+
+$done({ body: JSON.stringify(obj) });
