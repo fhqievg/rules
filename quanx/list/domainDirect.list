@@ -1,9 +1,11 @@
 HOST-SUFFIX, apphunt.cc, DIRECT
+HOST-SUFFIX, appledb.dev, DIRECT
 HOST-SUFFIX, appraven.net, DIRECT
 HOST-SUFFIX, appstoreprice.org, DIRECT
 HOST, api.cokepokes.com, DIRECT
 HOST, bit.ly, DIRECT
 HOST-SUFFIX, bsbsb.top, DIRECT
+HOST-SUFFIX, bemyeyes.com, DIRECT
 HOST-SUFFIX, cooltv.top, DIRECT
 HOST, cdn.jsdelivr.net, DIRECT
 HOST-SUFFIX, emulatorgames.net, DIRECT
@@ -12,6 +14,7 @@ HOST-SUFFIX, foreca.com, DIRECT
 HOST-SUFFIX, foreca.net, DIRECT
 HOST-SUFFIX, goodiptv.club, DIRECT
 HOST-SUFFIX, huangjinyan.vip, DIRECT
+HOST, ios.cfw.guide, DIRECT
 HOST-SUFFIX, lyejz.cn, DIRECT
 HOST-SUFFIX, momentumdash.com, DIRECT
 HOST-SUFFIX, pansearch.me, DIRECT
