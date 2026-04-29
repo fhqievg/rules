@@ -17,6 +17,7 @@ for (let i of filterKeys) {
 }
 
 //社区相关
+//主页列表
 if (obj.data?.subredditV3?.elements?.edges?.length > 0) {
     obj.data.subredditV3.elements.edges = obj.data.subredditV3.elements.edges.filter((i) => {
         if (checkIsAd(i)) {
@@ -48,6 +49,8 @@ if (obj.data?.postInfoById?.pdpCommentsAds?.adPosts?.length > 0) {
     obj.data.postInfoById.pdpCommentsAds.adPosts = [];
 }
 
+$done({ body: JSON.stringify(obj) });
+
 function objDataFilter(objData, key) {
     if (objData[key].elements?.edges?.length > 0) {
         objData[key].elements.edges = adFilter(objData[key].elements.edges);
@@ -65,5 +68,3 @@ function adFilter(list) {
 function checkIsAd(item, key = 'node') {
     return (item.hasOwnProperty(key) && item[key].hasOwnProperty('adPayload') && item[key].adPayload !== null);
 }
-
-$done({ body: JSON.stringify(obj) });
