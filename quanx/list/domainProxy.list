@@ -35,6 +35,7 @@ HOST-SUFFIX, gmail.com, PROXY
 HOST-SUFFIX, gmodules.com, PROXY
 HOST-SUFFIX, godoc.org, PROXY
 HOST-SUFFIX, golang.org, PROXY
+HOST-SUFFIX, googleapis.com, PROXY
 HOST-SUFFIX, gstatic.com, PROXY
 HOST-SUFFIX, gv.com, PROXY
 HOST-SUFFIX, gvt0.com, PROXY
@@ -80,6 +81,7 @@ HOST-SUFFIX, fb.com, PROXY
 HOST-SUFFIX, meta.com, PROXY
 HOST-SUFFIX, twimg.com, PROXY
 HOST-SUFFIX, t.co, PROXY
+HOST-SUFFIX, x.com, PROXY
 HOST-SUFFIX, kenengba.com, PROXY
 HOST-SUFFIX, akamai.net, PROXY
 HOST-SUFFIX, whatsapp.net, PROXY
@@ -119,10 +121,12 @@ HOST-SUFFIX, flickr.com, PROXY
 HOST-SUFFIX, fastly.net, PROXY
 HOST-SUFFIX, github.com, PROXY
 HOST-SUFFIX, github.io, PROXY
+HOST-SUFFIX, githubassets.com, PROXY
 HOST-SUFFIX, githubusercontent.com, PROXY
 HOST-SUFFIX, goo.gl, PROXY
 HOST-SUFFIX, godaddy.com, PROXY
 HOST-SUFFIX, gravatar.com, PROXY
+HOST, google-ohttp-relay-safebrowsing.fastly-edge.com, PROXY
 HOST-SUFFIX, imageshack.us, PROXY
 HOST-SUFFIX, imgur.com, PROXY
 HOST-SUFFIX, jshint.com, PROXY
