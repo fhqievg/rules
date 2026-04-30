@@ -103,6 +103,73 @@ if (url.includes("/shield/scene/recommend")) {
             }
         }
     }
+} else if (url.includes("/c3frontend/af-hkf/hkf") || url.includes("/c3frontend/af-scenic/scenic") || url.includes("/c3frontend/af-hotel/hotel")) {
+    //订火车票/机票、景点门票、酒店
+    let isPmt = false;
+    let objData = obj.hasOwnProperty('data') ? obj.data : {};
+    if (objData.hasOwnProperty('pmt')) {
+        isPmt = true;
+        objData = obj.data.pmt;
+    }
+
+    if (objData.hasOwnProperty('modules')) {
+        let delKeys = [
+            'CouponBanner', //顶部优惠券横幅
+            'CouponFooterStickBanner', //底部横幅
+            'CouponWidget', //右下角浮框
+            'OperationTile', //轮播图上方入口
+            "OperationTopicBanner", //顶部优惠券下方轮播图
+            //"nav_bar", //顶部导航栏
+            'bottom_declare', //最底部说明图
+            'hkfPortalPoiRecommend', //底部酒店推荐
+            'hkfProductListNoema' //弹框
+        ];
+        for (let i of delKeys) {
+            if (objData.modules.hasOwnProperty(i)) {
+                delete objData.modules[i];
+            }
+        }
+        //顶部导航栏
+        if (objData.modules?.nav_bar?.hasOwnProperty('data')) {
+            let delNKeys = [
+                'service_priceRatio', //导航栏右边文字
+                'service_zizhi', //导航栏右边文字旁边的文字
+            ];
+            for (let k of delNKeys) {
+                if (objData.modules.nav_bar.data.hasOwnProperty(k)) {
+                    delete objData.modules.nav_bar.data[k];
+                }
+            }
+        }
+
+        //酒店热门搜索词
+        if (objData.modules?.user_filter_card?.data?.hasOwnProperty('sug_items_data')) {
+            delete objData.modules.user_filter_card.data.sug_items_data;
+        }
+
+        if (objData.modules.hkfScheduleRecommend?.data?.hasOwnProperty('modules')) {
+            let delMkeys = [
+                'header', //优惠券板块轮播图下方标题
+                'classifyLevel2' //交通、景区、酒店选项卡
+            ];
+            for (let j of delMkeys) {
+                if (objData.modules.hkfScheduleRecommend.data.modules.hasOwnProperty(j)) {
+                    delete objData.modules.hkfScheduleRecommend.data.modules[j];
+                }
+            }
+        }
+        if (isPmt) {
+            obj.data.pmt = objData;
+        } else {
+            obj.data = objData;
+        }
+    }
+    if (obj?.data?.hasOwnProperty('style')) {
+        delete obj.data.style;
+    }
+    if (obj?.data?.hasOwnProperty('xml')) {
+        delete obj.data.xml;
+    }
 } else if (url.includes("/c3frontend/af-launch/page/main")) {
     // 步行导航结束推广卡片
     if (obj?.data?.modules?.C1EndNaviEngine?.data) {
