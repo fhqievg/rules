@@ -110,6 +110,10 @@ HOST, adashx.ut.amap.com, REJECT
 # > > > 公交出行
 ^https:\/\/m5\.amap\.com\/ws\/(?:aos\/perception\/publicTravel\/beforeNavi|bus\/plan\/integrate)\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 
+# > 其它
+# > > > 订火车票/机票、景点门票、酒店页面
+^https:\/\/m5\.amap\.com\/ws\/c3frontend\/(af-hkf\/hkf|af-scenic\/scenic|af-hotel\/hotel)\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
+
 # > 个人数据相关
 # > > > 我的页面
 ^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
