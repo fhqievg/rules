@@ -123,7 +123,6 @@ if (url.includes("/shield/scene/recommend")) {
             'bottom_declare', //最底部说明图
             'hkfPortalPoiRecommend', //底部酒店推荐
             'hkfProductListNoema', //弹框
-            'ScenicSearchBar' //景点搜索框
         ];
         for (let i of delKeys) {
             if (objData.modules.hasOwnProperty(i)) {
@@ -131,7 +130,7 @@ if (url.includes("/shield/scene/recommend")) {
             }
         }
         //顶部导航栏
-        if (objData.modules?.nav_bar?.hasOwnProperty('data')) {
+        if (objData.modules.nav_bar?.hasOwnProperty('data')) {
             let delNKeys = [
                 'service_priceRatio', //导航栏右边文字
                 'service_zizhi', //导航栏右边文字旁边的文字
@@ -144,7 +143,7 @@ if (url.includes("/shield/scene/recommend")) {
         }
 
         //酒店热门搜索词
-        if (objData.modules?.user_filter_card?.data?.hasOwnProperty('sug_items_data')) {
+        if (objData.modules.user_filter_card?.data?.hasOwnProperty('sug_items_data')) {
             delete objData.modules.user_filter_card.data.sug_items_data;
         }
 
@@ -159,6 +158,25 @@ if (url.includes("/shield/scene/recommend")) {
                 }
             }
         }
+        
+        //景点搜索框
+        if (objData.modules.ScenicSearchBar?.hasOwnProperty('data')) {
+            let delSKeys = [
+                'placeholder',
+                'schema',
+                'keyword',
+                'city_code',
+                'city_name',
+                'btn_text',
+                'title_img'
+            ];
+            for (let g of delSKeys) {
+                if (objData.modules.ScenicSearchBar.data.hasOwnProperty(g)) {
+                    delete objData.modules.ScenicSearchBar.data[g];
+                }
+            }
+        }
+        
         if (isPmt) {
             obj.data.pmt = objData;
         } else {
