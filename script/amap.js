@@ -760,6 +760,11 @@ if (url.includes("/shield/scene/recommend")) {
             );
         }
     }
+    
+    //处理中间订购火车票板块
+    if(obj?.data?.modules?.commonHkfMiniPortal?.data?.hasOwnProperty('routeType') && obj.data.modules.commonHkfMiniPortal.data.routeType === 'train'){
+        items.push('commonHkfMiniPortal'); //去除火车票订购
+    }
 
     if (obj?.data?.modules) {
         for (let i of items) {
