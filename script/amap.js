@@ -159,20 +159,29 @@ if (url.includes("/shield/scene/recommend")) {
             }
         }
         
-        //景点搜索框
-        if (objData.modules.ScenicSearchBar?.hasOwnProperty('data')) {
-            let delSKeys = [
-                'placeholder',
-                'schema',
-                'keyword',
-                'city_code',
-                'city_name',
-                'btn_text',
-                'title_img'
-            ];
-            for (let g of delSKeys) {
-                if (objData.modules.ScenicSearchBar.data.hasOwnProperty(g)) {
-                    delete objData.modules.ScenicSearchBar.data[g];
+        //去除景点商品推广
+        if (objData.modules.list?.data?.list?.length > 0) {
+            for (let l of objData.modules.list.data.list) {
+                if (l.data?.product_info?.length > 0) {
+                    if (l.data.hasOwnProperty('order_cnt')) {
+                        delete l.data.order_cnt;
+                    }
+
+                    if (l.data.hasOwnProperty('commonTransferInformation')) {
+                        let isDel = false;
+                        if (l.data.commonTransferInformation.hasOwnProperty('priceInfo')) {
+                            isDel = true;
+                            delete l.data.commonTransferInformation.priceInfo;
+                        }
+                        if (l.data.commonTransferInformation.hasOwnProperty('priceLog')) {
+                            isDel = true;
+                            delete l.data.commonTransferInformation.priceLog;
+                        }
+                        if (isDel && Object.keys(l.data.commonTransferInformation).length === 0) {
+                            delete l.data.commonTransferInformation;
+                        }
+                    }
+                    l.data.product_info = [];
                 }
             }
         }
