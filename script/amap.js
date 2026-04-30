@@ -727,6 +727,7 @@ if (url.includes("/shield/scene/recommend")) {
         //处理侧边栏商品类型
         //obj.data.modules.commonGoodsShelf.data.type === "combined" //该类型为侧边栏
         let delTabids = [
+            "12603", //火车票
             "20100", //旅游咨询
             "99001", //人气酒店
         ];
