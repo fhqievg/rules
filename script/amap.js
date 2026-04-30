@@ -377,6 +377,7 @@ if (url.includes("/shield/scene/recommend")) {
         "adv_gift",
         "adStoreBigBannerModule", //广告横幅（打车券之类）
         "aiAgentFooterBar", //ai客服
+        "activityRecommendation", //活动推荐
         "bigListBizRec", // 周边景点推荐 三张景点大图
         "bottomDescription", // 底部描述 高德酒店 全网比价
         "brand_shop_bar",
