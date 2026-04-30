@@ -122,7 +122,8 @@ if (url.includes("/shield/scene/recommend")) {
             //"nav_bar", //顶部导航栏
             'bottom_declare', //最底部说明图
             'hkfPortalPoiRecommend', //底部酒店推荐
-            'hkfProductListNoema' //弹框
+            'hkfProductListNoema', //弹框
+            'ScenicSearchBar' //景点搜索框
         ];
         for (let i of delKeys) {
             if (objData.modules.hasOwnProperty(i)) {
