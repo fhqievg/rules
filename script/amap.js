@@ -86,6 +86,7 @@ if (url.includes("/shield/scene/recommend")) {
             'CouponBanner', //顶部优惠券横幅
             'CouponFooterStickBanner', //底部横幅
             'CouponWidget', //右下角浮框
+            'CouponPopup', //优惠券弹窗
             'OperationTile', //轮播图上方入口
             'OperationTopicBanner', //顶部优惠券下方轮播图
             //'nav_bar', //顶部导航栏
