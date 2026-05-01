@@ -881,8 +881,10 @@ if (url.includes("/shield/scene/recommend")) {
             'CouponBanner',
             'order', //右下角订单浮框
             'tab_bar', //顶部tab栏
-            'searchMap'
         ];
+        if(obj?.data?.modules?.commonHkfMiniPortal?.data?.hasOwnProperty('routeType') && obj.data.modules.commonHkfMiniPortal.data.routeType === 'train'){
+            delMKeys.push('commonHkfMiniPortal'); //去除火车票订购
+        }
         for (let i of delMKeys) {
             if (obj.data.modules.hasOwnProperty(i)) {
                 delete obj.data.modules[i];
@@ -906,18 +908,6 @@ if (url.includes("/shield/scene/recommend")) {
                 }
                 return true;
             });
-        }
-
-        //右下角浮框
-        if (obj.data.modules.hasOwnProperty('searchNaviBar')) {
-            obj.data.modules.searchNaviBar.data.alime = {};
-            obj.data.modules.searchNaviBar.cate = '';
-            obj.data.modules.searchNaviBar.data.isIndustryHotel = 0;
-            obj.data.modules.searchNaviBar.data.showAlime = 0;
-            obj.data.modules.searchNaviBar.data.showCityPicker = 0;  //地图
-            obj.data.modules.searchNaviBar.data.showDatePicker = 0;
-            obj.data.modules.searchNaviBar.data.useCityPickerV2 = 0;  //地图
-            obj.data.modules.searchNaviBar.data.useDatePickerV2 = 0;
         }
     }
 } else if (url.includes("/shield/search_poi/sug") || url.includes("/shield/search_business/process/middleLayer/sug")) {
