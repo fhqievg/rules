@@ -906,6 +906,28 @@ if (url.includes("/shield/scene/recommend")) {
                 if (i.data?.basic_info?.hasOwnProperty('product_info')) {
                     i.data.basic_info = productInfoFilter(i.data.basic_info);
                 }
+                
+                //价格下方的tags
+                if (i.data?.hasOwnProperty('discount_info')) {
+                    if (i.data?.discount_info.discount_list?.length > 0) {
+                        i.data.discount_info.discount_list = [];
+                    }
+                    if (i.data?.discount_info.hasOwnProperty('discount_total')) {
+                        i.data.discount_info.discount_total = {};
+                    }
+                }
+                if (i.data?.hasOwnProperty('discount_info_v2')) {
+                    if (i.data.discount_info_v2.content?.items?.length > 0) {
+                        i.data.discount_info_v2.content.items = i.data.discount_info_v2.content.items.filter(
+                            (j) => !(j?.hasOwnProperty('text') && j.text === '优惠')
+                        );
+                    }
+                    if (i.data.discount_info_v2.content?.priceDetailList?.list?.length > 0) {
+                        i.data.discount_info_v2.content.priceDetailList.list = i.data.discount_info_v2.content.priceDetailList.list.filter(
+                            (k) => !(k?.hasOwnProperty('cardType') && k?.cardType === 'discount')
+                        );
+                    }
+                }
                 return true;
             });
         }
