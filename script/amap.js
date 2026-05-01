@@ -866,44 +866,34 @@ if (url.includes("/shield/scene/recommend")) {
             delete poi.feed_rec_tab;
         }
     } else if (obj?.data?.modules) {
-        if (obj.data.modules.not_parse_result?.data?.list_data) {
-            obj.data.modules.not_parse_result.data.list_data.content[0] = listHandle(obj.data.modules.not_parse_result.data.list_data.content[0]);
-        }
-        if (obj.data.modules.list_data?.data) {
-            // 搜索列表
-            let list = obj.data.modules.list_data.data;
-            if (list?.content?.length > 0) {
-                // brandAdCard广告卡片 toplist_al人气榜单 高德指南
-                list.content = list.content.filter((i) => !["brandAdCard", "toplist_al"]?.includes(i?.item_type));
-            }
-        }
-        
-        //底部浮层弹框
+        //底部消息提示浮层弹框
         if (obj.data.meta?.hasOwnProperty('listBottomFilterGuide')) {
             delete obj.data.meta.listBottomFilterGuide;
-        }
-        
-        //右下角地图浮框
-        if (obj.data.regions?.hasOwnProperty('map')) {
-            delete obj.data.regions.map;
         }
         
         let delMKeys = [
             'CouponBanner',
             'order', //右下角订单浮框
             'tab_bar', //顶部tab栏
-            'searchMap'
         ];
+        //去除火车票订购
         if(obj.data.modules.commonHkfMiniPortal?.data?.hasOwnProperty('routeType') && obj.data.modules.commonHkfMiniPortal.data.routeType === 'train'){
-            delMKeys.push('commonHkfMiniPortal'); //去除火车票订购
+            delMKeys.push('commonHkfMiniPortal');
         }
         for (let i of delMKeys) {
             if (obj.data.modules.hasOwnProperty(i)) {
                 delete obj.data.modules[i];
             }
         }
-
-        //搜索列表
+        
+        if (obj.data.modules.not_parse_result?.data?.list_data) {
+            obj.data.modules.not_parse_result.data.list_data.content[0] = listHandle(obj.data.modules.not_parse_result.data.list_data.content[0]);
+        } 
+        // 搜索列表
+        if (obj.data.modules.list_data?.data?.content?.length > 0) {
+            // brandAdCard广告卡片 toplist_al人气榜单 高德指南
+            obj.data.modules.list_data.data.content = obj.data.modules.list_data.data.content.filter((i) => !["brandAdCard", "toplist_al"]?.includes(i?.item_type));
+        }
         if (obj.data.modules.listResult?.data?.list?.length > 0) {
             let items = [
                 'ContentInsertCardAiUi', //笔记
