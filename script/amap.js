@@ -876,21 +876,25 @@ if (url.includes("/shield/scene/recommend")) {
                 list.content = list.content.filter((i) => !["brandAdCard", "toplist_al"]?.includes(i?.item_type));
             }
         }
-
-        if (obj.data.modules.hasOwnProperty('CouponBanner')) {
-            delete obj.data.modules.CouponBanner;
-        }
-
-        //右下角订单浮框
-        if (obj.data.modules.hasOwnProperty('order')) {
-            delete obj.data.modules.order;
+        
+        let delMKeys = [
+            'CouponBanner',
+            'order', //右下角订单浮框
+            'tab_bar', //顶部tab栏
+            'searchMap'
+        ];
+        for (let i of delMKeys) {
+            if (obj.data.modules.hasOwnProperty(i)) {
+                delete obj.data.modules[i];
+            }
         }
 
         //搜索列表
         if (obj.data.modules.listResult?.data?.list?.length > 0) {
             let items = [
-                "RecommendEveryoneSearch", //大家还在搜
-                //'RankPoiInsertCardAiUi' //扫街榜
+                'ContentInsertCardAiUi', //笔记
+                'RecommendEveryoneSearch', //大家还在搜
+                //'RankPoiInsertCardAiUi', //扫街榜
             ];
             obj.data.modules.listResult.data.list = obj.data.modules.listResult.data.list.filter((i) => {
                 if (i.hasOwnProperty("card_id") && items.includes(i.card_id)) {
@@ -907,6 +911,7 @@ if (url.includes("/shield/scene/recommend")) {
         //右下角浮框
         if (obj.data.modules.hasOwnProperty('searchNaviBar')) {
             obj.data.modules.searchNaviBar.data.alime = {};
+            obj.data.modules.searchNaviBar.cate = '';
             obj.data.modules.searchNaviBar.data.isIndustryHotel = 0;
             obj.data.modules.searchNaviBar.data.showAlime = 0;
             obj.data.modules.searchNaviBar.data.showCityPicker = 0;  //地图
@@ -1172,6 +1177,17 @@ function getMsgFilterIds() {
 }
 
 function productInfoFilter(data) {
+    //某些类型跳过处理
+    if (data.hasOwnProperty('bizIndustry')) {
+        let cKeys = [
+            'gas_station', //加油站
+            //'hotel' //酒店
+        ];
+        if (cKeys.includes(data.bizIndustry)) {
+            return data;
+        }
+    }
+    
     //名字下方分类旁边显示的价格
     if (data.hasOwnProperty('price')) {
         delete data.price;
