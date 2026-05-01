@@ -819,6 +819,17 @@ if (url.includes("/shield/scene/recommend")) {
             delete obj.data.modules[i];
         }
     }
+} else if (url.includes("/c3frontend/af-comment/page/main")) {
+    //全部评价列表
+    let delMKeys = [
+        'review_entrance', //评价按钮
+        'operation' //顶部广告横幅
+    ];
+    for (let i of delMKeys) {
+        if (obj?.data?.modules?.hasOwnProperty(i)) {
+            delete obj.data.modules[i];
+        }
+    }
 } else if (url.includes("/shield/search_bff/hotword")) {
     // 搜索框 热榜logo
     if (obj?.data?.headerHotWord?.length > 0) {
