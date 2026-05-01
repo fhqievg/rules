@@ -1170,3 +1170,41 @@ function getMsgFilterIds() {
         "M_100071"  //地图大富翁
     ];
 }
+
+function productInfoFilter(data) {
+    //名字下方分类旁边显示的价格
+    if (data.hasOwnProperty('price')) {
+        delete data.price;
+    }
+
+    if (data.hasOwnProperty('order_cnt')) {
+        delete data.order_cnt;
+    }
+
+    if (data.hot_info_recommend?.length > 0) {
+        data.hot_info_recommend = data.hot_info_recommend.filter(
+            (i) => !(i.includes('近期销量') || i.includes('有人购买'))
+        );
+    }
+
+    if (data.product_info.length === 0) {
+        return data;
+    }
+
+    if (data.hasOwnProperty('commonTransferInformation')) {
+        let isDel = false;
+        if (data.commonTransferInformation.hasOwnProperty('priceInfo')) {
+            isDel = true;
+            delete data.commonTransferInformation.priceInfo;
+        }
+        if (data.commonTransferInformation.hasOwnProperty('priceLog')) {
+            isDel = true;
+            delete data.commonTransferInformation.priceLog;
+        }
+        if (isDel && Object.keys(data.commonTransferInformation).length === 0) {
+            delete data.commonTransferInformation;
+        }
+    }
+    data.product_info = [];
+    return data;
+}
