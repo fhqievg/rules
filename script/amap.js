@@ -87,11 +87,12 @@ if (url.includes("/shield/scene/recommend")) {
             'CouponFooterStickBanner', //底部横幅
             'CouponWidget', //右下角浮框
             'OperationTile', //轮播图上方入口
-            "OperationTopicBanner", //顶部优惠券下方轮播图
-            //"nav_bar", //顶部导航栏
+            'OperationTopicBanner', //顶部优惠券下方轮播图
+            //'nav_bar', //顶部导航栏
             'bottom_declare', //最底部说明图
             'hkfPortalPoiRecommend', //底部酒店推荐
             'hkfProductListNoema', //弹框
+            'order_widget' //右下角订单浮框
         ];
         for (let i of delKeys) {
             if (objData.modules.hasOwnProperty(i)) {
