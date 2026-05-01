@@ -909,28 +909,7 @@ if (url.includes("/shield/scene/recommend")) {
                 }
                 
                 //价格下方的tags
-                if (i.data?.hasOwnProperty('discount_info')) {
-                    /*if (i.data?.discount_info.discount_list?.length > 0) {
-                        i.data.discount_info.discount_list = [];
-                    }
-                    if (i.data?.discount_info.hasOwnProperty('discount_total')) {
-                        i.data.discount_info.discount_total = {};
-                    }*/
-                    delete i.data.discount_info;
-                }
-                if (i.data?.hasOwnProperty('discount_info_v2')) {
-                    /*if (i.data.discount_info_v2.content?.items?.length > 0) {
-                        i.data.discount_info_v2.content.items = i.data.discount_info_v2.content.items.filter(
-                            (j) => !(j?.hasOwnProperty('text') && j.text === '优惠')
-                        );
-                    }
-                    if (i.data.discount_info_v2.content?.priceDetailList?.list?.length > 0) {
-                        i.data.discount_info_v2.content.priceDetailList.list = i.data.discount_info_v2.content.priceDetailList.list.filter(
-                            (k) => !(k?.hasOwnProperty('cardType') && k?.cardType === 'discount')
-                        );
-                    }*/
-                    delete i.data.discount_info_v2;
-                }
+                discountInfoFilter(i);
                 return true;
             });
         }
@@ -982,6 +961,18 @@ if (url.includes("/shield/scene/recommend")) {
                 newLists.push(item);
             }
             obj.city_list = newLists;
+        }
+    }
+} else if (url.includes("/c3frontend/af-search/search")) {
+    //搜索结果列表
+    if (obj?.data?.modules?.poiInfo?.data?.list?.length > 0) {
+        for (let i of obj.data.modules.poiInfo.data.list) {
+            if (i.data?.basic_info?.hasOwnProperty('product_info')) {
+                i.data.basic_info = productInfoFilter(i.data.basic_info);
+            }
+
+            //优惠tags文字处理
+            discountInfoFilter(i);
         }
     }
 } else if (url.includes("/shield/search_poi/tips_operation_location")) {
@@ -1191,6 +1182,7 @@ function getMsgFilterIds() {
     ];
 }
 
+//去除名字下方商品推广
 function productInfoFilter(data) {
     //某些类型跳过处理
     if (data.hasOwnProperty('bizIndustry')) {
@@ -1243,4 +1235,30 @@ function productInfoFilter(data) {
     }
     data.product_info = [];
     return data;
+}
+
+function discountInfoFilter(discountData) {
+    if (discountData.data?.hasOwnProperty('discount_info')) {
+        /*if (discountData.data?.discount_info.discount_list?.length > 0) {
+            discountData.data.discount_info.discount_list = [];
+        }
+        if (discountData.data?.discount_info.hasOwnProperty('discount_total')) {
+            discountData.data.discount_info.discount_total = {};
+        }*/
+        delete discountData.data.discount_info;
+    }
+    if (discountData.data?.hasOwnProperty('discount_info_v2')) {
+        /*if (discountData.data.discount_info_v2.content?.items?.length > 0) {
+            discountData.data.discount_info_v2.content.items = discountData.data.discount_info_v2.content.items.filter(
+                (j) => !(j?.hasOwnProperty('text') && j.text === '优惠')
+            );
+        }
+        if (discountData.data.discount_info_v2.content?.priceDetailList?.list?.length > 0) {
+            discountData.data.discount_info_v2.content.priceDetailList.list = discountData.data.discount_info_v2.content.priceDetailList.list.filter(
+                (k) => !(k?.hasOwnProperty('cardType') && k?.cardType === 'discount')
+            );
+        }*/
+        delete discountData.data.discount_info_v2;
+    }
+    return discountData;
 }
