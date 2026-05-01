@@ -132,26 +132,8 @@ if (url.includes("/shield/scene/recommend")) {
         //去除景点商品推广
         if (objData.modules.list?.data?.list?.length > 0) {
             for (let l of objData.modules.list.data.list) {
-                if (l.data?.product_info?.length > 0) {
-                    if (l.data.hasOwnProperty('order_cnt')) {
-                        delete l.data.order_cnt;
-                    }
-
-                    if (l.data.hasOwnProperty('commonTransferInformation')) {
-                        let isDel = false;
-                        if (l.data.commonTransferInformation.hasOwnProperty('priceInfo')) {
-                            isDel = true;
-                            delete l.data.commonTransferInformation.priceInfo;
-                        }
-                        if (l.data.commonTransferInformation.hasOwnProperty('priceLog')) {
-                            isDel = true;
-                            delete l.data.commonTransferInformation.priceLog;
-                        }
-                        if (isDel && Object.keys(l.data.commonTransferInformation).length === 0) {
-                            delete l.data.commonTransferInformation;
-                        }
-                    }
-                    l.data.product_info = [];
+                if (l.data?.hasOwnProperty('product_info')) {
+                    l.data = productInfoFilter(l.data);
                 }
             }
         }
@@ -895,17 +877,42 @@ if (url.includes("/shield/scene/recommend")) {
             }
         }
 
+        if (obj.data.modules.hasOwnProperty('CouponBanner')) {
+            delete obj.data.modules.CouponBanner;
+        }
+
+        //右下角订单浮框
+        if (obj.data.modules.hasOwnProperty('order')) {
+            delete obj.data.modules.order;
+        }
+
         //搜索列表
-        if (obj?.data?.modules?.listResult?.data?.list?.length > 0) {
+        if (obj.data.modules.listResult?.data?.list?.length > 0) {
             let items = [
-                "RecommendEveryoneSearch" //大家还在搜
+                "RecommendEveryoneSearch", //大家还在搜
+                //'RankPoiInsertCardAiUi' //扫街榜
             ];
             obj.data.modules.listResult.data.list = obj.data.modules.listResult.data.list.filter((i) => {
                 if (i.hasOwnProperty("card_id") && items.includes(i.card_id)) {
                     return false;
                 }
+
+                if (i.data?.basic_info?.hasOwnProperty('product_info')) {
+                    i.data.basic_info = productInfoFilter(i.data.basic_info);
+                }
                 return true;
             });
+        }
+
+        //右下角浮框
+        if (obj.data.modules.hasOwnProperty('searchNaviBar')) {
+            obj.data.modules.searchNaviBar.data.alime = {};
+            obj.data.modules.searchNaviBar.data.isIndustryHotel = 0;
+            obj.data.modules.searchNaviBar.data.showAlime = 0;
+            obj.data.modules.searchNaviBar.data.showCityPicker = 0;  //地图
+            obj.data.modules.searchNaviBar.data.showDatePicker = 0;
+            obj.data.modules.searchNaviBar.data.useCityPickerV2 = 0;  //地图
+            obj.data.modules.searchNaviBar.data.useDatePickerV2 = 0;
         }
     }
 } else if (url.includes("/shield/search_poi/sug") || url.includes("/shield/search_business/process/middleLayer/sug")) {
