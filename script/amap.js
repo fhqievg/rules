@@ -1178,6 +1178,11 @@ function productInfoFilter(data) {
         }
     }
     
+    //价格下方的tags
+    if (data.price_info?.discount_tags?.length > 0) {
+        data.price_info.discount_tags = [];
+    }
+    
     //名字下方分类旁边显示的价格
     if (data.hasOwnProperty('price')) {
         delete data.price;
