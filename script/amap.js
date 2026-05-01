@@ -72,37 +72,6 @@ if (url.includes("/shield/scene/recommend")) {
         // 公交列表 推广打车出行
         obj.data.mixed_plans.data.taxiPlans = [];
     }
-} else if (url.includes("/c3frontend/af-hotel/page/main")) {
-    // 酒店/民宿 景区门票 火车/飞机
-    if (obj?.data?.modules?.CouponPortalCard) {
-        // 横幅推广
-        delete obj.data.modules.CouponPortalCard;
-    }
-    if (obj?.data?.modules?.CouponWidget) {
-        // 右下角活动悬浮窗
-        delete obj.data.modules.CouponWidget;
-    }
-    if (obj?.data?.modules?.recommended_list) {
-        // 高德建议
-        delete obj.data.modules.recommended_list;
-    }
-    if (obj?.data?.modules?.user_filter_card) {
-        const items = [
-            "banner", // 大横幅
-            "bannerList", // 滚动横幅推广
-            "service_data", // 全网比价 退订便捷 入住保障 资质规则
-            "sug_items_data" // 高德建议
-        ];
-        if (obj?.data?.modules?.user_filter_card?.data) {
-            for (let i of items) {
-                delete obj.data.modules.user_filter_card.data[i];
-            }
-            if (obj?.data?.modules?.user_filter_card?.data?.search_button_data?.rightbgText) {
-                // 查询按钮右上角角标
-                delete obj.data.modules.user_filter_card.data.search_button_data.rightbgText;
-            }
-        }
-    }
 } else if (url.includes("/c3frontend/af-hkf/hkf") || url.includes("/c3frontend/af-scenic/scenic") || url.includes("/c3frontend/af-hotel/hotel")) {
     //订火车票/机票、景点门票、酒店
     let isPmt = false;
@@ -671,23 +640,6 @@ if (url.includes("/shield/scene/recommend")) {
     }
 
     //处理评价
-    if (!obj.data?.modules?.reviews?.data?.hasOwnProperty("total") || obj.data?.modules?.reviews?.data?.total === 0) {
-        items.push('reviews');
-    }
-    /*if (obj.data?.modules?.reviews?.data?.nav_bar_write_comment) {
-        delete obj.data.modules.reviews.data.nav_bar_write_comment; //右上角写评价入口
-    }*/
-    if (obj.data?.modules?.reviews?.data?.write_comment) {
-        if (obj.data?.modules?.reviews?.data?.write_comment?.btnRightTag) {
-            obj.data.modules.reviews.data.write_comment.btnRightTag = "";
-        }
-        obj.data.modules.reviews.data.write_comment.activity_name_tag = "";
-
-        if (obj.data.modules.reviews.data.write_comment.task_entrance) {
-            delete obj.data.modules.reviews.data.write_comment.task_entrance; //评价模块右上角活动入口
-        }
-    }
-    //新版评价
     if (!obj.data?.modules?.combineReviews?.data?.hasOwnProperty("total") || obj.data?.modules?.combineReviews?.data?.total === "") {
         if ((obj.data?.modules?.combineReviews?.data?.evaluation?.hasOwnProperty("score") && obj.data?.modules?.combineReviews?.data?.evaluation?.score === "0.0") || !obj.data?.modules?.combineReviews?.data?.hasOwnProperty("evaluation")) {
             items.push('combineReviews');
