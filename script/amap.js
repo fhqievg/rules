@@ -117,6 +117,21 @@ if (url.includes("/shield/scene/recommend")) {
         if (objData.modules.user_filter_card?.data?.hasOwnProperty('sug_items_data')) {
             delete objData.modules.user_filter_card.data.sug_items_data;
         }
+        //酒店数据顶部推荐及价格下方tags
+        if (objData.modules.hotel_list?.data?.poi_list?.length > 0) {
+            objData.modules.hotel_list.data.poi_list = objData.modules.hotel_list.data.poi_list.filter((item) => {
+                if (item.card?.hasOwnProperty('card_id') && item.card.card_id === 'landmarkRecommend') {
+                    //推荐地点数据
+                    return false;
+                }
+                
+                if (item.data?.basic_info?.hasOwnProperty('product_info')) {
+                    item.data.basic_info = productInfoFilter(item.data.basic_info);
+                }
+                discountInfoFilter(item); //价格下方的优惠文字处理
+                return true;
+            });
+        }
 
         if (objData.modules.hkfScheduleRecommend?.data?.hasOwnProperty('modules')) {
             let delMkeys = [
@@ -908,9 +923,7 @@ if (url.includes("/shield/scene/recommend")) {
                 if (i.data?.basic_info?.hasOwnProperty('product_info')) {
                     i.data.basic_info = productInfoFilter(i.data.basic_info);
                 }
-                
-                //价格下方的tags
-                discountInfoFilter(i);
+                discountInfoFilter(i); //价格下方的优惠文字处理
                 return true;
             });
         }
@@ -971,9 +984,7 @@ if (url.includes("/shield/scene/recommend")) {
             if (i.data?.basic_info?.hasOwnProperty('product_info')) {
                 i.data.basic_info = productInfoFilter(i.data.basic_info);
             }
-
-            //优惠tags文字处理
-            discountInfoFilter(i);
+            discountInfoFilter(i); //价格下方的优惠文字处理
         }
     }
 } else if (url.includes("/shield/search_poi/tips_operation_location")) {
@@ -1241,6 +1252,7 @@ function productInfoFilter(data) {
     return data;
 }
 
+//价格下方的优惠文字处理
 function discountInfoFilter(discountData) {
     let delKeys = [
         'discount_info',
