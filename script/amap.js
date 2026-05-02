@@ -1200,6 +1200,9 @@ function productInfoFilter(data) {
     if (data.price_info?.discount_tags?.length > 0) {
         data.price_info.discount_tags = [];
     }
+    if (data.price_info?.hasOwnProperty('growing_bonus_tag')) {
+        delete data.price_info.growing_bonus_tag;
+    }
     
     //名字下方分类旁边显示的价格
     if (data.hasOwnProperty('price')) {
@@ -1239,27 +1242,14 @@ function productInfoFilter(data) {
 }
 
 function discountInfoFilter(discountData) {
-    if (discountData.data?.hasOwnProperty('discount_info')) {
-        /*if (discountData.data?.discount_info.discount_list?.length > 0) {
-            discountData.data.discount_info.discount_list = [];
+    let delKeys = [
+        'discount_info',
+        'discount_info_v2'
+    ];
+    for (let v of delKeys) {
+        if (discountData.data?.hasOwnProperty(v)) {
+            delete discountData.data[v];
         }
-        if (discountData.data?.discount_info.hasOwnProperty('discount_total')) {
-            discountData.data.discount_info.discount_total = {};
-        }*/
-        delete discountData.data.discount_info;
-    }
-    if (discountData.data?.hasOwnProperty('discount_info_v2')) {
-        /*if (discountData.data.discount_info_v2.content?.items?.length > 0) {
-            discountData.data.discount_info_v2.content.items = discountData.data.discount_info_v2.content.items.filter(
-                (j) => !(j?.hasOwnProperty('text') && j.text === '优惠')
-            );
-        }
-        if (discountData.data.discount_info_v2.content?.priceDetailList?.list?.length > 0) {
-            discountData.data.discount_info_v2.content.priceDetailList.list = discountData.data.discount_info_v2.content.priceDetailList.list.filter(
-                (k) => !(k?.hasOwnProperty('cardType') && k?.cardType === 'discount')
-            );
-        }*/
-        delete discountData.data.discount_info_v2;
     }
     return discountData;
 }
