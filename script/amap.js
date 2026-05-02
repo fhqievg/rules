@@ -128,7 +128,7 @@ if (url.includes("/shield/scene/recommend")) {
                     //推荐地点数据
                     return false;
                 }
-                if (item.card.data?.basic_info?.hasOwnProperty('product_info')) {
+                if (item.card.data?.hasOwnProperty('basic_info')) {
                     item.card.data.basic_info = productInfoFilter(item.card.data.basic_info);
                 }
                 discountInfoFilter(item.card); //价格下方的优惠文字处理
@@ -923,7 +923,7 @@ if (url.includes("/shield/scene/recommend")) {
                     return false;
                 }
 
-                if (i.data?.basic_info?.hasOwnProperty('product_info')) {
+                if (i.data?.hasOwnProperty('basic_info')) {
                     i.data.basic_info = productInfoFilter(i.data.basic_info);
                 }
                 discountInfoFilter(i); //价格下方的优惠文字处理
@@ -984,7 +984,7 @@ if (url.includes("/shield/scene/recommend")) {
     //搜索结果列表
     if (obj?.data?.modules?.poiInfo?.data?.list?.length > 0) {
         for (let i of obj.data.modules.poiInfo.data.list) {
-            if (i.data?.basic_info?.hasOwnProperty('product_info')) {
+            if (i.data?.hasOwnProperty('basic_info')) {
                 i.data.basic_info = productInfoFilter(i.data.basic_info);
             }
             discountInfoFilter(i); //价格下方的优惠文字处理
@@ -1233,11 +1233,11 @@ function productInfoFilter(data) {
         );
     }
 
-    if (data.product_info.length === 0) {
+    if (data.product_info?.length === 0) {
         return data;
     }
 
-    if (data.hasOwnProperty('commonTransferInformation')) {
+    if (data.hasOwnProperty('product_info') && data.hasOwnProperty('commonTransferInformation')) {
         let isDel = false;
         if (data.commonTransferInformation.hasOwnProperty('priceInfo')) {
             isDel = true;
