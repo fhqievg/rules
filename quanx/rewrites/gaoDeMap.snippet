@@ -15,7 +15,6 @@ HOST, adashx.ut.amap.com, REJECT
 
 # > 首页,推广卡片,红点角标,右上角动图
 ^https:\/\/(?:m5|info)\.amap\.com\/ws\/(?:faas\/amap-navigation\/(?:ridewalk-end-fc|main-page-location)|mapapi\/hint_text\/offline_data) url reject-dict
-^https:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\? url reject-dict
 
 # > > > 开屏广告
 ^https:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
@@ -29,6 +28,8 @@ HOST, adashx.ut.amap.com, REJECT
 ^https:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? url reject-dict
 
 # > 首页相关
+# > > > 顶部推广
+^https:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\? url reject-dict
 # > > > 顶部消息横幅
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-assets url reject-dict
 # > > > 工具栏动的icon图标及icon图标的角标文字
