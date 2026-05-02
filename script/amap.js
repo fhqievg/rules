@@ -117,18 +117,21 @@ if (url.includes("/shield/scene/recommend")) {
         if (objData.modules.user_filter_card?.data?.hasOwnProperty('sug_items_data')) {
             delete objData.modules.user_filter_card.data.sug_items_data;
         }
-        //酒店数据顶部推荐及价格下方tags
+        //酒店数据顶部推荐及价格下方的优惠文字处理
         if (objData.modules.hotel_list?.data?.poi_list?.length > 0) {
             objData.modules.hotel_list.data.poi_list = objData.modules.hotel_list.data.poi_list.filter((item) => {
-                if (item.card?.hasOwnProperty('card_id') && item.card.card_id === 'landmarkRecommend') {
+                if (!item.hasOwnProperty('card')) {
+                    return true;
+                }
+                
+                if (item.card.hasOwnProperty('card_id') && item.card.card_id === 'landmarkRecommend') {
                     //推荐地点数据
                     return false;
                 }
-                
-                if (item.data?.basic_info?.hasOwnProperty('product_info')) {
-                    item.data.basic_info = productInfoFilter(item.data.basic_info);
+                if (item.card.data?.basic_info?.hasOwnProperty('product_info')) {
+                    item.card.data.basic_info = productInfoFilter(item.card.data.basic_info);
                 }
-                discountInfoFilter(item); //价格下方的优惠文字处理
+                discountInfoFilter(item.card); //价格下方的优惠文字处理
                 return true;
             });
         }
