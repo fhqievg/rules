@@ -814,6 +814,19 @@ if (url.includes("/shield/scene/recommend")) {
     if(obj?.data?.modules?.commonHkfMiniPortal?.data?.hasOwnProperty('routeType') && obj.data.modules.commonHkfMiniPortal.data.routeType === 'train'){
         items.push('commonHkfMiniPortal'); //去除火车票订购
     }
+    
+    //地址下方功能按钮
+    let delfunctionZoneItem = [
+        "ask", //问一问
+        "review", //写评价
+    ];
+    if (obj.data?.modules?.functionZone?.data?.items?.length > 0) {
+        obj.data.modules.functionZone.data.items = obj.data.modules.functionZone.data.items.filter(
+            (i) => {
+                return !(i?.hasOwnProperty('type') && delfunctionZoneItem.includes(i.type));
+            }
+        );
+    }
 
     if (obj?.data?.modules) {
         for (let i of items) {
