@@ -344,6 +344,7 @@ if (url.includes("/shield/scene/recommend")) {
                             16, //代驾
                             17, //钱包卡券
                             27, //地图共建
+                            32 //高德运动
                         ];
                         i.content.entranceList = i.content.entranceList.filter((k) => !entranceDelArr.includes(k?.id));
                     }
