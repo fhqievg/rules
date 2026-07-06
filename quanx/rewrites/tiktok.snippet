@@ -14,7 +14,7 @@
 (?<=tz_name=)Asia%2FShanghai(?=&) url 307 Asia%2FSeoul
 (?<=tz_offset=)28800(?=&) url 307 32400
 (?<=timezone=)8(?=&) url 307 9
-(?<=&carrier=)[%A-Z0-9\u4e00-\u9fa5]+(?=&) url 307 skt
+(?<=&carrier=)[%A-Z0-9]+(?=&) url 307 skt
 ^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) url 302 $1$3
 #(^https?:\/\/*\.\w{4}okv.com\/.+&.+)(\d{2}\.3\.\d)(.+) url 302 $118.0$3
 
