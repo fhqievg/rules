@@ -2,9 +2,9 @@
 #!desc=App自动翻译、去推广
 
 # > 自动翻译
-^https?:\/\/gql(-fed)?\.reddit\.com\/ url script-request-header https://raw.githubusercontent.com/fhqievg/rules/main/script/reddit/redditHeader.js
+^https?:\/\/gql-fed\.reddit\.com\/$ url script-request-header https://raw.githubusercontent.com/fhqievg/rules/main/script/reddit/redditHeader.js
 
 # > 去推广
-^https?:\/\/gql(-fed)?\.reddit\.com\/ url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/reddit/reddit.js
+^https?:\/\/gql-fed\.reddit\.com\/$ url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/reddit/reddit.js
 
-hostname = gql.reddit.com, gql-fed.reddit.com
+hostname = gql-fed.reddit.com
