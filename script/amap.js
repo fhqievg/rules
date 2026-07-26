@@ -298,6 +298,7 @@ if (url.includes("/shield/scene/recommend")) {
             "HappyNewYearCard", //新年板块
             "MineGoodsDisplayCard", //语音包推荐
             "MineMemberRecommendTaskCard", //达人任务
+            "MineMemberRecommendTaskCardV2", //达人任务
             //"MineNewBEntranceCard", //快捷入口
             "MineNewDoubleRowCard", //车辆管理
             "MineNewFootprintCard", //足迹
@@ -308,6 +309,24 @@ if (url.includes("/shield/scene/recommend")) {
             "MineUserEmblemCard", //成就勋章
             "PopularActivitiesCard", //互动专区
             "UserCircleCard" //好友动态
+        ];
+        
+        const entranceDelArr = [
+            1, //车辆服务
+            3, //我的店铺
+            4, //家人地图
+            //7, //订单
+            8, //收藏
+            9, //地图小程序
+            10, //待评价
+            //14, //工具箱
+            15, //油耗
+            16, //代驾
+            17, //钱包卡券
+            27, //地图共建
+            30, //借钱
+            31, //店铺入驻
+            32 //高德运动
         ];
         obj.data.cardList = obj.data.cardList.filter((i) => {
             switch (i.dataKey) {
@@ -333,21 +352,16 @@ if (url.includes("/shield/scene/recommend")) {
                 case "MineNewBEntranceCard":
                     //保留入口
                     if (i?.content?.entranceList?.length > 0) {
-                        const entranceDelArr = [
-                            3, //我的店铺
-                            4, //家人地图
-                            //7, //订单
-                            8, //收藏
-                            9, //地图小程序
-                            10, //待评价
-                            //14, //工具箱
-                            15, //油耗
-                            16, //代驾
-                            17, //钱包卡券
-                            27, //地图共建
-                            32 //高德运动
-                        ];
                         i.content.entranceList = i.content.entranceList.filter((k) => !entranceDelArr.includes(k?.id));
+                    }
+                    break;
+                case "MineNewBEntranceCardV3":
+                    //保留入口
+                    if (i?.content?.entranceList_1?.length > 0) {
+                        i.content.entranceList_1 = i.content.entranceList_1.filter((k) => !entranceDelArr.includes(k?.id));
+                    }
+                    if (i?.content?.hasOwnProperty("entranceList_2")) {
+                        delete i.content.entranceList_2;
                     }
                     break;
                 default:
