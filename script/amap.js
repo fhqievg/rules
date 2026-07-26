@@ -320,6 +320,7 @@ if (url.includes("/shield/scene/recommend")) {
                     }
                     break;
                 case "MineNewVirtualAssetCard":
+                 case "MineNewVirtualAssetCardV3":
                     //去除语音及车标推荐
                     if (i?.content?.ownedList?.length > 0) {
                         for (let j of i.content.ownedList) {
