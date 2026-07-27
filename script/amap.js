@@ -376,7 +376,8 @@ if (url.includes("/shield/scene/recommend")) {
                         "高德公益",
                         "绿色出行",
                         "3小时公益",
-                        "蚂蚁森林"
+                        "蚂蚁森林",
+                        "小德果园"
                     ];
                     if (i?.content?.item?.length > 0) {
                         i.content.item = i.content.item.filter((k) => !delTitleArr.includes(k?.title));
