@@ -341,7 +341,7 @@ if (url.includes("/shield/scene/recommend")) {
                     }
                     break;
                 case "MineNewVirtualAssetCard":
-                 case "MineNewVirtualAssetCardV3":
+                case "MineNewVirtualAssetCardV3":
                     //去除语音及车标推荐
                     if (i?.content?.ownedList?.length > 0) {
                         for (let j of i.content.ownedList) {
@@ -364,6 +364,22 @@ if (url.includes("/shield/scene/recommend")) {
                     }
                     if (i?.content?.hasOwnProperty("entranceList_2")) {
                         delete i.content.entranceList_2;
+                    }
+                    break;
+                case "PopularActivitiesCardV2":
+                    //互动专区
+                    let delTitleArr = [
+                        "高德运动",
+                        "地图大富翁",
+                        "达人卡中心",
+                        "游戏中心",
+                        "高德公益",
+                        "绿色出行",
+                        "3小时公益",
+                        "蚂蚁森林"
+                    ];
+                    if (i?.content?.item?.length > 0) {
+                        i.content.item = i.content.item.filter((k) => !delTitleArr.includes(k?.title));
                     }
                     break;
                 default:
@@ -1149,6 +1165,15 @@ if (url.includes("/shield/scene/recommend")) {
 } else if (url.includes("/user/activity/talent/lottery/skuList")) {
     if (obj?.data?.skuList?.length > 0) {
         obj.data.skuList = skuListFilter(obj.data.skuList);
+    }
+} else if (url.includes("/user/relation/recommend/rec")) {
+    //好友推荐
+    if (obj?.data?.hasOwnProperty('top_card_list')) {
+        obj.data.top_card_list = [];
+    }
+    
+    if (obj?.data?.hasOwnProperty('recommend_list')) {
+        obj.data.recommend_list = [];
     }
 }
 $done({ body: JSON.stringify(obj) });
