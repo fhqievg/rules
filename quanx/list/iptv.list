@@ -4,8 +4,10 @@ HOST-SUFFIX, aptv.app, DIRECT
 HOST, epg.112114.xyz, DIRECT
 HOST, epg.112114.eu.org, DIRECT
 HOST, api.cognitive.microsofttranslator.com, DIRECT
+HOST, cdn.qd.je, DIRECT
+HOST-WILDCARD, cdn*.cc.cd, DIRECT
+HOST-WILDCARD, cdn*.indevs.in, DIRECT
 HOST-SUFFIX, ttvb.eu.org, Video
-HOST-SUFFIX, yang-1989.eu.org, Video
 HOST-SUFFIX, mine.nu, DIRECT
 HOST-SUFFIX, ottiptv.cc, DIRECT
 USER-AGENT, AptvPlayer*, DIRECT
@@ -22,5 +24,8 @@ HOST-SUFFIX, hkanimal.com, HK
 HOST-SUFFIX, hkanime.live, HK
 
 # > tw
-HOST-SUFFIX, hinet.net, TW
+HOST-SUFFIX, 1989.click, TW
+HOST-SUFFIX, yang-1989.eu.org, TW
+HOST-SUFFIX, 19891230.eu.org, TW
 HOST-SUFFIX, 4gtv.tv, TW
+HOST-SUFFIX, hinet.net, TW
