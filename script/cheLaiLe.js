@@ -4,10 +4,10 @@ let url = $request.url;
 
 let dataObj = getDataObj(body);
 let obj = JSON.parse(dataObj.content);
-if (url.includes("goocity/city/localCity") || url.includes("goocity/city/cityInfo")) {
+if (url.includes("/goocity/city/localCity") || url.includes("/goocity/city/cityInfo")) {
     //首页城市
     let cityData = {};
-    if (url.includes("goocity/city/localCity")) {
+    if (url.includes("/goocity/city/localCity")) {
         if (obj.jsonr?.data?.localCity) {
             cityData = obj.jsonr.data.localCity;
         }
@@ -23,7 +23,7 @@ if (url.includes("goocity/city/localCity") || url.includes("goocity/city/cityInf
             cityData.tabbar = tabHandle(cityData.tabbar);
         }
 
-        if (url.includes("goocity/city/localCity")) {
+        if (url.includes("/goocity/city/localCity")) {
             obj.jsonr.data.localCity = cityData;
         } else {
             obj.jsonr.data.city = cityData;
@@ -31,7 +31,7 @@ if (url.includes("goocity/city/localCity") || url.includes("goocity/city/cityInf
     }
 }
 
-if (url.includes("goocity/config/notices")) {
+if (url.includes("/goocity/config/notices")) {
     //首页右上角
     if (obj.jsonr?.data?.notice) {
         obj.jsonr.data.notice = obj.jsonr.data.notice.filter(
@@ -45,7 +45,7 @@ if (url.includes("goocity/config/notices")) {
     }
 }
 
-if (url.includes("goocity/city/moreCities")) {
+if (url.includes("/goocity/city/moreCities")) {
     //切换选择城市页面
     if (obj.jsonr?.data?.cities) {
         for (let i of obj.jsonr.data.cities) {
@@ -62,7 +62,7 @@ if (url.includes("goocity/city/moreCities")) {
     }
 }
 
-if (url.includes("goocity/flowPos/home")) {
+if (url.includes("/goocity/flowPos/home")) {
     //首页顶部icon
     if (obj.jsonr?.data?.advertList) {
         obj.jsonr.data.advertList = pointListHandle(obj.jsonr.data.advertList);
@@ -129,7 +129,8 @@ function pointListHandle(pointList) {
                 i.id === 694 ||//客服热线
                 //i.id === 783  //深巴商城
                 i.id === 784 || //网约出租
-                i.id === 500883 //签到
+                i.id === 500883 || //签到
+                i.id === 500938 //出租
             )
     );
     return pointList;
