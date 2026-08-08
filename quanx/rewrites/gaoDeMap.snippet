@@ -87,6 +87,7 @@ HOST, adashx.ut.amap.com, REJECT
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/transportation\/diversion\/resource\/driving url reject-dict
 # > > > 导航结束页
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-car-end url reject-dict
+^https:\/\/ai\.amap\.com\/v1\/ai_rec\/nav_end\? url reject
 # > > > 步行导航结束
 ^https:\/\/m5\.amap\.com\/ws\/c3frontend\/af-launch\/page\/main\? url script-response-body https://raw.githubusercontent.com/fhqievg/rules/main/script/amap.js
 # > > > 路径规划页推广
