@@ -309,6 +309,7 @@ if (url.includes("/shield/scene/recommend")) {
             "MineUserEmblemCard", //成就勋章
             "PopularActivitiesCard", //互动专区
             "UserCircleCard", //好友动态
+            "UserCircleCardLite", //好友动态
             "NewUserCircleCardFeed", //好友动态
             "NewUserCircleCardFeedV2" //好友动态
         ];
@@ -367,6 +368,7 @@ if (url.includes("/shield/scene/recommend")) {
                     }
                     break;
                 case "PopularActivitiesCardV2":
+                case "PopularActivitiesCardV4":
                     //互动专区
                     let delTitleArr = [
                         "高德运动",
@@ -377,7 +379,8 @@ if (url.includes("/shield/scene/recommend")) {
                         "绿色出行",
                         "3小时公益",
                         "蚂蚁森林",
-                        "小德果园"
+                        "小德果园",
+                         "长征星火"
                     ];
                     if (i?.content?.item?.length > 0) {
                         i.content.item = i.content.item.filter((k) => !delTitleArr.includes(k?.title));
