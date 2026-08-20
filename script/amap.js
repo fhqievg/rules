@@ -804,6 +804,11 @@ if (url.includes("/shield/scene/recommend")) {
     if (obj.data?.modules?.poiDetailBottomBar?.data?.items?.length > 0) {
         obj.data.modules.poiDetailBottomBar.data.items = obj.data.modules.poiDetailBottomBar.data.items.filter(
             (i) => {
+                if (i?.hasOwnProperty('key') && i.key === 'share') {
+                    if (i.hasOwnProperty('bubble')) {
+                        delete i.bubble;
+                    }
+                }
                 return !(i?.hasOwnProperty('key') && delIcon.includes(i.key));
             }
         );
