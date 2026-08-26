@@ -10,12 +10,12 @@ if (url.includes("/shield/scene/recommend")) {
         if (obj.data.toolsRecommend.data.exist_tool?.length > 0) {
             obj.data.toolsRecommend.data.exist_tool = obj.data.toolsRecommend.data.exist_tool.filter(
                 (i) => {
-                    let delArr = [
+                    /*let delArr = [
                         483 // 扫街榜
                     ];
                     if (delArr.includes(i?.id)) {
                         return false;
-                    }
+                    }*/
                     i.tips_type = 0;
                     i.tips = ""; //角标文字
                     i.label = "";
