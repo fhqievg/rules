@@ -313,24 +313,6 @@ if (url.includes("/shield/scene/recommend")) {
             "NewUserCircleCardFeed", //好友动态
             "NewUserCircleCardFeedV2" //好友动态
         ];
-        
-        const entranceDelArr = [
-            1, //车辆服务
-            3, //我的店铺
-            4, //家人地图
-            //7, //订单
-            8, //收藏
-            9, //地图小程序
-            10, //待评价
-            //14, //工具箱
-            15, //油耗
-            16, //代驾
-            17, //钱包卡券
-            27, //地图共建
-            30, //借钱
-            31, //店铺入驻
-            32 //高德运动
-        ];
         obj.data.cardList = obj.data.cardList.filter((i) => {
             switch (i.dataKey) {
                 case "MineArrowActionCard":
@@ -353,16 +335,14 @@ if (url.includes("/shield/scene/recommend")) {
                     }
                     break;
                 case "MineNewBEntranceCard":
-                    //保留入口
-                    if (i?.content?.entranceList?.length > 0) {
-                        i.content.entranceList = i.content.entranceList.filter((k) => !entranceDelArr.includes(k?.id));
-                    }
-                    break;
                 case "MineNewBEntranceCardV3":
                 case "MineNewBEntranceCardV4":
                     //保留入口
+                    if (i?.content?.entranceList?.length > 0) {
+                        i.content.entranceList = entranceListFilter(i.content.entranceList);
+                    }
                     if (i?.content?.entranceList_1?.length > 0) {
-                        i.content.entranceList_1 = i.content.entranceList_1.filter((k) => !entranceDelArr.includes(k?.id));
+                        i.content.entranceList_1 = entranceListFilter(i.content.entranceList_1);
                     }
                     if (i?.content?.hasOwnProperty("entranceList_2")) {
                         delete i.content.entranceList_2;
@@ -1334,4 +1314,25 @@ function discountInfoFilter(discountData) {
         }
     }
     return discountData;
+}
+
+function entranceListFilter (list) {
+    const entranceDelArr = [
+            1, //车辆服务
+            3, //我的店铺
+            4, //家人地图
+            //7, //订单
+            //8, //收藏
+            9, //地图小程序
+            10, //待评价
+            //14, //工具箱
+            15, //油耗
+            16, //代驾
+            17, //钱包卡券
+            27, //地图共建
+            30, //借钱
+            31, //店铺入驻
+            32 //高德运动
+        ];
+    return list.filter((i) => !entranceDelArr.includes(i?.id));
 }
