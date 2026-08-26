@@ -359,6 +359,7 @@ if (url.includes("/shield/scene/recommend")) {
                     }
                     break;
                 case "MineNewBEntranceCardV3":
+                case "MineNewBEntranceCardV4":
                     //保留入口
                     if (i?.content?.entranceList_1?.length > 0) {
                         i.content.entranceList_1 = i.content.entranceList_1.filter((k) => !entranceDelArr.includes(k?.id));
@@ -369,6 +370,7 @@ if (url.includes("/shield/scene/recommend")) {
                     break;
                 case "PopularActivitiesCardV2":
                 case "PopularActivitiesCardV4":
+                 case "PopularActivitiesCardV5":
                     //互动专区
                     let delTitleArr = [
                         "高德运动",
