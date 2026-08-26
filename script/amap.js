@@ -10,20 +10,14 @@ if (url.includes("/shield/scene/recommend")) {
         if (obj.data.toolsRecommend.data.exist_tool?.length > 0) {
             obj.data.toolsRecommend.data.exist_tool = obj.data.toolsRecommend.data.exist_tool.filter(
                 (i) => {
-                    /*let delArr = [
-                        483 // 扫街榜
-                    ];
-                    if (delArr.includes(i?.id)) {
-                        return false;
-                    }*/
                     i.tips_type = 0;
                     i.tips = ""; //角标文字
                     i.label = "";
-                    if (i.id === 121) {
+                    if (i.id === 483) {
                         i.name = "详细地址";
                         i.schema = "amapuri://webview/amaponline?url=https%3A%2F%2Fits.amap.com%2Falarm%3Fgd_from%3Dalarm&sourceApplication=alarm&hide_title=0";
-                        i.icon = "https://img.alicdn.com/imgextra/i3/O1CN01hl4vyb1mvpjXkaK8g_!!6000000005017-2-tps-180-180.png";
-                        i.iconV2 = "http://aos-cdn-image.amap.com/opc/file/tools/20250711/131/f7f3cffe-5e04-11f0-a2c0-0605c4c6912b.png?ver=1752203588155";
+                        i.icon = "https://cache.amap.com/innovate/%E8%BD%A8%E8%BF%B9%E5%9C%B0%E5%9B%BE-%E6%97%A7%E9%87%91%E5%88%9A%E4%BD%8D.png";
+                        i.iconV2 = "https://gw.alicdn.com/imgextra/i4/O1CN01Z5SJagbD0dG0Gzew_!!6000000003818-2-tps-135-135.png";
                     }
                     return true;
                 }
