@@ -49,9 +49,6 @@ let options = {
 if (isQuanX) {
     options.method = 'GET';
     $task.fetch(options).then(response => {
-        console.log(response.body);
-        console.log("====================");
-        console.log(body);
         body = getResponseResult(response.body, body, setting);
         $done({ body });
     }, reason => {
