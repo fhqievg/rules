@@ -788,7 +788,7 @@ if (url.includes("/shield/scene/recommend")) {
     }
 
     //处理问答
-    if (!obj.data.modules.travelGuideAndQa?.data?.questionAndAnswer?.hasOwnProperty('log_param')) {
+    if (!obj.data?.modules?.travelGuideAndQa?.data?.questionAndAnswer?.hasOwnProperty('log_param')) {
         items.push('travelGuideAndQa'); //没有提问就去掉问答
     }
     
