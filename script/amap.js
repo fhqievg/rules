@@ -3,6 +3,17 @@ if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
 if (url.includes("/shield/scene/recommend")) {
+    //搜索词推荐
+    let delWord = [
+         "shadingWords",
+         "wordInbox"
+    ];
+    for (let i of delWord) {
+        if (obj.data?.hasOwnProperty(i)) {
+            delete obj.data[i];
+        }
+    }
+    
     //首页工具栏icon角标文字
     if (obj.data?.toolsRecommend?.hasOwnProperty('data')) {
         obj.data.toolsRecommend.data.choiceTools = []; //更多工具icon角标文字
@@ -302,7 +313,7 @@ if (url.includes("/shield/scene/recommend")) {
             "MineMemberRecommendTaskCardV2", //达人任务
             //"MineNewBEntranceCard", //快捷入口
             "MineNewDoubleRowCard", //车辆管理
-            "MineNewFootprintCard", //足迹
+            //"MineNewFootprintCard", //足迹
             "MineNewShopCard", //店铺管理
             "MinePeriodTaskCard", //每日任务
             "MineStatisticCard", //一周成长
@@ -785,6 +796,7 @@ if (url.includes("/shield/scene/recommend")) {
     let delIcon = [
         //"add",  //新增
         "car", //打车
+        "fillOrder", //订票
         "hotel", //酒店
         //"markPoint", //打卡
     ];
