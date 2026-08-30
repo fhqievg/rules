@@ -483,7 +483,7 @@ if (url.includes("/shield/scene/recommend")) {
         "common_coupon_bar", // 领券条幅 新客专享 省钱卡
         "common_coupon_card", // 优惠券卡片
         // "companyInfo", // 简介
-        "comprehensiveEditEntrance", // 编辑地点信息
+        //"comprehensiveEditEntrance", // 编辑地点信息
         "commonAiAgent", //ai门店助手
         "contributor", // 地点贡献
         "CouponWidget", //右下角小图标
@@ -587,7 +587,6 @@ if (url.includes("/shield/scene/recommend")) {
         "poster_banner",
         "poiTipBar",  // 提示栏
         "portal_entrance", // 高德旅游版块 引流到旅游频道
-        "poiDetailNewBeltV2", //横幅广告图
         "privateSphereChannel", //门店微信
         // "question_answer_card", // 问问 地点附近的热门问题
         "quickLink", // 地点详情页图标 酒店 景点 热榜
@@ -660,6 +659,11 @@ if (url.includes("/shield/scene/recommend")) {
     if (obj.data?.modules?.retainInfo?.card_id === "UsedCarRetainQuickAddress") {
         //二手车
         items.push('retainInfo');
+    }
+    
+    //顶部快捷搜索分类词
+    if (!obj.data?.modules?.poiDetailNewBeltV2?.hasOwnProperty("card_id") || obj.data.modules.poiDetailNewBeltV2.card_id !== "SearchSuggestionBar") {
+        items.push('poiDetailNewBeltV2');
     }
 
     //处理评价
@@ -782,7 +786,7 @@ if (url.includes("/shield/scene/recommend")) {
         //"add",  //新增
         "car", //打车
         "hotel", //酒店
-        "markPoint", //打卡
+        //"markPoint", //打卡
     ];
     if (obj.data?.modules?.poiDetailBottomBar?.data?.items?.length > 0) {
         obj.data.modules.poiDetailBottomBar.data.items = obj.data.modules.poiDetailBottomBar.data.items.filter(
