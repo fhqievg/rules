@@ -374,7 +374,9 @@ if (url.includes("/shield/scene/recommend")) {
                         "3小时公益",
                         "蚂蚁森林",
                         "小德果园",
-                         "长征星火"
+                         "长征星火",
+                        "天天领金币",
+                        "扫街新发现"
                     ];
                     if (i?.content?.item?.length > 0) {
                         i.content.item = i.content.item.filter((k) => !delTitleArr.includes(k?.title));
