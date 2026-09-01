@@ -1125,11 +1125,11 @@ if (url.includes("/shield/scene/recommend")) {
     //达人任务页
     if (obj?.data?.bizData?.cardData?.MemberRecommendTaskCard?.content?.taskList?.length > 0) {
         //不需要保留任务中心入口
-        obj.data.bizData.cardData.MemberRecommendTaskCard.content = {};
+        //obj.data.bizData.cardData.MemberRecommendTaskCard.content = {};
         //下方代码可保留任务中心入口，需注释上一行代码，二选一
-        /*let taskListArr = [];
+        let taskListArr = [];
         taskListArr.push(obj.data.bizData.cardData.MemberRecommendTaskCard.content.taskList[0]);
-        obj.data.bizData.cardData.MemberRecommendTaskCard.content.taskList = taskListArr;*/
+        obj.data.bizData.cardData.MemberRecommendTaskCard.content.taskList = taskListArr;
     }
 } else if (url.includes("/userview/footprint/v2/detail")) {
     //足迹页处理
