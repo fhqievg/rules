@@ -364,7 +364,9 @@ if (url.includes("/shield/scene/recommend")) {
                 case "PopularActivitiesCardV4":
                  case "PopularActivitiesCardV5":
                     //互动专区
-                    let delTitleArr = [
+                    delArr.push(i.dataKey);
+                    
+                    /*let delTitleArr = [
                         "高德运动",
                         "地图大富翁",
                         "达人卡中心",
@@ -380,7 +382,7 @@ if (url.includes("/shield/scene/recommend")) {
                     ];
                     if (i?.content?.item?.length > 0) {
                         i.content.item = i.content.item.filter((k) => !delTitleArr.includes(k?.title));
-                    }
+                    }*/
                     break;
                 default:
                     break;
