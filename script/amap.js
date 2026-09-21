@@ -321,6 +321,7 @@ if (url.includes("/shield/scene/recommend")) {
             "MineUserEmblemCard", //成就勋章
             "PopularActivitiesCard", //互动专区
             "UserCircleCard", //好友动态
+            "UserCircleCardV3", //好友动态
             "UserCircleCardLite", //好友动态
             "NewUserCircleCardFeed", //好友动态
             "NewUserCircleCardFeedV2" //好友动态
