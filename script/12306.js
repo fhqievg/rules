@@ -1,4 +1,6 @@
 let obj = JSON.parse($response.body);
+console.log("请求数据");
+console.log($request.body);
 console.log("响应数据");
 console.log($response.body);
 let body = '{"code":"00","message":"无广告返回"}';
