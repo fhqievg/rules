@@ -130,7 +130,8 @@ function pointListHandle(pointList) {
                 //i.id === 783  //深巴商城
                 i.id === 784 || //网约出租
                 i.id === 500883 || //签到
-                i.id === 500938 //出租
+                i.id === 500938 || //出租
+                i.id === 500942 //问卷调研
             )
     );
     return pointList;
