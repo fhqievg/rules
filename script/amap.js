@@ -805,16 +805,31 @@ if (url.includes("/shield/scene/recommend")) {
         "fillOrder", //订票
         "hotel", //酒店
         //"markPoint", //打卡
+        "shelf", //团购
+        "surround" //搜周边
     ];
     if (obj.data?.modules?.poiDetailBottomBar?.data?.items?.length > 0) {
         obj.data.modules.poiDetailBottomBar.data.items = obj.data.modules.poiDetailBottomBar.data.items.filter(
             (i) => {
-                if (i?.hasOwnProperty('key') && i.key === 'share') {
-                    if (i.hasOwnProperty('bubble')) {
-                        delete i.bubble;
-                    }
+                if (!i?.hasOwnProperty('key')) {
+                    return true;
                 }
-                return !(i?.hasOwnProperty('key') && delIcon.includes(i.key));
+                
+                switch (i.key) {
+                    case 'share':
+                    case 'collect':
+                        if (i.hasOwnProperty('enableLifebuoy')) {
+                            delete i.enableLifebuoy;
+                        }
+                        
+                        if (i.hasOwnProperty('bubble')) {
+                            delete i.bubble;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                return !delIcon.includes(i.key);
             }
         );
     }
