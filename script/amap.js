@@ -805,8 +805,8 @@ if (url.includes("/shield/scene/recommend")) {
         "fillOrder", //订票
         "hotel", //酒店
         //"markPoint", //打卡
-        "shelf", //团购
-        "surround" //搜周边
+        //"surround", //搜周边
+        "shelf" //团购
     ];
     if (obj.data?.modules?.poiDetailBottomBar?.data?.items?.length > 0) {
         obj.data.modules.poiDetailBottomBar.data.items = obj.data.modules.poiDetailBottomBar.data.items.filter(
