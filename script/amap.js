@@ -826,6 +826,14 @@ if (url.includes("/shield/scene/recommend")) {
                             delete i.bubble;
                         }
                         break;
+                    case 'common':
+                        if (i.hasOwnProperty('scene')) {
+                            let arr = [
+                                'diningPhone' //订座
+                            ];
+                            return !arr.includes(i.scene);
+                        }
+                        break;
                     default:
                         break;
                 }
