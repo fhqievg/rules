@@ -309,6 +309,7 @@ if (url.includes("/shield/scene/recommend")) {
         let delArr = [
             "CommonActivityCard", //活动
             "HappyNewYearCard", //新年板块
+            "LocalStaticCard", //活动板块
             "MineGoodsDisplayCard", //语音包推荐
             "MineMemberRecommendTaskCard", //达人任务
             "MineMemberRecommendTaskCardV2", //达人任务
@@ -320,6 +321,7 @@ if (url.includes("/shield/scene/recommend")) {
             "MineStatisticCard", //一周成长
             "MineUserBenefitCard", //达人福利任务
             "MineUserEmblemCard", //成就勋章
+            "MineUserEmblemCardV2", //成就勋章
             "PopularActivitiesCard", //互动专区
             "UserCircleCard", //好友动态
             "UserCircleCardV3", //好友动态
