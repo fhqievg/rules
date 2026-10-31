@@ -11,11 +11,7 @@ headers['Authorization'] = 'Basic ' + strCode(str);
 $done({ headers });
 
 function storeRead(key) {
-    if (isQuanX) {
-        return $prefs.valueForKey(key);
-    } else {
-        return $persistentStore.read(key);
-    }
+    return isQuanX ? $prefs.valueForKey(key) : $persistentStore.read(key);
 }
 
 function strCode(input) {
