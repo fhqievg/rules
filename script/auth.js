@@ -4,9 +4,11 @@ let u = $request.url.match(/raw\.githubusercontent\.com\/([^/]+)/)?.[1] || '';
 let t = storeRead('getGHPATTStr');
 if (!t || t === '' || u === '') {
     $done({});
+    return;
 }
 
-let str = u + ':github_pat_' + t;
+let prefix = t.indexOf("_") === -1 ? 'github_pat_' : '';
+let str = u + ':' + prefix + t;
 headers['Authorization'] = 'Basic ' + strCode(str);
 $done({ headers });
 
