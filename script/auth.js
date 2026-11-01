@@ -7,7 +7,7 @@ if (!t || t === '' || u === '') {
     return;
 }
 
-let prefix = t.indexOf("_") === -1 ? 'github_pat_' : '';
+let prefix = t.indexOf('github_pat') === -1 ? 'github_pat_' : '';
 let str = u + ':' + prefix + t;
 headers['Authorization'] = 'Basic ' + strCode(str);
 $done({ headers });
